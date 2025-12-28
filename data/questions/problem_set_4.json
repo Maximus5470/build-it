@@ -1,8 +1,8 @@
 [
   {
     "title": "6.3 Queue using Stacks",
-    "description": "Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). - void push(int x) Pushes element x to the back of the queue. - int pop() Removes the element from the front of the queue and returns it. - int peek() Returns the element at the front of the queue. - boolean empty() Returns true if the queue is empty, false otherwise. Input: [\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"] [[], [1], [2], []], []] Output: [null, null, null, 1, 1, false]",
-    "starter_code": "import java.util.Stack;\n\nclass MyQueue {\n    private Stack<Integer> stack1;\n    private Stack<Integer> stack2;\n    public MyQueue() {\n    stack1 = new Stack>();\n    stack2 = new Stack>();\n    }\n    public void push(int x) {\n    stack1.push(x);\n    }\n    public int pop()\n    {\n    # Write Code Here\n    }\n    public int peek()\n    {\n    # Write Code Here\n    }\n    public boolean empty() {\n    return stack1.isEmpty() && stack2.isEmpty();\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "description": "# Queue using Stacks\n\nImplement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (`push`, `peek`, `pop`, and `empty`).\n\nImplement the `MyQueue` class:\n\n- `void push(int x)` Pushes element x to the back of the queue.\n- `int pop()` Removes the element from the front of the queue and returns it.\n- `int peek()` Returns the element at the front of the queue.\n- `boolean empty()` Returns `true` if the queue is empty, `false` otherwise.\n\n## Example 1:\n\n```\nInput\n[\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"]\n[[], [1], [2], [], [], []]\nOutput\n[null, null, null, 1, 1, false]\n```",
+
     "testcases": [
       {
         "input": "push 1\npush 2\npeek\npop\nempty",
@@ -54,12 +54,15 @@
         "expected_output": "100\n200\n300\n400\nfalse",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        MyQueue q = new MyQueue();\n        while (sc.hasNext()) {\n            String cmd = sc.next();\n            switch (cmd) {\n                case \"push\": q.push(sc.nextInt()); break;\n                case \"pop\": System.out.println(q.pop()); break;\n                case \"peek\": System.out.println(q.peek()); break;\n                case \"empty\": System.out.println(q.empty()); break;\n            }\n        }\n        sc.close();\n    }\n// endregion\n    static class MyQueue {\n        public void push(int x) {\n            // Write your code here\n        }\n        public int pop() {\n            // Write your code here\n            return 0;\n        }\n        public int peek() {\n            // Write your code here\n            return 0;\n        }\n        public boolean empty() {\n            // Write your code here\n            return false;\n        }\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "6.4 Circular Queue",
-    "description": "A Circular Queue is an extended version of a normal queue where the last element of the queue is connected to the first element of the queue forming a circle. The operations are performed based on FIFO (First In First Out) principle. It is also called 'Ring Buffer'. Operations on Circular Queue: - Front: Get the front item from the queue. - Rear: Get the last item from the queue. - enQueue(value) This function is used to insert an element into the circular queue. In a circular queue, the new element is always inserted at the rear position. - Check whether the queue is full - [i.e., the rear end is in just before the front end in a circular manner]. - If it is full then display Queue is full. - If the queue is not full then, insert an element at the end of the queue. deQueue() This function is used to delete an element from the circular queue. In a circular queue, the element is always deleted from the front position. - Check whether the queue is Empty. - If it is empty then display Queue is empty. - If the queue is not empty, then get the last element and remove it from the queue. Implement Circular Queue using Array: 1. Initialize an array queue of size n, where n is the maximum number of elements that the queue can hold. 2. Initialize two variables front and rear to -1. 3. Enqueue: To enqueue an element x into the queue, do the following: - Increment rear by 1. - If rear is equal to n, set rear to 0. - If front is -1, set front to 0. - Set queue[rear] to x. 4. Dequeue: To dequeue an element from the queue, do the following: - Check if the queue is empty by checking if front is -1. - If it is, return an error message indicating that the queue is empty. - Set x to queue [front]. - If front is equal to rear, set front and rear to -1. - Otherwise, increment front by 1 and if front is equal to n, set front to 0. - Return x.",
-    "starter_code": "class CircularQueue {\n    private int size;\n    private int front, rear;\n    private int[] queue;\n\n    public CircularQueue(int size) {\n    this.size = size;\n    this.queue = new int[size];\n    this.front = this.rear = -1;\n}\n\n    public void enqueue(int data)\n    {\n    # Write Code Here\n    }\n    public int dequeue()\n    {\n    # Write Code Here\n    }\n    public void display()\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "description": "# Circular Queue\n\nA **Circular Queue** is an extended version of a normal queue where the last element of the queue is connected to the first element of the queue forming a circle. The operations are performed based on FIFO (First In First Out) principle. It is also called 'Ring Buffer'.\n\n## Operations:\n\n- `MyCircularQueue(k)`: Initializes the object with the size of the queue to be `k`.\n- `int Front()`: Gets the front item from the queue. If the queue is empty, return -1.\n- `int Rear()`: Gets the last item from the queue. If the queue is empty, return -1.\n- `boolean enQueue(int value)`: Inserts an element into the circular queue. Return true if the operation is successful.\n- `boolean deQueue()`: Deletes an element from the circular queue. Return true if the operation is successful.\n- `boolean isEmpty()`: Checks whether the circular queue is empty or not.\n- `boolean isFull()`: Checks whether the circular queue is full or not.\n\n## Example 1:\n\n```\nInput\n[\"MyCircularQueue\", \"enQueue\", \"enQueue\", \"enQueue\", \"enQueue\", \"Rear\", \"isFull\", \"deQueue\", \"enQueue\", \"Rear\"]\n[[3], [1], [2], [3], [4], [], [], [], [4], []]\nOutput\n[null, true, true, true, false, 3, true, true, true, 4]\n```",
+
     "testcases": [
       {
         "input": "5\nenqueue 10\nenqueue 20\nenqueue 30\ndequeue\nenqueue 40\ndequeue\ndisplay",
@@ -111,12 +114,15 @@
         "expected_output": "Queue is empty",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) {\n            int k = sc.nextInt();\n            MyCircularQueue q = new MyCircularQueue(k);\n            while (sc.hasNext()) {\n                String cmd = sc.next();\n                switch (cmd) {\n                    case \"enqueue\": q.enQueue(sc.nextInt()); break;\n                    case \"dequeue\": q.deQueue(); break;\n                    case \"display\": q.display(); break;\n                }\n            }\n        }\n        sc.close();\n    }\n// endregion\n    static class MyCircularQueue {\n        public MyCircularQueue(int k) {\n            // Write your code here\n        }\n        public void enQueue(int value) {\n            // Write your code here\n        }\n        public void deQueue() {\n            // Write your code here\n        }\n        public void display() {\n            // Write your code here\n        }\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "6.5 Deque (Doubly Ended Queue)",
-    "description": "In a Deque (Doubly Ended Queue), one can perform insert (append) and delete (pop) operations from both the ends of the container. There are two types of Deque: 1. Input Restricted Deque: Input is limited at one end while deletion is permitted at both ends. 2. Output Restricted Deque: Output is limited at one end but insertion is permitted at both ends. Operations on Deque: 1. append(): This function is used to insert the value in its argument to the right end of the deque. 2. appendleft(): This function is used to insert the value in its argument to the left end of the deque. 3. pop(): This function is used to delete an argument from the right end of the deque. 4. popleft(): This function is used to delete an argument from the left end of the deque. 5. index(ele, beg, end): This function returns the first index of the value mentioned in arguments, starting searching from beg till end index. 6. insert(i, a): This function inserts the value mentioned in arguments(a) at index(i) specified in arguments. 7. remove(): This function removes the first occurrence of the value mentioned in arguments. 8. count(): This function counts the number of occurrences of value mentioned in arguments. 9. len(dequeue): Return the current size of the dequeue. 10. Deque[0]: We can access the front element of the deque using indexing with de[0]. 11. Deque[-1]: We can access the back element of the deque using indexing with de[-1]. 12. extend(tterable): This function is used to add multiple values at the right end of the deque. The argument passed is iterable. 13. extendleft(tterable): This function is used to add multiple values at the left end of the deque. The argument passed is iterable. Order is reversed as a result of left appends. 14. reverse(): This function is used to reverse the order of deque elements. 15. rotate(): This function rotates the deque by the number specified in arguments. If the number specified is negative, rotation occurs to the left. Else rotation is to right.",
-    "starter_code": "import java.util.ArrayList;\nimport java.util.Deque;\n\npublic class DequeOperations\n{\n    # White Code Here\n}",
+    "description": "# Deque (Doubly Ended Queue)\n\nIn a **Deque** (Doubly Ended Queue), one can perform insert (append) and delete (pop) operations from both the ends of the container.\n\n## Operations:\n\n1. `append(x)`: Insert `x` to the right end.\n2. `appendleft(x)`: Insert `x` to the left end.\n3. `pop()`: Delete from the right end.\n4. `popleft()`: Delete from the left end.\n5. `display()`: Print the current deque.\n\n## Example 1:\n\n```\nInput: append(1), append(2), appendleft(3), display()\nOutput: 3 1 2\n```",
+
     "testcases": [
       {
         "input": "append 10\nappend 20\nappend 30\npopleft\npop\ndisplay",
@@ -168,12 +174,15 @@
         "expected_output": "75 50 100 200 300",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        MyDeque q = new MyDeque();\n        while (sc.hasNext()) {\n            String cmd = sc.next();\n            switch (cmd) {\n                case \"append\": q.append(sc.nextInt()); break;\n                case \"appendleft\": q.appendleft(sc.nextInt()); break;\n                case \"pop\": q.pop(); break;\n                case \"popleft\": q.popleft(); break;\n                case \"display\": q.display(); break;\n            }\n        }\n        sc.close();\n    }\n// endregion\n    static class MyDeque {\n        public void append(int x) {\n            // Write your code here\n        }\n        public void appendleft(int x) {\n            // Write your code here\n        }\n        public void pop() {\n            // Write your code here\n        }\n        public void popleft() {\n            // Write your code here\n        }\n        public void display() {\n            // Write your code here\n        }\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.1 Singly Linked List",
-    "description": "A singly linked list is a linear data structure in which the elements are not stored in contiguous memory locations and each element is connected only to its next element using a pointer. Creating a linked list involves the following operations: 1. Creating a Node class: 2. Insertion at beginning: 3. Insertion at end 4. Insertion at middle 5. Update the node 6. Deletion at beginning 7. Deletion at end 8. Deletion at middle 9. Remove last node 10. Linked list traversal 11. Get length",
-    "starter_code": "class Node {\n    String data;\n    Node next;\n\n    Node(String data) {\n    this.data = data;\n    this.next = null;\n}\n\nclass LinkedList {\n    # Write Code Here\n    }\n\n    public void insertAtEnd(String data)\n    {\n    # Write Code Here\n    }\n\n    public void updateNode(String val, int index)\n    {\n    # Write Code Here\n    }\n\n    public void remove_first_node() {\n    # Write Code Here\n    }\n    public void remove_last_node()\n    {\n    # Write Code Here\n    }\n    public void remove_at_index(int index)\n    {\n    # Write Code Here\n    }\n    public void remove_node(String data)\n    {\n    # Write Code Here\n    }\n    public int sizeOfLL()\n    {\n    # Write Code Here\n    }\n    public void println()\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "description": "# Singly Linked List\n\nA **singly linked list** is a linear data structure in which the elements are not stored in contiguous memory locations and each element is connected only to its next element using a pointer.\n\n## Operations:\n\n1. `insertAtEnd(data)`\n2. `remove_first_node()`\n3. `remove_last_node()`\n4. `remove_at_index(i)`\n5. `updateNode(data, i)`\n6. `sizeOfLL()`\n\n## Example 1:\n\n```\nInput: insertAtEnd(1), insertAtEnd(2), sizeOfLL()\nOutput: 2\n```",
+
     "testcases": [
       {
         "input": "insertAtEnd A\ninsertAtEnd B\ninsertAtEnd C\nremove_first_node\nprintln",
@@ -225,12 +234,15 @@
         "expected_output": "3",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        MyLinkedList list = new MyLinkedList();\n        while (sc.hasNext()) {\n            String cmd = sc.next();\n            switch (cmd) {\n                case \"insertAtEnd\": list.insertAtEnd(sc.next()); break;\n                case \"remove_first_node\": list.remove_first_node(); break;\n                case \"remove_last_node\": list.remove_last_node(); break;\n                case \"remove_at_index\": list.remove_at_index(sc.nextInt()); break;\n                case \"remove_node\": list.remove_node(sc.next()); break;\n                case \"sizeOfLL\": System.out.println(list.sizeOfLL()); break;\n                case \"updateNode\": String val = sc.next(); int idx = sc.nextInt(); list.updateNode(val, idx); break;\n                case \"println\": list.println(); break;\n            }\n        }\n        sc.close();\n    }\n// endregion\n    static class MyLinkedList {\n        public void insertAtEnd(String data) {\n            // Write your code here\n        }\n        public void remove_first_node() {\n            // Write your code here\n        }\n        public void remove_last_node() {\n            // Write your code here\n        }\n        public void remove_at_index(int i) {\n            // Write your code here\n        }\n        public void remove_node(String data) {\n            // Write your code here\n        }\n        public int sizeOfLL() {\n            // Write your code here\n            return 0;\n        }\n        public void updateNode(String data, int i) {\n            // Write your code here\n        }\n        public void println() {\n            // Write your code here\n        }\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.2 Linked List Cycle",
-    "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter. Return true if there is a cycle in the linked list. Otherwise, return false. Input: head = [3, 2, 0, -4], pos = 1 Output: true Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed). Input: head = [1, 2], pos = 0 Output: true Explanation: There is a cycle in the linked list, where the tail connects to the 0th node. Input: head = [1], pos = -1 Output: false Explanation: There is no cycle in the linked list.",
-    "starter_code": "class ListNode {\n    # Write Code Here\n    }\n\npublic class Solution\n    {\n    # Write Code Here\n    }",
+    "description": "# Linked List Cycle\n\nGiven `head`, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's next pointer is connected to. **Note that `pos` is not passed as a parameter**.\n\nReturn `true` *if there is a cycle in the linked list*. Otherwise, return `false`.\n\n## Example 1:\n\n```\nInput: head = [3,2,0,-4], pos = 1\nOutput: true\nExplanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).\n```\n\n## Example 2:\n\n```\nInput: head = [1,2], pos = 0\nOutput: true\nExplanation: There is a cycle in the linked list, where the tail connects to the 0th node.\n```\n\n## Example 3:\n\n```\nInput: head = [1], pos = -1\nOutput: false\nExplanation: There is no cycle in the linked list.\n```",
+
     "testcases": [
       {
         "input": "4\n3 2 0 -4\n1",
@@ -282,12 +294,15 @@
         "expected_output": "false",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int x) { val = x; next = null; }\n    }\n    static ListNode buildList(Scanner sc) {\n        if (!sc.hasNextInt()) return null;\n        int n = sc.nextInt();\n        if (n == 0) return null;\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (int i=0; i<n; i++) {\n            curr.next = new ListNode(sc.nextInt());\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode head = buildList(sc);\n        if(sc.hasNextInt()) {\n            int pos = sc.nextInt();\n            if (pos != -1) {\n                ListNode tail = head;\n                while(tail.next != null) tail = tail.next;\n                ListNode cycle = head;\n                for(int i=0; i<pos; i++) cycle = cycle.next;\n                tail.next = cycle;\n            }\n        }\n        System.out.println(hasCycle(head));\n        sc.close();\n    }\n// endregion\n    public static boolean hasCycle(ListNode head) {\n        // Write your code here\n        return false;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.3 Remove Linked List Elements",
-    "description": "Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head. Input: head = [1, 2, 6, 3, 4, 5, 6], val = 6 Output: [1, 2, 3, 4, 5] Input: head = [ ], val = 1 Output: [] Input: head = [7, 7, 7, 7], val = 7 Output: []",
-    "starter_code": "class ListNode {\n    # Write Code Here\n    }\n}\n\npublic class Solution {\n    public boolean hasCycle(ListNode head)\n    {\n    # Write Code Here\n    }\n\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "description": "# Remove Linked List Elements\n\nGiven the `head` of a linked list and an integer `val`, remove all the nodes of the linked list that has `Node.val == val`, and return *the new head*.\n\n## Example 1:\n\n```\nInput: head = [1,2,6,3,4,5,6], val = 6\nOutput: [1,2,3,4,5]\n```\n\n## Example 2:\n\n```\nInput: head = [], val = 1\nOutput: []\n```\n\n## Example 3:\n\n```\nInput: head = [7,7,7,7], val = 7\nOutput: []\n```",
+
     "testcases": [
       {
         "input": "7\n1 2 6 3 4 5 6\n6",
@@ -339,12 +354,15 @@
         "expected_output": "10 15 20 25 30 35 40 45 50 55",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int x) { val = x; next = null; }\n    }\n    static ListNode buildList(Scanner sc) {\n        if (!sc.hasNextInt()) return null;\n        int n = sc.nextInt();\n        if (n == 0) return null;\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (int i=0; i<n; i++) {\n            curr.next = new ListNode(sc.nextInt());\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n    static void printList(ListNode head) {\n        ListNode temp = head;\n        while(temp != null) {\n            System.out.print(temp.val + (temp.next!=null?\" \":\"\"));\n            temp = temp.next;\n        }\n        System.out.println();\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode head = buildList(sc);\n        if(sc.hasNextInt()) {\n            int val = sc.nextInt();\n            ListNode res = removeElements(head, val);\n            printList(res);\n        }\n        sc.close();\n    }\n// endregion\n    public static ListNode removeElements(ListNode head, int val) {\n        // Write your code here\n        return null;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.4 Reverse Linked List",
-    "description": "Given the head of a singly linked list, reverse the list, and return the reversed list. Input: head = [1, 2, 3, 4, 5] Output: [5, 4, 3, 2, 1] Input: head = [1, 2] Output: [2, 1]",
-    "starter_code": "class ListNode {\n    int val;\n    ListNode next;\n\n    ListNode(int val) {\n    this.val = val;\n    this.next = null;\n    }\n}\n\npublic class Solution {\n    public ListNode reverselist(ListNode head)\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "description": "# Reverse Linked List\n\nGiven the `head` of a singly linked list, reverse the list, and return *the reversed list*.\n\n## Example 1:\n\n```\nInput: head = [1,2,3,4,5]\nOutput: [5,4,3,2,1]\n```\n\n## Example 2:\n\n```\nInput: head = [1,2]\nOutput: [2,1]\n```\n\n## Example 3:\n\n```\nInput: head = []\nOutput: []\n```\n\n## Constraints:\n\n- The number of nodes in the list is the range `[0, 5000]`.\n- `-5000 <= Node.val <= 5000`",
+
     "testcases": [
       {
         "input": "5\n1 2 3 4 5",
@@ -396,12 +414,15 @@
         "expected_output": "1500 1400 1300 1200 1100 1000 900 800 700 600 500 400 300 200 100",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int x) { val = x; next = null; }\n    }\n    static ListNode buildList(Scanner sc) {\n        if (!sc.hasNextInt()) return null;\n        int n = sc.nextInt();\n        if (n == 0) return null;\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (int i=0; i<n; i++) {\n            curr.next = new ListNode(sc.nextInt());\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n    static void printList(ListNode head) {\n        ListNode temp = head;\n        while(temp != null) {\n            System.out.print(temp.val + (temp.next!=null?\" \":\"\"));\n            temp = temp.next;\n        }\n        System.out.println();\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode head = buildList(sc);\n        ListNode res = reverseList(head);\n        printList(res);\n        sc.close();\n    }\n// endregion\n    public static ListNode reverseList(ListNode head) {\n        // Write your code here\n        return null;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.5 Palindrome Linked List",
-    "description": "Given the head of a singly linked list, return true if it is a palindrome or false otherwise. Input: head = [1, 2, 2, 1] Output: true Input: head = [1, 2] Output: false",
-    "starter_code": "class ListNode\n{\n    # Write Code Here\n}\npublic class Solution {\n    public boolean isPalindrome(ListNode head)\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "description": "# Palindrome Linked List\n\nGiven the `head` of a singly linked list, return `true` if it is a palindrome or `false` otherwise.\n\n## Example 1:\n\n```\nInput: head = [1,2,2,1]\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: head = [1,2]\nOutput: false\n```\n\n## Constraints:\n\n- The number of nodes in the list is the range `[1, 10^5]`.\n- `0 <= Node.val <= 9`",
+
     "testcases": [
       {
         "input": "4\n1 2 2 1",
@@ -453,12 +474,15 @@
         "expected_output": "true",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int x) { val = x; next = null; }\n    }\n    static ListNode buildList(Scanner sc) {\n        if (!sc.hasNextInt()) return null;\n        int n = sc.nextInt();\n        if (n == 0) return null;\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (int i=0; i<n; i++) {\n            curr.next = new ListNode(sc.nextInt());\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode head = buildList(sc);\n        System.out.println(isPalindrome(head));\n        sc.close();\n    }\n// endregion\n    public static boolean isPalindrome(ListNode head) {\n        // Write your code here\n        return false;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.6 Middle of the Linked List",
-    "description": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node. Input: head = [1, 2, 3, 4, 5] Output: [3, 4, 5] Explanation: The middle node of the list is node 3. Input: head = [1, 2, 3, 4, 5, 6] Output: [4, 5, 6] Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.",
-    "starter_code": "class ListNode\n{\n    # Write Code Here\n}\n\npublic class Solution\n{\n    # Write Code Here\n}\n\npublic static void main(String[] args) {\n    # Write Code Here\n}",
+    "description": "# Middle of the Linked List\n\nGiven the `head` of a singly linked list, return *the middle node of the linked list*.\n\nIf there are two middle nodes, return the **second middle node**.\n\n## Example 1:\n\n```\nInput: head = [1,2,3,4,5]\nOutput: [3,4,5]\nExplanation: The middle node of the list is node 3.\n```\n\n## Example 2:\n\n```\nInput: head = [1,2,3,4,5,6]\nOutput: [4,5,6]\nExplanation: Since the list has two middle nodes with values 3 and 4, we return the second one.\n```",
+
     "testcases": [
       {
         "input": "5\n1 2 3 4 5",
@@ -510,12 +534,15 @@
         "expected_output": "800 900 1000 1100 1200 1300 1400 1500",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int x) { val = x; next = null; }\n    }\n    static ListNode buildList(Scanner sc) {\n        if (!sc.hasNextInt()) return null;\n        int n = sc.nextInt();\n        if (n == 0) return null;\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (int i=0; i<n; i++) {\n            curr.next = new ListNode(sc.nextInt());\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n    static void printList(ListNode head) {\n        ListNode temp = head;\n        while(temp != null) {\n            System.out.print(temp.val + (temp.next!=null?\" \":\"\"));\n            temp = temp.next;\n        }\n        System.out.println();\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode head = buildList(sc);\n        ListNode mid = middleNode(head);\n        printList(mid);\n        sc.close();\n    }\n// endregion\n    public static ListNode middleNode(ListNode head) {\n        // Write your code here\n        return null;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "7.7 Convert Binary Number in a Linked List to Integer",
-    "description": "Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number. Return the decimal value of the number in the linked list. The most significant bit is at the head of the linked list. Input: head = [1, 0, 1] Output: 5 Explanation: (101) in base 2 = (5) in base 10 Input: head = [0] Output: 0",
-    "starter_code": "class ListNode {\n    int val;\n    ListNode next;\n\n    ListNode(int val) {\n    this.val = val;\n    this.next = null;\n    }\n}\n\npublic class Solution\n{\n    # White Code Here\n}\n\npublic static void main(String[] args)\n{\n    # White Code Here\n}",
+    "description": "# Convert Binary Number in a Linked List to Integer\n\nGiven `head` which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.\n\nReturn the *decimal value* of the number in the linked list.\n\nThe most significant bit is at the head of the linked list.\n\n## Example 1:\n\n```\nInput: head = [1,0,1]\nOutput: 5\nExplanation: (101) in base 2 = (5) in base 10\n```\n\n## Example 2:\n\n```\nInput: head = [0]\nOutput: 0\n```",
+
     "testcases": [
       {
         "input": "3\n1 0 1",
@@ -567,6 +594,9 @@
         "expected_output": "16385",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    static class ListNode {\n        int val;\n        ListNode next;\n        ListNode(int x) { val = x; next = null; }\n    }\n    static ListNode buildList(Scanner sc) {\n        if (!sc.hasNextInt()) return null;\n        int n = sc.nextInt();\n        if (n == 0) return null;\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (int i=0; i<n; i++) {\n            curr.next = new ListNode(sc.nextInt());\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode head = buildList(sc);\n        System.out.println(getDecimalValue(head));\n        sc.close();\n    }\n// endregion\n    public static int getDecimalValue(ListNode head) {\n        // Write your code here\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   }
 ]

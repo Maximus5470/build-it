@@ -1,8 +1,7 @@
 [
   {
     "title": "1.1 Sum of last digits of two given numbers",
-    "description": "Rohit wants to add the last digits of two given numbers. For example, if the given numbers are 267 and 154, the output should be 11. Below is the explanation - Last digit of the 267 is 7 Last digit of the 154 is 4 Sum of 7 and 4 = 11 Write a program to help Rohit achieve this for any given two numbers. The prototype of the method should be - int addLastDigits(int input1, int input2); where input1 and input2 denote the two numbers whose last digits are to be added. Note: The sign of the input numbers should be ignored. If the input numbers are 267 and 154, the sum of last two digits should be 11 if the input numbers are 267 and -154, the sum of last two digits should be 11 if the input numbers are -267 and 154, the sum of last two digits should be 11 if the input numbers are -267 and -154, the sum of last two digits should be 11 Input: 267 154 Output: 11 Input: 267 -154 Output: 11 Input: -267 154 Output: 11 Input: -267 -154 Output: 11",
-    "starter_code": "import java.util.Scanner;\n\nclass AddLastDigitsFunction\n{\n    int addLastDigits(int n1, int n2)\n    {\n    # Write code here\n    }\n\n    public static void main(String args[])\n    {\n    AddLastDigitsFunction obj = new AddLastDigitsFunction();\n    # Write code here\n    System.out.println(obj.addLastDigits(n1,n2));",
+    "description": "# Sum of Last Digits\n\nGiven two integers `input1` and `input2`, find the sum of their last digits.\n\nFor example:\n- If `input1 = 267` (last digit is 7) and `input2 = 154` (last digit is 4), the sum is `7 + 4 = 11`.\n- The sign of the number should be ignored (i.e., use the absolute value).\n\n## Example 1:\n\n```\nInput: input1 = 267, input2 = 154\nOutput: 11\nExplanation: 7 + 4 = 11\n```\n\n## Example 2:\n\n```\nInput: input1 = 267, input2 = -154\nOutput: 11\nExplanation: 7 + 4 = 11 (sign ignored)\n```\n\n## Constraints:\n\n- Inputs can be positive, negative, or zero.\n- `-10^9 <= input1, input2 <= 10^9`\n",
     "testcases": [
       {
         "input": "267 154",
@@ -54,12 +53,14 @@
         "expected_output": "10",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int input1 = sc.nextInt();\n            int input2 = sc.nextInt();\n            int result = addLastDigits(input1, input2);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static int addLastDigits(int input1, int input2) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.2 Is N an exact multiple of M?",
-    "description": "Write a function that accepts two parameters and finds whether the first parameter is an exact multiple of the second parameter. If the first parameter is an exact multiple of the second parameter, the function should return 2 else it should return 1. If either of the parameters are zero, the function should return 3. Assumption: Within the scope of this question, assume that - the first parameter can be positive, negative or zero the second parameter will always be >=0 Input: num1 = 10, num2 = 5 Output: 2 Input: num1 = -10, num2 = 5 Output: 2 Input: num1 = 0, num2 = 5 Output: 3 Input: num1 = 10, num2 = 3 Output: 1",
-    "starter_code": "public class MultipleChecker\n{\n    public static int checkMultiple(int num1, int num2)\n    {\n    # Write code here\n    }\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n}",
+    "description": "# Exact Multiple\n\nWrite a function to check if the first parameter `n` is an exact multiple of the second parameter `m`.\n\n- If `n` is a multiple of `m`, return `2`.\n- Otherwise, return `1`.\n- If either `n` or `m` is zero, return `3`.\n\n## Example 1:\n\n```\nInput: n = 10, m = 5\nOutput: 2\nExplanation: 10 is a multiple of 5.\n```\n\n## Example 2:\n\n```\nInput: n = 10, m = 3\nOutput: 1\nExplanation: 10 is not a multiple of 3.\n```\n\n## Example 3:\n\n```\nInput: n = 0, m = 5\nOutput: 3\nExplanation: One parameter is zero.\n```\n\n## Constraints:\n\n- `-10^9 <= n <= 10^9`\n- `0 <= m <= 10^9`\n",
     "testcases": [
       {
         "input": "10 5",
@@ -111,12 +112,14 @@
         "expected_output": "1",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            int m = sc.nextInt();\n            int result = isMultiple(n, m);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static int isMultiple(int n, int m) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.3 Combine Strings",
-    "description": "Given 2 strings, a and b, return a new string of the form short+long+short, with the shorter string on the outside and the longer string in the inside. The strings will not be the same length, but they may be empty (length 0). If input is \"hi\" and \"hello\", then output will be \"hihellohi\" Input: Enter the first string: \"hi\" Enter the second string: \"hello\" Output: \"hihellohi\" Input: Enter the first string: \"iare\" Enter the second string: \"college\" Output: \"iarecollegelare\"",
-    "starter_code": "public class StringCombine\n{\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n    public static String combineStrings(String a, String b)\n    {\n    # Write code here\n    }\n}",
+    "description": "# Combine Strings\n\nGiven two strings `a` and `b`, return a new string in the format:\n`short + long + short`\n\n- The shorter string is on the outside.\n- The longer string is on the inside.\n- The strings will not be the same length.\n\n## Example 1:\n\n```\nInput: a = \"hi\", b = \"hello\"\nOutput: \"hihellohi\"\n```\n\n## Example 2:\n\n```\nInput: a = \"iare\", b = \"college\"\nOutput: \"iarecollegeiare\"\n```\n\n## Constraints:\n\n- Strings may be empty.\n- Length of strings will be different.\n",
     "testcases": [
       {
         "input": "hi hello",
@@ -168,12 +171,14 @@
         "expected_output": "c++javascriptc++",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String a = sc.next();\n            String b = sc.next();\n            String result = combineStrings(a, b);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static String combineStrings(String a, String b) {\n        // Write your code here...\n        return \"\";\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.4 Even or Odd",
-    "description": "Write a function that accepts 6 input parameters. The first 5 input parameters are of type int. The sixth input parameter is of type string. If the sixth parameter contains the value \"even\", the function is supposed to return the count of how many of the first five input parameters are even. If the sixth parameter contains the value \"odd\", the function is supposed to return the count of how many of the first five input parameters are odd. Example: If the five input parameters are 12, 17, 19, 14, and 115, and the sixth parameter is \"odd\", the function must return 3, because there are three odd numbers 17, 19 and 115. If the five input parameters are 12, 17, 19, 14, and 115, and the sixth parameter is \"even\", the function must return 2, because there are two even numbers 12 and 14. Note that zero is considered an even number. Input: num1 = 12; num2 = 17; num3 = 19; num4 = 14; num5 = 115; type = \"odd\" Output: 3 Input: num1 = 12; num2 = 17; num3 = 19; num4 = 14; num5 = 115; type = \"even\" Output: 2",
-    "starter_code": "public class NumberCounter\n{\n    public static int countNumbers(int num1, int num2, int num3, int num4, int num5, String type)\n    {\n    # Write code here\n    }\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n}",
+    "description": "# Even or Odd Count\n\nFunction accepts 5 integers (`n1` to `n5`) and a string `type`.\n\n- If `type` is \"even\", return the count of even numbers among the 5 integers.\n- If `type` is \"odd\", return the count of odd numbers among the 5 integers.\n- **Zero is considered even.**\n\n## Example 1:\n\n```\nInput: 12, 17, 19, 14, 115, \"odd\"\nOutput: 3\nExplanation: 17, 19, 115 are odd.\n```\n\n## Example 2:\n\n```\nInput: 12, 17, 19, 14, 115, \"even\"\nOutput: 2\nExplanation: 12, 14 are even.\n```\n\n## Constraints:\n\n- `type` will be either \"even\" or \"odd\".\n- Input integers are within valid integer range.\n",
     "testcases": [
       {
         "input": "12 17 19 14 115 odd",
@@ -225,12 +230,14 @@
         "expected_output": "0",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n1 = sc.nextInt();\n            int n2 = sc.nextInt();\n            int n3 = sc.nextInt();\n            int n4 = sc.nextInt();\n            int n5 = sc.nextInt();\n            String type = sc.next();\n            int result = countEvenOdd(n1, n2, n3, n4, n5, type);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static int countEvenOdd(int n1, int n2, int n3, int n4, int n5, String type) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.5 Second last digit of a given number",
-    "description": "Write a function that returns the second last digit of the given number. Second last digit is being referred to the digit in the tens place in the given number. Example: if the given number is 197, the second last digit is 9. Note 1: The second last digit should be returned as a positive number. i.e. if the given number is -197, the second last digit is 9. Note 2: If the given number is a single digit number, then the second last digit does not exist. In such cases, the function should return -1. i.e. if the given number is 5, the second last digit should be returned as -1. Input: 197 Output: 9 Input: 5 Output: -1 Input: -197 Output: 9",
-    "starter_code": "public class SecondLastDigit\n{\n    public static int getSecondLastDigit(int number)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "description": "# Second Last Digit\n\nReturn the second last digit of a given number `n`. This refers to the digit in the tens place.\n\n- Return the value as a positive number.\n- If the number has fewer than 2 digits, return `-1`.\n\n## Example 1:\n\n```\nInput: n = 197\nOutput: 9\n```\n\n## Example 2:\n\n```\nInput: n = 5\nOutput: -1\n```\n\n## Example 3:\n\n```\nInput: n = -197\nOutput: 9\n```\n\n## Constraints:\n\n- `-10^9 <= n <= 10^9`\n",
     "testcases": [
       {
         "input": "197",
@@ -282,12 +289,14 @@
         "expected_output": "-1",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            int result = secondLastDigit(n);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static int secondLastDigit(int n) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.6 Alternate String Combiner",
-    "description": "Given two strings, a and b, print a new string which is made of the following combination-first character of a, the first character of b, second character of a, second character of b and so on. Any characters left, will go to the end of the result. Hello,World HWeolrllod Input: \"Hello,World\" Output: \"HWeolrllod\" Input: \"Iare,College\" Output: \"Caorlelege\"",
-    "starter_code": "public class AlternateStringCombiner\n{\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static String combineStrings(String a, String b)\n    {\n    # write code here\n    }\n}",
+    "description": "# Alternate String Combiner\n\nGiven two strings `a` and `b`, create a new string by combining their characters alternately.\n- First character of `a`, then first of `b`, then second of `a`, etc.\n- Any remaining characters from the longer string are appended to the end.\n\n## Example 1:\n\n```\nInput: a = \"Hello\", b = \"World\"\nOutput: \"HWeolrllod\"\n```\n\n## Example 2:\n\n```\nInput: a = \"ab\", b = \"xyz\"\nOutput: \"axbyz\"\n```\n\n## Constraints:\n\n- Strings contain alphanumeric characters.\n- `0 <= a.length, b.length <= 1000`\n",
     "testcases": [
       {
         "input": "Hello World",
@@ -339,12 +348,14 @@
         "expected_output": "slhoonrgteer",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String a = sc.next();\n            String b = sc.next();\n            String result = combineAlternate(a, b);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static String combineAlternate(String a, String b) {\n        // Write your code here...\n        return \"\";\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.7 Padovan Sequence",
-    "description": "The Padovan sequence is a sequence of numbers named after Richard Padovan, who attributed its discovery to Dutch architect Hans van der Laan. The sequence was described by Ian Stewart in his Scientific American column Mathematical Recreations in June 1996. The Padovan sequence is defined by the following recurrence relation: P(n) = P(n-2) + P(n-3) with the initial conditions P(0) = P(1) = P(2) = 1. In this sequence, each term is the sum of the two preceding terms, similar to the Fibonacci sequence. However, the Padovan sequence has different initial conditions and exhibits different growth patterns. The first few terms of the Padovan sequence are: 1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 12, ... Input: num = 10 Output: Padovan Sequence up to 10: 1 1 2 2 3 4 5 7 9 12 Input: num = 20 Output: Padovan Sequence up to 20: 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200",
-    "starter_code": "public class PadovanSequence\n{\n    public static int padovan(int n)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "description": "# Padovan Sequence\n\nThe Padovan sequence `P(n)` is defined by:\n`P(n) = P(n-2) + P(n-3)`\nInitial conditions: `P(0) = P(1) = P(2) = 1`.\n\nWrite a program to print the Padovan sequence up to `n` terms.\n\n## Example 1:\n\n```\nInput: n = 10\nOutput: 1 1 1 2 2 3 4 5 7 9\n```\n\n## Example 2:\n\n```\nInput: n = 5\nOutput: 1 1 1 2 2\n```\n\n## Constraints:\n\n- `n >= 1`\n- Output terms should be space-separated.\n",
     "testcases": [
       {
         "input": "5",
@@ -396,12 +407,14 @@
         "expected_output": "1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265 351 465 616",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            List<Integer> result = padovanSequence(n);\n            for (int i = 0; i < result.size(); i++) {\n                System.out.print(result.get(i) + (i == result.size() - 1 ? \"\" : \" \"));\n            }\n            System.out.println();\n        }\n        sc.close();\n    }\n// endregion\n    public static List<Integer> padovanSequence(int n) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.8 Leaders in an array",
-    "description": "Given an array arr of n positive integers, your task is to find all the leaders in the array. An element of the array is considered a leader if it is greater than all the elements on its right side or if it is equal to the maximum element on its right side. The rightmost element is always a leader. Input: n = 6, arr[] = {16, 17, 4, 3, 5, 2} Output: 17 5 2 Input: n = 5, arr[] = {10, 4, 2, 4, 1} Output: 10 4 4 1 Input: n = 4, arr[] = {5, 10, 20, 40} Output: 40 Input: n = 4, arr[] = {30, 10, 10, 5} Output: 30 10 10 5",
-    "starter_code": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class ArrayLeaders\n{\n    public static List<Integer> findArrayListeaders(int[] arr)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "description": "# Leaders in Array\n\nGiven an array of positive integers, an element is a **leader** if it is greater than all the elements to its right.\n- The rightmost element is always a leader.\n\n## Example 1:\n\n```\nInput: n = 6, arr = [16, 17, 4, 3, 5, 2]\nOutput: 17 5 2\nExplanation: 17 > all right, 5 > 2, 2 is rightmost.\n```\n\n## Example 2:\n\n```\nInput: n = 4, arr = [5, 10, 20, 40]\nOutput: 40\n```\n\n## Constraints:\n\n- `1 <= n <= 10^5`\n- `1 <= arr[i] <= 10^9`\n",
     "testcases": [
       {
         "input": "6\n16 17 4 3 5 2",
@@ -453,12 +466,14 @@
         "expected_output": "10 9 8 7 6 5 4 3 2 1",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            int[] arr = new int[n];\n            for (int i = 0; i < n; i++) {\n            arr[i] = sc.nextInt();\n            }\n            List<Integer> result = findLeaders(n, arr);\n            for (int i = 0; i < result.size(); i++) {\n                System.out.print(result.get(i) + (i == result.size() - 1 ? \"\" : \" \"));\n            }\n            System.out.println();\n        }\n        sc.close();\n    }\n// endregion\n    public static List<Integer> findLeaders(int n, int[] arr) {\n        // Write your code here...\n        return new int[]{};\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.9 Find the Value of a Number Raised to its Reverse",
-    "description": "Given a number N and its reverse R. The task is to find the number obtained when the number is raised to the power of its own reverse Input: N = 2, R = 2 Output: 4 Explanation: Number 2 raised to the power of its reverse 2 gives 4 which gives 4 as a result after performing modulo 10^9+7 Input: N = 57, R = 75 Output: 262042770 Explanation: 57^75 modulo 10^9+7 gives us the result as 262042770",
-    "starter_code": "public class NumberPower\n{\n    public static long powerOfReverse(int N, int R)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "description": "# Power of Reverse\n\nGiven a number `N` and its reverse `R`, find the value of `N^R`.\n- Since the result can be large, print the result modulo `10^9 + 7`.\n\n## Example 1:\n\n```\nInput: N = 2, R = 2\nOutput: 4\n```\n\n## Example 2:\n\n```\nInput: N = 57, R = 75\nOutput: 262042770\nExplanation: 57^75 % 1000000007\n```\n\n## Constraints:\n\n- `1 <= N <= 10^5` (ensure strict types)\n- Output modulo `10^9 + 7`.\n",
     "testcases": [
       {
         "input": "2 2",
@@ -510,12 +525,14 @@
         "expected_output": "599576739",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            int r = sc.nextInt();\n            int result = powerOfReverse(n, r);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static int powerOfReverse(int n, int r) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    }
   },
   {
     "title": "1.10 Mean of Array using Recursion",
-    "description": "Find the mean of the elements of the array. Mean = (Sum of elements of the Array) / (Total no of elements in Array) Input: 1 2 3 4 5 Output: 3.0 Input: 1 2 3 Output: 2.0 To find the mean using recursion assume that the problem is already solved for N-1 i.e. you have to find for n Sum of first N-1 elements = (Mean of N-1 elements) * (N-1) Mean of N elements = (Sum of first N-1 elements + N-th elements) / (N)",
-    "starter_code": "public class ArrayMean\n{\n    public static double findArrayMean(int[] arr)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "description": "# Mean of Array (Recursion)\n\nFind the mean of elements in an array using recursion.\n`Mean = (Sum of elements) / N`\n\n## Example 1:\n\n```\nInput: [1, 2, 3, 4, 5]\nOutput: 3.0\n```\n\n## Example 2:\n\n```\nInput: [1, 2, 3]\nOutput: 2.0\n```\n\n## Constraints:\n\n- `1 <= N <= 1000`\n- Use recursion to calculate sum or mean.\n",
     "testcases": [
       {
         "input": "1 2 3 4 5",
@@ -567,6 +584,9 @@
         "expected_output": "5.5",
         "is_visible": false
       }
-    ]
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String line = sc.nextLine();\n            if (line.trim().isEmpty() && sc.hasNextLine()) line = sc.nextLine();\n            String[] parts = line.trim().split(\"\\\\s+\");\n            int[] arr = new int[parts.length];\n            for (int i = 0; i < parts.length; i++) {\n            arr[i] = Integer.parseInt(parts[i]);\n            }\n            double result = meanArray(arr);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static double meanArray(int[] arr) {\n        // Write your code here...\n        return new int[]{};\n    }\n// region boilerplate\n}\n// endregion"
+    }
   }
 ]
