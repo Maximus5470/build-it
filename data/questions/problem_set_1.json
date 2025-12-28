@@ -1,0 +1,572 @@
+[
+  {
+    "title": "1.1 Sum of last digits of two given numbers",
+    "description": "Rohit wants to add the last digits of two given numbers. For example, if the given numbers are 267 and 154, the output should be 11. Below is the explanation - Last digit of the 267 is 7 Last digit of the 154 is 4 Sum of 7 and 4 = 11 Write a program to help Rohit achieve this for any given two numbers. The prototype of the method should be - int addLastDigits(int input1, int input2); where input1 and input2 denote the two numbers whose last digits are to be added. Note: The sign of the input numbers should be ignored. If the input numbers are 267 and 154, the sum of last two digits should be 11 if the input numbers are 267 and -154, the sum of last two digits should be 11 if the input numbers are -267 and 154, the sum of last two digits should be 11 if the input numbers are -267 and -154, the sum of last two digits should be 11 Input: 267 154 Output: 11 Input: 267 -154 Output: 11 Input: -267 154 Output: 11 Input: -267 -154 Output: 11",
+    "starter_code": "import java.util.Scanner;\n\nclass AddLastDigitsFunction\n{\n    int addLastDigits(int n1, int n2)\n    {\n    # Write code here\n    }\n\n    public static void main(String args[])\n    {\n    AddLastDigitsFunction obj = new AddLastDigitsFunction();\n    # Write code here\n    System.out.println(obj.addLastDigits(n1,n2));",
+    "testcases": [
+      {
+        "input": "267 154",
+        "expected_output": "11",
+        "is_visible": true
+      },
+      {
+        "input": "267 -154",
+        "expected_output": "11",
+        "is_visible": true
+      },
+      {
+        "input": "-267 154",
+        "expected_output": "11",
+        "is_visible": true
+      },
+      {
+        "input": "0 5",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "123 456",
+        "expected_output": "9",
+        "is_visible": true
+      },
+      {
+        "input": "9999 8888",
+        "expected_output": "17",
+        "is_visible": false
+      },
+      {
+        "input": "-732 419",
+        "expected_output": "11",
+        "is_visible": false
+      },
+      {
+        "input": "1000 -7",
+        "expected_output": "7",
+        "is_visible": false
+      },
+      {
+        "input": "55 -66",
+        "expected_output": "11",
+        "is_visible": false
+      },
+      {
+        "input": "-999 -1",
+        "expected_output": "10",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.2 Is N an exact multiple of M?",
+    "description": "Write a function that accepts two parameters and finds whether the first parameter is an exact multiple of the second parameter. If the first parameter is an exact multiple of the second parameter, the function should return 2 else it should return 1. If either of the parameters are zero, the function should return 3. Assumption: Within the scope of this question, assume that - the first parameter can be positive, negative or zero the second parameter will always be >=0 Input: num1 = 10, num2 = 5 Output: 2 Input: num1 = -10, num2 = 5 Output: 2 Input: num1 = 0, num2 = 5 Output: 3 Input: num1 = 10, num2 = 3 Output: 1",
+    "starter_code": "public class MultipleChecker\n{\n    public static int checkMultiple(int num1, int num2)\n    {\n    # Write code here\n    }\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "10 5",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "-10 5",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "0 5",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "10 3",
+        "expected_output": "1",
+        "is_visible": true
+      },
+      {
+        "input": "-15 3",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "0 0",
+        "expected_output": "3",
+        "is_visible": false
+      },
+      {
+        "input": "100 20",
+        "expected_output": "2",
+        "is_visible": false
+      },
+      {
+        "input": "17 0",
+        "expected_output": "3",
+        "is_visible": false
+      },
+      {
+        "input": "-24 6",
+        "expected_output": "2",
+        "is_visible": false
+      },
+      {
+        "input": "13 5",
+        "expected_output": "1",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.3 Combine Strings",
+    "description": "Given 2 strings, a and b, return a new string of the form short+long+short, with the shorter string on the outside and the longer string in the inside. The strings will not be the same length, but they may be empty (length 0). If input is \"hi\" and \"hello\", then output will be \"hihellohi\" Input: Enter the first string: \"hi\" Enter the second string: \"hello\" Output: \"hihellohi\" Input: Enter the first string: \"iare\" Enter the second string: \"college\" Output: \"iarecollegelare\"",
+    "starter_code": "public class StringCombine\n{\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n    public static String combineStrings(String a, String b)\n    {\n    # Write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "hi hello",
+        "expected_output": "hihellohi",
+        "is_visible": true
+      },
+      {
+        "input": "iare college",
+        "expected_output": "iarecollegeiare",
+        "is_visible": true
+      },
+      {
+        "input": "a programming",
+        "expected_output": "aprogramminga",
+        "is_visible": true
+      },
+      {
+        "input": "test longer",
+        "expected_output": "testlongertest",
+        "is_visible": true
+      },
+      {
+        "input": " data ",
+        "expected_output": " data data ",
+        "is_visible": true
+      },
+      {
+        "input": "xyz abcdefg",
+        "expected_output": "xyzabcdefgxyz",
+        "is_visible": false
+      },
+      {
+        "input": " structure ",
+        "expected_output": " structure structure ",
+        "is_visible": false
+      },
+      {
+        "input": "java python",
+        "expected_output": "javapythonjava",
+        "is_visible": false
+      },
+      {
+        "input": "micro macro",
+        "expected_output": "micromacromicro",
+        "is_visible": false
+      },
+      {
+        "input": "c++ javascript",
+        "expected_output": "c++javascriptc++",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.4 Even or Odd",
+    "description": "Write a function that accepts 6 input parameters. The first 5 input parameters are of type int. The sixth input parameter is of type string. If the sixth parameter contains the value \"even\", the function is supposed to return the count of how many of the first five input parameters are even. If the sixth parameter contains the value \"odd\", the function is supposed to return the count of how many of the first five input parameters are odd. Example: If the five input parameters are 12, 17, 19, 14, and 115, and the sixth parameter is \"odd\", the function must return 3, because there are three odd numbers 17, 19 and 115. If the five input parameters are 12, 17, 19, 14, and 115, and the sixth parameter is \"even\", the function must return 2, because there are two even numbers 12 and 14. Note that zero is considered an even number. Input: num1 = 12; num2 = 17; num3 = 19; num4 = 14; num5 = 115; type = \"odd\" Output: 3 Input: num1 = 12; num2 = 17; num3 = 19; num4 = 14; num5 = 115; type = \"even\" Output: 2",
+    "starter_code": "public class NumberCounter\n{\n    public static int countNumbers(int num1, int num2, int num3, int num4, int num5, String type)\n    {\n    # Write code here\n    }\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "12 17 19 14 115 odd",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "12 17 19 14 115 even",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "0 2 4 6 8 even",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "1 3 5 7 9 odd",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "0 1 2 3 4 even",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "10 20 30 40 50 odd",
+        "expected_output": "0",
+        "is_visible": false
+      },
+      {
+        "input": "11 22 33 44 55 even",
+        "expected_output": "2",
+        "is_visible": false
+      },
+      {
+        "input": "100 101 102 103 104 odd",
+        "expected_output": "2",
+        "is_visible": false
+      },
+      {
+        "input": "-5 -4 -3 -2 -1 even",
+        "expected_output": "2",
+        "is_visible": false
+      },
+      {
+        "input": "0 0 0 0 0 odd",
+        "expected_output": "0",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.5 Second last digit of a given number",
+    "description": "Write a function that returns the second last digit of the given number. Second last digit is being referred to the digit in the tens place in the given number. Example: if the given number is 197, the second last digit is 9. Note 1: The second last digit should be returned as a positive number. i.e. if the given number is -197, the second last digit is 9. Note 2: If the given number is a single digit number, then the second last digit does not exist. In such cases, the function should return -1. i.e. if the given number is 5, the second last digit should be returned as -1. Input: 197 Output: 9 Input: 5 Output: -1 Input: -197 Output: 9",
+    "starter_code": "public class SecondLastDigit\n{\n    public static int getSecondLastDigit(int number)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "197",
+        "expected_output": "9",
+        "is_visible": true
+      },
+      {
+        "input": "5",
+        "expected_output": "-1",
+        "is_visible": true
+      },
+      {
+        "input": "-197",
+        "expected_output": "9",
+        "is_visible": true
+      },
+      {
+        "input": "1234",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "-50",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "9999",
+        "expected_output": "9",
+        "is_visible": false
+      },
+      {
+        "input": "-1",
+        "expected_output": "-1",
+        "is_visible": false
+      },
+      {
+        "input": "100",
+        "expected_output": "0",
+        "is_visible": false
+      },
+      {
+        "input": "-8765",
+        "expected_output": "6",
+        "is_visible": false
+      },
+      {
+        "input": "0",
+        "expected_output": "-1",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.6 Alternate String Combiner",
+    "description": "Given two strings, a and b, print a new string which is made of the following combination-first character of a, the first character of b, second character of a, second character of b and so on. Any characters left, will go to the end of the result. Hello,World HWeolrllod Input: \"Hello,World\" Output: \"HWeolrllod\" Input: \"Iare,College\" Output: \"Caorlelege\"",
+    "starter_code": "public class AlternateStringCombiner\n{\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static String combineStrings(String a, String b)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "Hello World",
+        "expected_output": "HWeolrllod",
+        "is_visible": true
+      },
+      {
+        "input": "Iare College",
+        "expected_output": "Caorlelege",
+        "is_visible": true
+      },
+      {
+        "input": "ab xyz",
+        "expected_output": "axbyz",
+        "is_visible": true
+      },
+      {
+        "input": "python java",
+        "expected_output": "pjyatvhaon",
+        "is_visible": true
+      },
+      {
+        "input": "A BCD",
+        "expected_output": "ABCD",
+        "is_visible": true
+      },
+      {
+        "input": "data structures",
+        "expected_output": "dstaartaucetures",
+        "is_visible": false
+      },
+      {
+        "input": "algorithm design",
+        "expected_output": "aldgeosrigtohrithmn",
+        "is_visible": false
+      },
+      {
+        "input": "abcdef 123",
+        "expected_output": "a1b2c3def",
+        "is_visible": false
+      },
+      {
+        "input": "xyz ABCD",
+        "expected_output": "xA yB zC D",
+        "is_visible": false
+      },
+      {
+        "input": "short longer",
+        "expected_output": "slhoonrgteer",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.7 Padovan Sequence",
+    "description": "The Padovan sequence is a sequence of numbers named after Richard Padovan, who attributed its discovery to Dutch architect Hans van der Laan. The sequence was described by Ian Stewart in his Scientific American column Mathematical Recreations in June 1996. The Padovan sequence is defined by the following recurrence relation: P(n) = P(n-2) + P(n-3) with the initial conditions P(0) = P(1) = P(2) = 1. In this sequence, each term is the sum of the two preceding terms, similar to the Fibonacci sequence. However, the Padovan sequence has different initial conditions and exhibits different growth patterns. The first few terms of the Padovan sequence are: 1, 1, 1, 2, 2, 3, 4, 5, 7, 9, 12, ... Input: num = 10 Output: Padovan Sequence up to 10: 1 1 2 2 3 4 5 7 9 12 Input: num = 20 Output: Padovan Sequence up to 20: 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200",
+    "starter_code": "public class PadovanSequence\n{\n    public static int padovan(int n)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5",
+        "expected_output": "1 1 1 2 2",
+        "is_visible": true
+      },
+      {
+        "input": "10",
+        "expected_output": "1 1 1 2 2 3 4 5 7 9",
+        "is_visible": true
+      },
+      {
+        "input": "3",
+        "expected_output": "1 1 1",
+        "is_visible": true
+      },
+      {
+        "input": "7",
+        "expected_output": "1 1 1 2 2 3 4",
+        "is_visible": true
+      },
+      {
+        "input": "1",
+        "expected_output": "1",
+        "is_visible": true
+      },
+      {
+        "input": "15",
+        "expected_output": "1 1 1 2 2 3 4 5 7 9 12 16 21 28 37",
+        "is_visible": false
+      },
+      {
+        "input": "20",
+        "expected_output": "1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151",
+        "is_visible": false
+      },
+      {
+        "input": "8",
+        "expected_output": "1 1 1 2 2 3 4 5",
+        "is_visible": false
+      },
+      {
+        "input": "12",
+        "expected_output": "1 1 1 2 2 3 4 5 7 9 12 16",
+        "is_visible": false
+      },
+      {
+        "input": "25",
+        "expected_output": "1 1 1 2 2 3 4 5 7 9 12 16 21 28 37 49 65 86 114 151 200 265 351 465 616",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.8 Leaders in an array",
+    "description": "Given an array arr of n positive integers, your task is to find all the leaders in the array. An element of the array is considered a leader if it is greater than all the elements on its right side or if it is equal to the maximum element on its right side. The rightmost element is always a leader. Input: n = 6, arr[] = {16, 17, 4, 3, 5, 2} Output: 17 5 2 Input: n = 5, arr[] = {10, 4, 2, 4, 1} Output: 10 4 4 1 Input: n = 4, arr[] = {5, 10, 20, 40} Output: 40 Input: n = 4, arr[] = {30, 10, 10, 5} Output: 30 10 10 5",
+    "starter_code": "import java.util.ArrayList;\nimport java.util.List;\n\npublic class ArrayLeaders\n{\n    public static List<Integer> findArrayListeaders(int[] arr)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "6\n16 17 4 3 5 2",
+        "expected_output": "17 5 2",
+        "is_visible": true
+      },
+      {
+        "input": "5\n10 4 2 4 1",
+        "expected_output": "10 4 4 1",
+        "is_visible": true
+      },
+      {
+        "input": "4\n5 10 20 40",
+        "expected_output": "40",
+        "is_visible": true
+      },
+      {
+        "input": "4\n30 10 10 5",
+        "expected_output": "30 10 10 5",
+        "is_visible": true
+      },
+      {
+        "input": "3\n1 2 3",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "7\n7 10 4 3 20 15 2",
+        "expected_output": "20 15 2",
+        "is_visible": false
+      },
+      {
+        "input": "5\n5 4 3 2 1",
+        "expected_output": "5 4 3 2 1",
+        "is_visible": false
+      },
+      {
+        "input": "6\n1 1 1 1 1 1",
+        "expected_output": "1 1 1 1 1 1",
+        "is_visible": false
+      },
+      {
+        "input": "8\n34 23 12 34 45 56 34 20",
+        "expected_output": "56 34 20",
+        "is_visible": false
+      },
+      {
+        "input": "10\n10 9 8 7 6 5 4 3 2 1",
+        "expected_output": "10 9 8 7 6 5 4 3 2 1",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.9 Find the Value of a Number Raised to its Reverse",
+    "description": "Given a number N and its reverse R. The task is to find the number obtained when the number is raised to the power of its own reverse Input: N = 2, R = 2 Output: 4 Explanation: Number 2 raised to the power of its reverse 2 gives 4 which gives 4 as a result after performing modulo 10^9+7 Input: N = 57, R = 75 Output: 262042770 Explanation: 57^75 modulo 10^9+7 gives us the result as 262042770",
+    "starter_code": "public class NumberPower\n{\n    public static long powerOfReverse(int N, int R)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "2 2",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "57 75",
+        "expected_output": "262042770",
+        "is_visible": true
+      },
+      {
+        "input": "3 3",
+        "expected_output": "27",
+        "is_visible": true
+      },
+      {
+        "input": "10 1",
+        "expected_output": "10",
+        "is_visible": true
+      },
+      {
+        "input": "5 5",
+        "expected_output": "3125",
+        "is_visible": true
+      },
+      {
+        "input": "12 21",
+        "expected_output": "119664366",
+        "is_visible": false
+      },
+      {
+        "input": "7 7",
+        "expected_output": "823543",
+        "is_visible": false
+      },
+      {
+        "input": "100 1",
+        "expected_output": "100",
+        "is_visible": false
+      },
+      {
+        "input": "9 9",
+        "expected_output": "387420489",
+        "is_visible": false
+      },
+      {
+        "input": "123 321",
+        "expected_output": "599576739",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "1.10 Mean of Array using Recursion",
+    "description": "Find the mean of the elements of the array. Mean = (Sum of elements of the Array) / (Total no of elements in Array) Input: 1 2 3 4 5 Output: 3.0 Input: 1 2 3 Output: 2.0 To find the mean using recursion assume that the problem is already solved for N-1 i.e. you have to find for n Sum of first N-1 elements = (Mean of N-1 elements) * (N-1) Mean of N elements = (Sum of first N-1 elements + N-th elements) / (N)",
+    "starter_code": "public class ArrayMean\n{\n    public static double findArrayMean(int[] arr)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "1 2 3 4 5",
+        "expected_output": "3.0",
+        "is_visible": true
+      },
+      {
+        "input": "1 2 3",
+        "expected_output": "2.0",
+        "is_visible": true
+      },
+      {
+        "input": "10 20 30",
+        "expected_output": "20.0",
+        "is_visible": true
+      },
+      {
+        "input": "5 5 5 5",
+        "expected_output": "5.0",
+        "is_visible": true
+      },
+      {
+        "input": "100 200 300 400",
+        "expected_output": "250.0",
+        "is_visible": true
+      },
+      {
+        "input": "2 4 6 8 10 12",
+        "expected_output": "7.0",
+        "is_visible": false
+      },
+      {
+        "input": "1 3 5 7 9 11 13",
+        "expected_output": "7.0",
+        "is_visible": false
+      },
+      {
+        "input": "0 0 0 0 0",
+        "expected_output": "0.0",
+        "is_visible": false
+      },
+      {
+        "input": "-5 -3 -1 1 3 5",
+        "expected_output": "0.0",
+        "is_visible": false
+      },
+      {
+        "input": "1 2 3 4 5 6 7 8 9 10",
+        "expected_output": "5.5",
+        "is_visible": false
+      }
+    ]
+  }
+]

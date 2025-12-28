@@ -1,0 +1,572 @@
+[
+  {
+    "title": "10.1 Searching in Binary Search Tree",
+    "description": "Given a BST, the task is to delete a node in this BST. For searching a value in BST, consider it as a sorted array. Perform search operation in BST using Binary Search Algorithm. Algorithm to search for a key in a given Binary Search Tree: Let's say we want to search for the number X, We start at the root. Then: - We compare the value to be searched with the value of the root. - If it's equal we are done with the search if it's smaller we know that we need to go to the left subtree because in a binary search tree all the elements in the left subtree are smaller and all the elements in the right subtree are larger. - Repeat the above step till no more traversal is possible - If at any iteration, key is found, return True. Else False.",
+    "starter_code": "class Node {\n    int key;\n    Node left, right;\n\n    public Node(int item) {\n    key = item;\n    left = right = null;\n    }\n}\n\nclass BST\n{\n# Write Code Here\n}\nNode search(int key) {\n    return searchRec(root, key);\n}\nNode searchRec(Node root, int key)\n    {\n    # Write Code Here\n    }\npublic static void main(String[] args)\n{\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n8 3 10 1 6\nsearch 6",
+        "expected_output": "Found",
+        "is_visible": true
+      },
+      {
+        "input": "4\n5 3 7 2\nsearch 8",
+        "expected_output": "Not Found",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10 5 15 3 7 12\nsearch 7",
+        "expected_output": "Found",
+        "is_visible": true
+      },
+      {
+        "input": "3\n100 50 150\nsearch 100",
+        "expected_output": "Found",
+        "is_visible": true
+      },
+      {
+        "input": "7\n20 10 30 5 15 25 35\nsearch 18",
+        "expected_output": "Not Found",
+        "is_visible": true
+      },
+      {
+        "input": "10\n50 30 70 20 40 60 80 10 25 35\nsearch 25",
+        "expected_output": "Found",
+        "is_visible": false
+      },
+      {
+        "input": "12\n100 50 150 25 75 125 175 12 37 62 87 112\nsearch 87",
+        "expected_output": "Found",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8 4 12 2 6 10 14 1 3 5 7 9 11 13 15\nsearch 16",
+        "expected_output": "Not Found",
+        "is_visible": false
+      },
+      {
+        "input": "20\n500 250 750 125 375 625 875 62 187 312 437 562 687 812 937 31 93 156 218 281\nsearch 437",
+        "expected_output": "Found",
+        "is_visible": false
+      },
+      {
+        "input": "25\n1000 500 1500 250 750 1250 1750 125 375 625 875 1125 1375 1625 1875 62 187 312 437 562 687 812 937 1062 1187\nsearch 1187",
+        "expected_output": "Found",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "10.2 Find the node with Minimum Value in a BST",
+    "description": "Write a function to find the node with minimum value in a Binary Search Tree.",
+    "starter_code": "import java.util.ArrayList;\nimport java.util.List;\n\nclass Node {\n    int data;\n    Node left, right;\n\n    public Node(int item) {\n    data = item;\n    left = right = null;\n}\n\nclass BinarySearchTree\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n8 3 10 1 6",
+        "expected_output": "1",
+        "is_visible": true
+      },
+      {
+        "input": "4\n5 3 7 2",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10 5 15 3 7 12",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "3\n100 50 150",
+        "expected_output": "50",
+        "is_visible": true
+      },
+      {
+        "input": "7\n20 10 30 5 15 25 35",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "10\n50 30 70 20 40 60 80 10 25 35",
+        "expected_output": "10",
+        "is_visible": false
+      },
+      {
+        "input": "12\n100 50 150 25 75 125 175 12 37 62 87 112",
+        "expected_output": "12",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8 4 12 2 6 10 14 1 3 5 7 9 11 13 15",
+        "expected_output": "1",
+        "is_visible": false
+      },
+      {
+        "input": "20\n500 250 750 125 375 625 875 62 187 312 437 562 687 812 937 31 93 156 218 281",
+        "expected_output": "31",
+        "is_visible": false
+      },
+      {
+        "input": "25\n1000 500 1500 250 750 1250 1750 125 375 625 875 1125 1375 1625 1875 62 187 312 437 562 687 812 937 1062 1187",
+        "expected_output": "62",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "10.3 Check if a Binary Tree is BST or not",
+    "description": "A binary search tree (BST) is a node-based binary tree data structure that has the following properties. 1. The left subtree of a node contains only nodes with keys less than the node's key. 2. The right subtree of a node contains only nodes with keys greater than the node's key. 3. Both the left and right subtrees must also be binary search trees. 4. Each node (item in the tree) has a distinct key. Procedure: 1. If the current node is null then return true 2. If the value of the left child of the node is greater than or equal to the current node then return false 3. If the value of the right child of the node is less than or equal to the current node then return false 4. If the left subtree or the right subtree is not a BST then return false 5. Else return true",
+    "starter_code": "class Node {\n    int data;\n    Node left, right;\n\n    public Node(int item) {\n    data = item;\n    left = right = null;\n}\n\nclass BinaryTree\n    {\n    # Write Code Here\n    }\n    boolean isBST(Node node) {\n    return isBSTUtil(node, Integer.MIN_VALUE, Integer.MAX_VALUE);\n}\n    boolean isBSTUtil(Node node, int min, int max)\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n8 3 10 1 6",
+        "expected_output": "Is BST",
+        "is_visible": true
+      },
+      {
+        "input": "4\n5 3 7 2",
+        "expected_output": "Is BST",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10 5 15 3 7 12",
+        "expected_output": "Is BST",
+        "is_visible": true
+      },
+      {
+        "input": "7\n20 10 30 5 15 25 35",
+        "expected_output": "Is BST",
+        "is_visible": true
+      },
+      {
+        "input": "5\n10 5 15 12 8",
+        "expected_output": "Not a BST",
+        "is_visible": true
+      },
+      {
+        "input": "10\n50 30 70 20 40 60 80 10 25 35",
+        "expected_output": "Is BST",
+        "is_visible": false
+      },
+      {
+        "input": "8\n100 50 150 25 75 125 175 200",
+        "expected_output": "Is BST",
+        "is_visible": false
+      },
+      {
+        "input": "9\n8 3 10 1 6 14 4 7 13",
+        "expected_output": "Not a BST",
+        "is_visible": false
+      },
+      {
+        "input": "12\n100 50 150 25 75 125 175 12 37 62 87 112",
+        "expected_output": "Is BST",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8 4 12 2 6 10 14 1 3 5 7 9 11 13 15",
+        "expected_output": "Is BST",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "10.4 Second Largest Element in BST",
+    "description": "Given a Binary search tree (BST), find the second largest element. Input: Root of below BST 10 / 5 Output: 5 Input: Root of below BST 10 / \\ 5 20 \\ 30 Output: 20 Procedure: The second largest element is second last element in inorder traversal and second element in reverse inorder traversal. We traverse given Binary Search Tree in reverse inorder and keep track of counts of nodes visited. Once the count becomes 2, we print the node.",
+    "starter_code": "class Node {\n    int key;\n    Node left, right;\n\n    public Node(int item) {\n    key = item;\n    left = right = null;\n    }\n}\n\nclass BinarySearchTree\n    {\n    # Write Code Here\n    }\n    secondLargestUtil(node.right);\n    count++;\n    // If count is equal to 2 then this is the second largest\n    if (count == 2) {\n    System.out.println(\"The second largest element is \" + node.key);\n    return;\n    }\n    secondLargestUtil(node.left);\n}\n\n// Function to find the second largest element\nvoid secondLargest(Node node) {\n    count = 0;\n    secondLargestUtil(node);\n}\n\n// Driver code\npublic static void main(String[] args)\n{\n    # Write Code Here\n}",
+    "testcases": [
+      {
+        "input": "2\n10 5",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "4\n10 5 20 30",
+        "expected_output": "20",
+        "is_visible": true
+      },
+      {
+        "input": "5\n8 3 10 1 6",
+        "expected_output": "8",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10 5 15 3 7 12",
+        "expected_output": "12",
+        "is_visible": true
+      },
+      {
+        "input": "7\n20 10 30 5 15 25 35",
+        "expected_output": "30",
+        "is_visible": true
+      },
+      {
+        "input": "10\n50 30 70 20 40 60 80 10 25 35",
+        "expected_output": "70",
+        "is_visible": false
+      },
+      {
+        "input": "12\n100 50 150 25 75 125 175 12 37 62 87 112",
+        "expected_output": "150",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8 4 12 2 6 10 14 1 3 5 7 9 11 13 15",
+        "expected_output": "14",
+        "is_visible": false
+      },
+      {
+        "input": "20\n500 250 750 125 375 625 875 62 187 312 437 562 687 812 937 31 93 156 218 281",
+        "expected_output": "875",
+        "is_visible": false
+      },
+      {
+        "input": "25\n1000 500 1500 250 750 1250 1750 125 375 625 875 1125 1375 1625 1875 62 187 312 437 562 687 812 937 1062 1187",
+        "expected_output": "1750",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "10.5 Insertion in Binary Search Tree (BST)",
+    "description": "Given a Binary search tree (BST), the task is to insert a new node in this BST. Procedure for inserting a value in a BST: A new key is always inserted at the leaf by maintaining the property of the binary search tree. We start searching for a key from the root until we hit a leaf node. Once a leaf node is found, the new node is added as a child of the leaf node. The below steps are followed while we try to insert a node into a binary search tree: - Check the value to be inserted (say X) with the value of the current node (say val) we are in: - If X is less than val move to the left subtree. - Otherwise, move to the right subtree. - Once the leaf node is reached, insert X to its right or left based on the relation between X and the leaf node's value.",
+    "starter_code": "class Node {\n    int val;\n    Node left, right;\n\n    public Node(int item) {\n    val = item;\n    left = right = null;\n}\n\nclass BinarySearchTree\n    {\n    # Write Code Here\n    }\n    void inorder()\n    {\n    inorderRec(root);\n    }\n    void inorderRec(Node root)\n    {\n    # Write Code Here\n    }\n\n// Driver code\npublic static void main(String[] args)\n{\n    # White Code Here\n}",
+    "testcases": [
+      {
+        "input": "5\n8 3 10 1 6\ninsert 4\ninorder",
+        "expected_output": "1 3 4 6 8 10",
+        "is_visible": true
+      },
+      {
+        "input": "3\n5 3 7\ninsert 6\ninorder",
+        "expected_output": "3 5 6 7",
+        "is_visible": true
+      },
+      {
+        "input": "4\n10 5 15 12\ninsert 8\ninorder",
+        "expected_output": "5 8 10 12 15",
+        "is_visible": true
+      },
+      {
+        "input": "6\n20 10 30 5 15 25\ninsert 22\ninorder",
+        "expected_output": "5 10 15 20 22 25 30",
+        "is_visible": true
+      },
+      {
+        "input": "7\n50 30 70 20 40 60 80\ninsert 35\ninorder",
+        "expected_output": "20 30 35 40 50 60 70 80",
+        "is_visible": true
+      },
+      {
+        "input": "10\n100 50 150 25 75 125 175 12 37 62\ninsert 87\ninorder",
+        "expected_output": "12 25 37 50 62 75 87 100 125 150 175",
+        "is_visible": false
+      },
+      {
+        "input": "12\n200 100 300 50 150 250 350 25 75 125 175 225\ninsert 275\ninorder",
+        "expected_output": "25 50 75 100 125 150 175 200 225 250 275 300 350",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8 4 12 2 6 10 14 1 3 5 7 9 11 13 15\ninsert 16\ninorder",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16",
+        "is_visible": false
+      },
+      {
+        "input": "20\n500 250 750 125 375 625 875 62 187 312 437 562 687 812 937 31 93 156 218 281\ninsert 400\ninorder",
+        "expected_output": "31 62 93 125 156 187 218 250 281 312 375 400 437 500 562 625 687 750 812 875 937",
+        "is_visible": false
+      },
+      {
+        "input": "25\n1000 500 1500 250 750 1250 1750 125 375 625 875 1125 1375 1625 1875 62 187 312 437 562 687 812 937 1062 1187\ninsert 1300\ninorder",
+        "expected_output": "62 125 187 250 312 375 437 500 562 625 687 750 812 875 937 1000 1062 1125 1187 1250 1300 1375 1500 1625 1750 1875",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "11.1 Insertion in an AVL Tree",
+    "description": "AVL tree is a self-balancing Binary Search Tree (BST) where the difference between heights of left and right subtrees cannot be more than one for all nodes. To make sure that the given tree remains AVL after every insertion, we must augment the standard BST insert operation to perform some re-balancing. Following are two basic operations that can be performed to balance a BST without violating the BST property (keys(left) < key(root) < keys(right)).\n- Left Rotation\n- Right Rotation\n\nT1, T2 and T3 are subtrees of the tree, rooted with y (on the left side) or x (on the right side)\n\nKeys in both of the above trees follow the following order \nkeys(T1) < key(x) < keys(T2) < key(y) < keys(T3)  \nSo BST property is not violated anywhere.\n\n**Procedure for inserting a node into an AVL tree**\n\nLet the newly inserted node be w  \n- Perform standard BST insert for w.\n- Starting from w, travel up and find the first unbalanced node. Let z be the first unbalanced node, y be the child of z that comes on the path from w to z and x be the grandchild of z that comes on the path from w to z.\n- Re-balance the tree by performing appropriate rotations on the subtree rooted with z. There can be 4 possible cases that need to be handled as x, y and z can be arranged in 4 ways.\n- Following are the possible 4 arrangements:\n  - y is the left child of z and x is the left child of y (Left Left Case)\n  - y is the left child of z and x is the right child of y (Left Right Case)\n  - y is the right child of z and x is the right child of y (Right Right Case)\n  - y is the right child of z and x is the left child of y (Right Left Case)",
+    "starter_code": "class TreeNode {\n    int val, height;\n    TreeNode left, right;\n\n    TreeNode(int d) {\n    val = d;\n    height = 1;\n    }\n}\n\nclass AVL_Tree {\n\n    # write the code\n\n } \n\n TreeNode leftRotate(TreeNode x) \n{ \n# write the code \n} \n public static void main(String[] args) { \n # write the code \n}",
+    "testcases": [
+      {
+        "input": "5\n30\n20\n40\n10\n25\ninorder",
+        "expected_output": "10 20 25 30 40",
+        "is_visible": true
+      },
+      {
+        "input": "7\n50\n30\n70\n20\n40\n60\n80\ninorder",
+        "expected_output": "20 30 40 50 60 70 80",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10\n20\n30\n40\n50\n60\ninorder",
+        "expected_output": "10 20 30 40 50 60",
+        "is_visible": true
+      },
+      {
+        "input": "9\n5\n15\n10\n20\n25\n30\n35\n40\n45\ninorder",
+        "expected_output": "5 10 15 20 25 30 35 40 45",
+        "is_visible": true
+      },
+      {
+        "input": "12\n100\n50\n150\n25\n75\n125\n175\n12\n37\n62\n87\n112\ninorder",
+        "expected_output": "12 25 37 50 62 75 87 100 112 125 150 175",
+        "is_visible": true
+      },
+      {
+        "input": "15\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\ninorder",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15",
+        "is_visible": false
+      },
+      {
+        "input": "10\n41\n20\n65\n11\n29\n50\n91\n32\n72\n99\ninorder",
+        "expected_output": "11 20 29 32 41 50 65 72 91 99",
+        "is_visible": false
+      },
+      {
+        "input": "8\n500\n250\n750\n125\n375\n625\n875\n62\ninorder",
+        "expected_output": "62 125 250 375 500 625 750 875",
+        "is_visible": false
+      },
+      {
+        "input": "14\n1000\n500\n1500\n250\n750\n1250\n1750\n125\n375\n625\n875\n1125\n1375\n1625\ninorder",
+        "expected_output": "125 250 375 500 625 750 875 1000 1125 1250 1375 1500 1625 1750",
+        "is_visible": false
+      },
+      {
+        "input": "20\n45\n22\n67\n15\n33\n55\n78\n10\n18\n28\n40\n50\n60\n70\n80\n5\n12\n16\n19\n25\ninorder",
+        "expected_output": "5 10 12 15 16 18 19 22 25 28 33 40 45 50 55 60 67 70 78 80",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "11.2 Deletion in an AVL Tree",
+    "description": "Given an AVL tree, make sure that the given tree remains AVL after every deletion, we must augment the standard BST delete operation to perform some re-balancing. Following are two basic operations that can be performed to re-balance a BST without violating the BST property (keys(left) < key(root) < keys(right)). 1. Left Rotation 2. Right Rotation T1, T2 and T3 are subtrees of the tree rooted with y (on left side) or x (on right side) Keys in both of the above trees follow the following order keys(T1) < key(x) < keys(T2) < key(y) < keys(T3) So BST property is not violated anywhere. Procedure to delete a node from AVL tree: Let w be the node to be deleted 1. Perform standard BST delete for w. 2. Starting from w, travel up and find the first unbalanced node. Let z be the first unbalanced node, y be the larger height child of z, and x be the larger height child of y. Note that the definitions of x and y are different from insertion here. 3. Re-balance the tree by performing appropriate rotations on the subtree rooted with z. There can be 4 possible cases that needs to be handled as x, y and z can be arranged in 4 ways. Following are the possible 4 arrangements: i. y is left child of z and x is left child of y (Left Left Case) ii. y is left child of z and x is right child of y (Left Right Case) iii. y is right child of z and x is right child of y (Right Right Case) iv. y is right child of z and x is left child of y (Right Left Case)",
+    "starter_code": "class TreeNode\n{\n    int val, height;\n    TreeNode left, right;\n\n    TreeNode(int d) {\n    val = d;\n    height = 1;\n}\n\nclass AVL_Tree {\n\n    TreeNode leftRotate(TreeNode z)\n    {\n    # Write code here\n    }\n\n    TreeNode rightRotate(TreeNode z)\n    {\n    # Write code here\n    }\n\n    TreeNode insert(TreeNode node, int key)\n    {\n    # Write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n30\n20\n40\n10\n25\ndelete 20\ninorder",
+        "expected_output": "10 25 30 40",
+        "is_visible": true
+      },
+      {
+        "input": "7\n50\n30\n70\n20\n40\n60\n80\ndelete 30\ninorder",
+        "expected_output": "20 40 50 60 70 80",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10\n20\n30\n40\n50\n60\ndelete 40\ninorder",
+        "expected_output": "10 20 30 50 60",
+        "is_visible": true
+      },
+      {
+        "input": "8\n45\n22\n67\n15\n33\n55\n78\n10\ndelete 45\ninorder",
+        "expected_output": "10 15 22 33 55 67 78",
+        "is_visible": true
+      },
+      {
+        "input": "9\n50\n25\n75\n12\n37\n62\n87\n6\n18\ndelete 75\ninorder",
+        "expected_output": "6 12 18 25 37 50 62 87",
+        "is_visible": true
+      },
+      {
+        "input": "12\n100\n50\n150\n25\n75\n125\n175\n12\n37\n62\n87\n112\ndelete 150\ninorder",
+        "expected_output": "12 25 37 50 62 75 87 100 112 125 175",
+        "is_visible": false
+      },
+      {
+        "input": "10\n41\n20\n65\n11\n29\n50\n91\n32\n72\n99\ndelete 20\ndelete 65\ninorder",
+        "expected_output": "11 29 32 41 50 72 91 99",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8\n4\n12\n2\n6\n10\n14\n1\n3\n5\n7\n9\n11\n13\n15\ndelete 8\ndelete 12\ninorder",
+        "expected_output": "1 2 3 4 5 6 7 9 10 11 13 14 15",
+        "is_visible": false
+      },
+      {
+        "input": "14\n500\n250\n750\n125\n375\n625\n875\n62\n187\n312\n437\n562\n687\n812\ndelete 750\ndelete 125\ninorder",
+        "expected_output": "62 187 250 312 375 437 500 562 625 687 812 875",
+        "is_visible": false
+      },
+      {
+        "input": "20\n1000\n500\n1500\n250\n750\n1250\n1750\n125\n375\n625\n875\n1125\n1375\n1625\n1875\n62\n187\n312\n437\n562\ndelete 1000\ndelete 750\ninorder",
+        "expected_output": "62 125 187 250 312 375 437 500 562 625 875 1125 1250 1375 1500 1625 1750 1875",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "11.3 Count Greater Nodes in AVL Tree",
+    "description": "Given an AVL tree, calculate number of elements which are greater than given value in AVL tree.\nInput: x = 5\nRoot of below AVL tree\n    9\n    / \\\n    1  10\n    / \\\n    0  5  11\n    / \\\n    -1  2  6\nOutput: 4\nExplanation: There are 4 values which are greater than 5 in AVL tree which are 6, 9, 10 and 11.",
+    "starter_code": "class TreeNode {\n    int key, height, desc;\n    TreeNode left, right;\n\n    TreeNode(int d) {\n    key = d;\n    height = 1;\n    desc = 0;\n}\n\nclass AVL_Tree\n{\n    # Write code here\n}\n\nTreeNode insert(TreeNode node, int key)\n{\n    # Write code here\n}\nTreeNode minValueNode(TreeNode node)\n{\n    # Write code here\n}\n\nTreeNode deleteNode(TreeNode root, int key)\n{\n    # Write code here\n}\n\nvoid preOrder(TreeNode node)\n{\n    # Write code here\n}\n\npublic class Main\n{\n    # Write code here\n}",
+    "testcases": [
+      {
+        "input": "7\n9\n1\n10\n0\n5\n11\n2\ncount 5",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "5\n10\n5\n15\n3\n7\ncount 7",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "6\n20\n10\n30\n5\n15\n25\ncount 15",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "8\n50\n30\n70\n20\n40\n60\n80\n45\ncount 40",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "10\n100\n50\n150\n25\n75\n125\n175\n12\n37\n62\ncount 75",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "12\n200\n100\n300\n50\n150\n250\n350\n25\n75\n125\n175\n225\ncount 150",
+        "expected_output": "6",
+        "is_visible": false
+      },
+      {
+        "input": "9\n45\n22\n67\n15\n33\n55\n78\n10\n18\ncount 30",
+        "expected_output": "5",
+        "is_visible": false
+      },
+      {
+        "input": "15\n8\n4\n12\n2\n6\n10\n14\n1\n3\n5\n7\n9\n11\n13\n15\ncount 8",
+        "expected_output": "7",
+        "is_visible": false
+      },
+      {
+        "input": "14\n500\n250\n750\n125\n375\n625\n875\n62\n187\n312\n437\n562\n687\n812\ncount 400",
+        "expected_output": "8",
+        "is_visible": false
+      },
+      {
+        "input": "20\n1000\n500\n1500\n250\n750\n1250\n1750\n125\n375\n625\n875\n1125\n1375\n1625\n1875\n62\n187\n312\n437\n562\ncount 1000",
+        "expected_output": "10",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "11.4 Minimum Number of Nodes in an AVL Tree with given Height",
+    "description": "Given the height of an AVL tree 'h', the task is to find the minimum number of nodes the tree can have.\nInput: H = 0\nOutput: N = 1\nOnly '1' node is possible if the height\nof the tree is '0' which is the root node.\nInput: H = 3\nOutput: N = 7\nRecursive approach:\nIn an AVL tree, we have to maintain the height balance property, i.e. difference in the height of the left and the right subtrees cannot be other than -1, 0 or 1 for each node.\nWe will try to create a recurrence relation to find minimum number of nodes for a given height, n(h).\n- For height = 0, we can only have a single node in an AVL tree, i.e. n(0) = 1\n- For height = 1, we can have a minimum of two nodes in an AVL tree, i.e. n(1) = 2\n- Now for any height 'h', root will have two subtrees (left and right). Out of which one has to be of height h-1 and other of h-2. [root node excluded]\n- So, n(h) = 1 + n(h-1) + n(h-2) is the required recurrence relation for h> = 2 [1 is added for the root node]",
+    "starter_code": "public class AVLTreeMinimumNodes {\n    public static int AVLnodes(int height)\n    {\n    # Write code here\n    }\n\n    public static void main(String[] args) {\n    int H = 3;\n    System.out.println(AVLnodes(H)); // Output: 4\n    }\n}",
+    "testcases": [
+      {
+        "input": "0",
+        "expected_output": "1",
+        "is_visible": true
+      },
+      {
+        "input": "1",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "2",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "3",
+        "expected_output": "7",
+        "is_visible": true
+      },
+      {
+        "input": "4",
+        "expected_output": "12",
+        "is_visible": true
+      },
+      {
+        "input": "5",
+        "expected_output": "20",
+        "is_visible": false
+      },
+      {
+        "input": "6",
+        "expected_output": "33",
+        "is_visible": false
+      },
+      {
+        "input": "7",
+        "expected_output": "54",
+        "is_visible": false
+      },
+      {
+        "input": "8",
+        "expected_output": "88",
+        "is_visible": false
+      },
+      {
+        "input": "9",
+        "expected_output": "143",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "12.1 Breadth First Search",
+    "description": "The Breadth First Search (BFS) algorithm is used to search a graph data structure for a node that meets a set of criteria. It starts at the root of the graph and visits all nodes at the current depth level before moving on to the nodes at the next depth level.\nFor a given graph G, print BFS traversal from a given source vertex.",
+    "starter_code": "import java.util.*;\npublic class Graph {\n    private Map<Integer, List<Integer>> graph;\n    public Graph()\n    {\n    graph = new HashMap<>();\n    }\n    public void addEdge(int u, int v) {\n    if (!graph.containsKey(u)) {\n    graph.put(u, new ArrayList<>());\n    }\n    graph.get(u).add(v);\n    }\n    public void BFS(int s)\n    {\n    # Write code here\n    }\n    public static void main(String[] args)\n    {\n    # Write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "4 3\n0 1\n0 2\n0 3\n0",
+        "expected_output": "0 1 2 3",
+        "is_visible": true
+      },
+      {
+        "input": "5 4\n0 1\n0 2\n0 3\n2 4\n0",
+        "expected_output": "0 1 2 3 4",
+        "is_visible": true
+      },
+      {
+        "input": "6 5\n0 1\n0 2\n1 3\n1 4\n2 5\n0",
+        "expected_output": "0 1 2 3 4 5",
+        "is_visible": true
+      },
+      {
+        "input": "7 6\n0 1\n0 2\n1 3\n1 4\n2 5\n2 6\n0",
+        "expected_output": "0 1 2 3 4 5 6",
+        "is_visible": true
+      },
+      {
+        "input": "8 7\n0 1\n0 2\n1 3\n1 4\n2 5\n3 6\n4 7\n0",
+        "expected_output": "0 1 2 3 4 5 6 7",
+        "is_visible": true
+      },
+      {
+        "input": "10 9\n0 1\n0 2\n1 3\n1 4\n2 5\n3 6\n4 7\n5 8\n6 9\n0",
+        "expected_output": "0 1 2 3 4 5 6 7 8 9",
+        "is_visible": false
+      },
+      {
+        "input": "12 11\n0 1\n0 2\n1 3\n1 4\n2 5\n3 6\n4 7\n5 8\n6 9\n7 10\n8 11\n0",
+        "expected_output": "0 1 2 3 4 5 6 7 8 9 10 11",
+        "is_visible": false
+      },
+      {
+        "input": "15 14\n0 1\n0 2\n1 3\n1 4\n2 5\n3 6\n4 7\n5 8\n6 9\n7 10\n8 11\n9 12\n10 13\n11 14\n0",
+        "expected_output": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14",
+        "is_visible": false
+      },
+      {
+        "input": "20 19\n0 1\n0 2\n1 3\n1 4\n2 5\n3 6\n4 7\n5 8\n6 9\n7 10\n8 11\n9 12\n10 13\n11 14\n12 15\n13 16\n14 17\n15 18\n16 19\n0",
+        "expected_output": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19",
+        "is_visible": false
+      },
+      {
+        "input": "25 24\n0 1\n0 2\n1 3\n1 4\n2 5\n3 6\n4 7\n5 8\n6 9\n7 10\n8 11\n9 12\n10 13\n11 14\n12 15\n13 16\n14 17\n15 18\n16 19\n17 20\n18 21\n19 22\n20 23\n21 24\n0",
+        "expected_output": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24",
+        "is_visible": false
+      }
+    ]
+  }
+]

@@ -1,0 +1,572 @@
+[
+  {
+    "title": "6.3 Queue using Stacks",
+    "description": "Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty). - void push(int x) Pushes element x to the back of the queue. - int pop() Removes the element from the front of the queue and returns it. - int peek() Returns the element at the front of the queue. - boolean empty() Returns true if the queue is empty, false otherwise. Input: [\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"] [[], [1], [2], []], []] Output: [null, null, null, 1, 1, false]",
+    "starter_code": "import java.util.Stack;\n\nclass MyQueue {\n    private Stack<Integer> stack1;\n    private Stack<Integer> stack2;\n    public MyQueue() {\n    stack1 = new Stack>();\n    stack2 = new Stack>();\n    }\n    public void push(int x) {\n    stack1.push(x);\n    }\n    public int pop()\n    {\n    # Write Code Here\n    }\n    public int peek()\n    {\n    # Write Code Here\n    }\n    public boolean empty() {\n    return stack1.isEmpty() && stack2.isEmpty();\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "push 1\npush 2\npeek\npop\nempty",
+        "expected_output": "1\n1\nfalse",
+        "is_visible": true
+      },
+      {
+        "input": "push 10\npush 20\npop\npeek",
+        "expected_output": "10\n20",
+        "is_visible": true
+      },
+      {
+        "input": "push 5\npop\nempty",
+        "expected_output": "5\ntrue",
+        "is_visible": true
+      },
+      {
+        "input": "push 100\npush 200\npush 300\npop\npop\npeek",
+        "expected_output": "100\n200\n300",
+        "is_visible": true
+      },
+      {
+        "input": "empty\npush 50\nempty",
+        "expected_output": "true\nfalse",
+        "is_visible": true
+      },
+      {
+        "input": "push 1\npush 2\npush 3\npop\npush 4\npop\npeek",
+        "expected_output": "1\n2\n3",
+        "is_visible": false
+      },
+      {
+        "input": "push 10\npush 20\npush 30\npop\npop\npush 40\npop\npeek",
+        "expected_output": "10\n20\n30\n40",
+        "is_visible": false
+      },
+      {
+        "input": "empty\npush 5\npush 10\npop\nempty\npush 15\npop\npeek",
+        "expected_output": "true\n5\nfalse\n10\n15",
+        "is_visible": false
+      },
+      {
+        "input": "push 1\npush 2\npush 3\npush 4\npush 5\npop\npop\npop\npop\npop\nempty",
+        "expected_output": "1\n2\n3\n4\n5\ntrue",
+        "is_visible": false
+      },
+      {
+        "input": "push 100\npush 200\npop\npush 300\npush 400\npop\npop\npeek\nempty",
+        "expected_output": "100\n200\n300\n400\nfalse",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "6.4 Circular Queue",
+    "description": "A Circular Queue is an extended version of a normal queue where the last element of the queue is connected to the first element of the queue forming a circle. The operations are performed based on FIFO (First In First Out) principle. It is also called 'Ring Buffer'. Operations on Circular Queue: - Front: Get the front item from the queue. - Rear: Get the last item from the queue. - enQueue(value) This function is used to insert an element into the circular queue. In a circular queue, the new element is always inserted at the rear position. - Check whether the queue is full - [i.e., the rear end is in just before the front end in a circular manner]. - If it is full then display Queue is full. - If the queue is not full then, insert an element at the end of the queue. deQueue() This function is used to delete an element from the circular queue. In a circular queue, the element is always deleted from the front position. - Check whether the queue is Empty. - If it is empty then display Queue is empty. - If the queue is not empty, then get the last element and remove it from the queue. Implement Circular Queue using Array: 1. Initialize an array queue of size n, where n is the maximum number of elements that the queue can hold. 2. Initialize two variables front and rear to -1. 3. Enqueue: To enqueue an element x into the queue, do the following: - Increment rear by 1. - If rear is equal to n, set rear to 0. - If front is -1, set front to 0. - Set queue[rear] to x. 4. Dequeue: To dequeue an element from the queue, do the following: - Check if the queue is empty by checking if front is -1. - If it is, return an error message indicating that the queue is empty. - Set x to queue [front]. - If front is equal to rear, set front and rear to -1. - Otherwise, increment front by 1 and if front is equal to n, set front to 0. - Return x.",
+    "starter_code": "class CircularQueue {\n    private int size;\n    private int front, rear;\n    private int[] queue;\n\n    public CircularQueue(int size) {\n    this.size = size;\n    this.queue = new int[size];\n    this.front = this.rear = -1;\n}\n\n    public void enqueue(int data)\n    {\n    # Write Code Here\n    }\n    public int dequeue()\n    {\n    # Write Code Here\n    }\n    public void display()\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\nenqueue 10\nenqueue 20\nenqueue 30\ndequeue\nenqueue 40\ndequeue\ndisplay",
+        "expected_output": "30 40",
+        "is_visible": true
+      },
+      {
+        "input": "3\nenqueue 5\nenqueue 10\ndequeue",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "4\nenqueue 100\nenqueue 200\ndequeue\ndequeue",
+        "expected_output": "Queue is empty",
+        "is_visible": true
+      },
+      {
+        "input": "6\nenqueue 1\nenqueue 2\nenqueue 3\ndequeue\nenqueue 4\ndisplay",
+        "expected_output": "2 3 4",
+        "is_visible": true
+      },
+      {
+        "input": "5\nenqueue 99\ndequeue\nenqueue 88\ndequeue\ndequeue",
+        "expected_output": "Queue is empty",
+        "is_visible": true
+      },
+      {
+        "input": "8\nenqueue 10\nenqueue 20\nenqueue 30\ndequeue\nenqueue 40\ndequeue\nenqueue 50\nenqueue 60\nenqueue 70\ndisplay",
+        "expected_output": "30 40 50 60 70",
+        "is_visible": false
+      },
+      {
+        "input": "10\nenqueue 5\nenqueue 10\nenqueue 15\ndequeue\nenqueue 20\ndequeue\nenqueue 25\nenqueue 30\ndequeue\ndequeue\ndisplay",
+        "expected_output": "20 25 30",
+        "is_visible": false
+      },
+      {
+        "input": "12\nenqueue 100\nenqueue 200\nenqueue 300\ndequeue\nenqueue 400\ndequeue\nenqueue 500\nenqueue 600\ndequeue\ndequeue\ndequeue\ndisplay",
+        "expected_output": "600",
+        "is_visible": false
+      },
+      {
+        "input": "15\nenqueue 1\nenqueue 2\nenqueue 3\nenqueue 4\nenqueue 5\ndequeue\ndequeue\ndequeue\nenqueue 6\nenqueue 7\ndequeue\ndequeue\ndequeue\ndequeue\ndisplay",
+        "expected_output": "6 7",
+        "is_visible": false
+      },
+      {
+        "input": "20\nenqueue 10\nenqueue 20\nenqueue 30\nenqueue 40\nenqueue 50\ndequeue\ndequeue\nenqueue 60\nenqueue 70\ndequeue\nenqueue 80\nenqueue 90\ndequeue\ndequeue\ndequeue\ndequeue\ndequeue\ndequeue\ndisplay",
+        "expected_output": "Queue is empty",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "6.5 Deque (Doubly Ended Queue)",
+    "description": "In a Deque (Doubly Ended Queue), one can perform insert (append) and delete (pop) operations from both the ends of the container. There are two types of Deque: 1. Input Restricted Deque: Input is limited at one end while deletion is permitted at both ends. 2. Output Restricted Deque: Output is limited at one end but insertion is permitted at both ends. Operations on Deque: 1. append(): This function is used to insert the value in its argument to the right end of the deque. 2. appendleft(): This function is used to insert the value in its argument to the left end of the deque. 3. pop(): This function is used to delete an argument from the right end of the deque. 4. popleft(): This function is used to delete an argument from the left end of the deque. 5. index(ele, beg, end): This function returns the first index of the value mentioned in arguments, starting searching from beg till end index. 6. insert(i, a): This function inserts the value mentioned in arguments(a) at index(i) specified in arguments. 7. remove(): This function removes the first occurrence of the value mentioned in arguments. 8. count(): This function counts the number of occurrences of value mentioned in arguments. 9. len(dequeue): Return the current size of the dequeue. 10. Deque[0]: We can access the front element of the deque using indexing with de[0]. 11. Deque[-1]: We can access the back element of the deque using indexing with de[-1]. 12. extend(tterable): This function is used to add multiple values at the right end of the deque. The argument passed is iterable. 13. extendleft(tterable): This function is used to add multiple values at the left end of the deque. The argument passed is iterable. Order is reversed as a result of left appends. 14. reverse(): This function is used to reverse the order of deque elements. 15. rotate(): This function rotates the deque by the number specified in arguments. If the number specified is negative, rotation occurs to the left. Else rotation is to right.",
+    "starter_code": "import java.util.ArrayList;\nimport java.util.Deque;\n\npublic class DequeOperations\n{\n    # White Code Here\n}",
+    "testcases": [
+      {
+        "input": "append 10\nappend 20\nappend 30\npopleft\npop\ndisplay",
+        "expected_output": "20",
+        "is_visible": true
+      },
+      {
+        "input": "appendleft 5\nappend 10\nappend 15\npopleft\nappend 20\ndisplay",
+        "expected_output": "10 15 20",
+        "is_visible": true
+      },
+      {
+        "input": "append 100\nappend 200\npopleft\npop\ndisplay",
+        "expected_output": "Deque is empty",
+        "is_visible": true
+      },
+      {
+        "input": "append 1\nappend 2\nappendleft 0\npop\ndisplay",
+        "expected_output": "0 1",
+        "is_visible": true
+      },
+      {
+        "input": "append 50\nappendleft 40\nappend 60\npopleft\nappendleft 30\ndisplay",
+        "expected_output": "30 50 60",
+        "is_visible": true
+      },
+      {
+        "input": "append 10\nappend 20\nappend 30\nappendleft 5\nappendleft 1\npop\npopleft\ndisplay",
+        "expected_output": "5 10 20",
+        "is_visible": false
+      },
+      {
+        "input": "append 100\nappend 200\nappend 300\npopleft\nappendleft 50\nappend 400\npop\ndisplay",
+        "expected_output": "50 200 300",
+        "is_visible": false
+      },
+      {
+        "input": "append 1\nappend 2\nappend 3\nappendleft 0\nappend 4\npopleft\npop\nappendleft -1\ndisplay",
+        "expected_output": "-1 1 2 3",
+        "is_visible": false
+      },
+      {
+        "input": "append 10\nappend 20\nappend 30\nappend 40\nappend 50\npopleft\npopleft\nappendleft 5\nappend 60\npop\ndisplay",
+        "expected_output": "5 30 40 50",
+        "is_visible": false
+      },
+      {
+        "input": "append 100\nappend 200\nappendleft 50\nappend 300\nappendleft 25\npopleft\npop\nappend 400\nappendleft 75\ndisplay",
+        "expected_output": "75 50 100 200 300",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.1 Singly Linked List",
+    "description": "A singly linked list is a linear data structure in which the elements are not stored in contiguous memory locations and each element is connected only to its next element using a pointer. Creating a linked list involves the following operations: 1. Creating a Node class: 2. Insertion at beginning: 3. Insertion at end 4. Insertion at middle 5. Update the node 6. Deletion at beginning 7. Deletion at end 8. Deletion at middle 9. Remove last node 10. Linked list traversal 11. Get length",
+    "starter_code": "class Node {\n    String data;\n    Node next;\n\n    Node(String data) {\n    this.data = data;\n    this.next = null;\n}\n\nclass LinkedList {\n    # Write Code Here\n    }\n\n    public void insertAtEnd(String data)\n    {\n    # Write Code Here\n    }\n\n    public void updateNode(String val, int index)\n    {\n    # Write Code Here\n    }\n\n    public void remove_first_node() {\n    # Write Code Here\n    }\n    public void remove_last_node()\n    {\n    # Write Code Here\n    }\n    public void remove_at_index(int index)\n    {\n    # Write Code Here\n    }\n    public void remove_node(String data)\n    {\n    # Write Code Here\n    }\n    public int sizeOfLL()\n    {\n    # Write Code Here\n    }\n    public void println()\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "insertAtEnd A\ninsertAtEnd B\ninsertAtEnd C\nremove_first_node\nprintln",
+        "expected_output": "B C",
+        "is_visible": true
+      },
+      {
+        "input": "insertAtEnd 10\ninsertAtEnd 20\ninsertAtEnd 30\nremove_last_node\nprintln",
+        "expected_output": "10 20",
+        "is_visible": true
+      },
+      {
+        "input": "insertAtEnd X\ninsertAtEnd Y\ninsertAtEnd Z\nremove_at_index 1\nprintln",
+        "expected_output": "X Z",
+        "is_visible": true
+      },
+      {
+        "input": "insertAtEnd apple\ninsertAtEnd banana\ninsertAtEnd cherry\nremove_node banana\nprintln",
+        "expected_output": "apple cherry",
+        "is_visible": true
+      },
+      {
+        "input": "insertAtEnd 1\ninsertAtEnd 2\ninsertAtEnd 3\nsizeOfLL",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "insertAtEnd A\ninsertAtEnd B\ninsertAtEnd C\ninsertAtEnd D\nremove_at_index 2\nremove_first_node\nprintln",
+        "expected_output": "B D",
+        "is_visible": false
+      },
+      {
+        "input": "insertAtEnd 10\ninsertAtEnd 20\ninsertAtEnd 30\ninsertAtEnd 40\nupdateNode 25 2\nremove_last_node\nprintln",
+        "expected_output": "10 20 25",
+        "is_visible": false
+      },
+      {
+        "input": "insertAtEnd red\ninsertAtEnd green\ninsertAtEnd blue\ninsertAtEnd yellow\nremove_node green\nremove_at_index 0\nprintln",
+        "expected_output": "blue yellow",
+        "is_visible": false
+      },
+      {
+        "input": "insertAtEnd 1\ninsertAtEnd 2\ninsertAtEnd 3\ninsertAtEnd 4\ninsertAtEnd 5\nremove_first_node\nremove_last_node\nremove_at_index 1\nprintln",
+        "expected_output": "2 4",
+        "is_visible": false
+      },
+      {
+        "input": "insertAtEnd A\ninsertAtEnd B\ninsertAtEnd C\ninsertAtEnd D\ninsertAtEnd E\nremove_node C\nupdateNode X 1\nremove_first_node\nsizeOfLL",
+        "expected_output": "3",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.2 Linked List Cycle",
+    "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter. Return true if there is a cycle in the linked list. Otherwise, return false. Input: head = [3, 2, 0, -4], pos = 1 Output: true Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed). Input: head = [1, 2], pos = 0 Output: true Explanation: There is a cycle in the linked list, where the tail connects to the 0th node. Input: head = [1], pos = -1 Output: false Explanation: There is no cycle in the linked list.",
+    "starter_code": "class ListNode {\n    # Write Code Here\n    }\n\npublic class Solution\n    {\n    # Write Code Here\n    }",
+    "testcases": [
+      {
+        "input": "4\n3 2 0 -4\n1",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "2\n1 2\n0",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "1\n1\n-1",
+        "expected_output": "false",
+        "is_visible": true
+      },
+      {
+        "input": "5\n1 2 3 4 5\n-1",
+        "expected_output": "false",
+        "is_visible": true
+      },
+      {
+        "input": "3\n1 2 3\n0",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10 20 30 40 50 60\n3",
+        "expected_output": "true",
+        "is_visible": false
+      },
+      {
+        "input": "7\n1 2 3 4 5 6 7\n6",
+        "expected_output": "true",
+        "is_visible": false
+      },
+      {
+        "input": "8\n5 4 3 2 1 0 -1 -2\n-1",
+        "expected_output": "false",
+        "is_visible": false
+      },
+      {
+        "input": "10\n1 2 3 4 5 6 7 8 9 10\n9",
+        "expected_output": "true",
+        "is_visible": false
+      },
+      {
+        "input": "12\n100 200 300 400 500 600 700 800 900 1000 1100 1200\n-1",
+        "expected_output": "false",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.3 Remove Linked List Elements",
+    "description": "Given the head of a linked list and an integer val, remove all the nodes of the linked list that has Node.val == val, and return the new head. Input: head = [1, 2, 6, 3, 4, 5, 6], val = 6 Output: [1, 2, 3, 4, 5] Input: head = [ ], val = 1 Output: [] Input: head = [7, 7, 7, 7], val = 7 Output: []",
+    "starter_code": "class ListNode {\n    # Write Code Here\n    }\n}\n\npublic class Solution {\n    public boolean hasCycle(ListNode head)\n    {\n    # Write Code Here\n    }\n\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "7\n1 2 6 3 4 5 6\n6",
+        "expected_output": "1 2 3 4 5",
+        "is_visible": true
+      },
+      {
+        "input": "0\n\n1",
+        "expected_output": "",
+        "is_visible": true
+      },
+      {
+        "input": "4\n7 7 7 7\n7",
+        "expected_output": "",
+        "is_visible": true
+      },
+      {
+        "input": "5\n1 2 3 4 5\n10",
+        "expected_output": "1 2 3 4 5",
+        "is_visible": true
+      },
+      {
+        "input": "6\n10 20 10 30 10 40\n10",
+        "expected_output": "20 30 40",
+        "is_visible": true
+      },
+      {
+        "input": "8\n5 1 5 2 5 3 5 4\n5",
+        "expected_output": "1 2 3 4",
+        "is_visible": false
+      },
+      {
+        "input": "10\n1 1 2 2 3 3 4 4 5 5\n3",
+        "expected_output": "1 1 2 2 4 4 5 5",
+        "is_visible": false
+      },
+      {
+        "input": "12\n100 200 300 100 200 300 100 200 300 100 200 300\n100",
+        "expected_output": "200 300 200 300 200 300 200 300",
+        "is_visible": false
+      },
+      {
+        "input": "15\n0 1 0 2 0 3 0 4 0 5 0 6 0 7 0\n0",
+        "expected_output": "1 2 3 4 5 6 7",
+        "is_visible": false
+      },
+      {
+        "input": "20\n5 10 5 15 5 20 5 25 5 30 5 35 5 40 5 45 5 50 5 55\n5",
+        "expected_output": "10 15 20 25 30 35 40 45 50 55",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.4 Reverse Linked List",
+    "description": "Given the head of a singly linked list, reverse the list, and return the reversed list. Input: head = [1, 2, 3, 4, 5] Output: [5, 4, 3, 2, 1] Input: head = [1, 2] Output: [2, 1]",
+    "starter_code": "class ListNode {\n    int val;\n    ListNode next;\n\n    ListNode(int val) {\n    this.val = val;\n    this.next = null;\n    }\n}\n\npublic class Solution {\n    public ListNode reverselist(ListNode head)\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "expected_output": "5 4 3 2 1",
+        "is_visible": true
+      },
+      {
+        "input": "2\n1 2",
+        "expected_output": "2 1",
+        "is_visible": true
+      },
+      {
+        "input": "1\n10",
+        "expected_output": "10",
+        "is_visible": true
+      },
+      {
+        "input": "4\n4 3 2 1",
+        "expected_output": "1 2 3 4",
+        "is_visible": true
+      },
+      {
+        "input": "3\n100 200 300",
+        "expected_output": "300 200 100",
+        "is_visible": true
+      },
+      {
+        "input": "6\n1 3 5 7 9 11",
+        "expected_output": "11 9 7 5 3 1",
+        "is_visible": false
+      },
+      {
+        "input": "8\n10 20 30 40 50 60 70 80",
+        "expected_output": "80 70 60 50 40 30 20 10",
+        "is_visible": false
+      },
+      {
+        "input": "10\n5 10 15 20 25 30 35 40 45 50",
+        "expected_output": "50 45 40 35 30 25 20 15 10 5",
+        "is_visible": false
+      },
+      {
+        "input": "12\n1 2 3 4 5 6 7 8 9 10 11 12",
+        "expected_output": "12 11 10 9 8 7 6 5 4 3 2 1",
+        "is_visible": false
+      },
+      {
+        "input": "15\n100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500",
+        "expected_output": "1500 1400 1300 1200 1100 1000 900 800 700 600 500 400 300 200 100",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.5 Palindrome Linked List",
+    "description": "Given the head of a singly linked list, return true if it is a palindrome or false otherwise. Input: head = [1, 2, 2, 1] Output: true Input: head = [1, 2] Output: false",
+    "starter_code": "class ListNode\n{\n    # Write Code Here\n}\npublic class Solution {\n    public boolean isPalindrome(ListNode head)\n    {\n    # Write Code Here\n    }\n    public static void main(String[] args)\n    {\n    # Write Code Here\n    }\n}",
+    "testcases": [
+      {
+        "input": "4\n1 2 2 1",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "2\n1 2",
+        "expected_output": "false",
+        "is_visible": true
+      },
+      {
+        "input": "3\n1 2 1",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "1\n5",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "5\n1 2 3 2 1",
+        "expected_output": "true",
+        "is_visible": true
+      },
+      {
+        "input": "6\n1 2 3 3 2 1",
+        "expected_output": "true",
+        "is_visible": false
+      },
+      {
+        "input": "7\n1 2 3 4 3 2 1",
+        "expected_output": "true",
+        "is_visible": false
+      },
+      {
+        "input": "8\n1 2 3 4 4 3 2 1",
+        "expected_output": "true",
+        "is_visible": false
+      },
+      {
+        "input": "5\n1 2 3 4 5",
+        "expected_output": "false",
+        "is_visible": false
+      },
+      {
+        "input": "10\n1 2 3 4 5 5 4 3 2 1",
+        "expected_output": "true",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.6 Middle of the Linked List",
+    "description": "Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node. Input: head = [1, 2, 3, 4, 5] Output: [3, 4, 5] Explanation: The middle node of the list is node 3. Input: head = [1, 2, 3, 4, 5, 6] Output: [4, 5, 6] Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.",
+    "starter_code": "class ListNode\n{\n    # Write Code Here\n}\n\npublic class Solution\n{\n    # Write Code Here\n}\n\npublic static void main(String[] args) {\n    # Write Code Here\n}",
+    "testcases": [
+      {
+        "input": "5\n1 2 3 4 5",
+        "expected_output": "3 4 5",
+        "is_visible": true
+      },
+      {
+        "input": "6\n1 2 3 4 5 6",
+        "expected_output": "4 5 6",
+        "is_visible": true
+      },
+      {
+        "input": "1\n10",
+        "expected_output": "10",
+        "is_visible": true
+      },
+      {
+        "input": "3\n100 200 300",
+        "expected_output": "200 300",
+        "is_visible": true
+      },
+      {
+        "input": "2\n5 10",
+        "expected_output": "10",
+        "is_visible": true
+      },
+      {
+        "input": "7\n1 2 3 4 5 6 7",
+        "expected_output": "4 5 6 7",
+        "is_visible": false
+      },
+      {
+        "input": "8\n10 20 30 40 50 60 70 80",
+        "expected_output": "50 60 70 80",
+        "is_visible": false
+      },
+      {
+        "input": "9\n1 3 5 7 9 11 13 15 17",
+        "expected_output": "9 11 13 15 17",
+        "is_visible": false
+      },
+      {
+        "input": "12\n1 2 3 4 5 6 7 8 9 10 11 12",
+        "expected_output": "7 8 9 10 11 12",
+        "is_visible": false
+      },
+      {
+        "input": "15\n100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500",
+        "expected_output": "800 900 1000 1100 1200 1300 1400 1500",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "7.7 Convert Binary Number in a Linked List to Integer",
+    "description": "Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number. Return the decimal value of the number in the linked list. The most significant bit is at the head of the linked list. Input: head = [1, 0, 1] Output: 5 Explanation: (101) in base 2 = (5) in base 10 Input: head = [0] Output: 0",
+    "starter_code": "class ListNode {\n    int val;\n    ListNode next;\n\n    ListNode(int val) {\n    this.val = val;\n    this.next = null;\n    }\n}\n\npublic class Solution\n{\n    # White Code Here\n}\n\npublic static void main(String[] args)\n{\n    # White Code Here\n}",
+    "testcases": [
+      {
+        "input": "3\n1 0 1",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "1\n0",
+        "expected_output": "0",
+        "is_visible": true
+      },
+      {
+        "input": "4\n1 1 1 1",
+        "expected_output": "15",
+        "is_visible": true
+      },
+      {
+        "input": "5\n1 0 1 0 1",
+        "expected_output": "21",
+        "is_visible": true
+      },
+      {
+        "input": "2\n1 0",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "6\n1 0 0 1 1 0",
+        "expected_output": "38",
+        "is_visible": false
+      },
+      {
+        "input": "8\n1 1 0 0 1 1 0 1",
+        "expected_output": "205",
+        "is_visible": false
+      },
+      {
+        "input": "10\n1 0 1 0 1 0 1 0 1 0",
+        "expected_output": "682",
+        "is_visible": false
+      },
+      {
+        "input": "12\n1 1 1 1 0 0 0 0 1 1 1 1",
+        "expected_output": "3855",
+        "is_visible": false
+      },
+      {
+        "input": "15\n1 0 0 0 0 0 0 0 0 0 0 0 0 0 1",
+        "expected_output": "16385",
+        "is_visible": false
+      }
+    ]
+  }
+]

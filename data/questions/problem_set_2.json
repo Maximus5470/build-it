@@ -1,0 +1,572 @@
+[
+  {
+    "title": "2.1 Linear / Sequential Search",
+    "description": "Linear search is defined as the searching algorithm where the list or data set is traversed from one end to find the desired value. Given an array arr[] of n elements, write a recursive function to search a given element x in arr[]. Find '6' 0 1 2 3 4 5 6 7 8 9 Index Note: We find '6' at index '5' through linear search Linear search procedure: 1. Start from the leftmost element of arr[] and one by one compare x with each element of arr[] 2. If x matches with an element, return the index. 3. If x doesn't match with any of the elements, return -1. Input: arr[] = {10, 20, 80, 30, 60, 50, 110, 100, 130, 170} x = 110; Output: 6 Element x is present at index 6 Input: arr[] = {10, 20, 80, 30, 60, 50, 110, 100, 130, 170} x = 175; Output: -1 Element x is not present in arr[].",
+    "starter_code": "public class RecursiveLinearSearch\n{\n    public static int recursiveLinearSearch(int[] arr, int key, int index)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "10\n10 20 80 30 60 50 110 100 130 170\n110",
+        "expected_output": "6",
+        "is_visible": true
+      },
+      {
+        "input": "10\n10 20 80 30 60 50 110 100 130 170\n175",
+        "expected_output": "-1",
+        "is_visible": true
+      },
+      {
+        "input": "5\n1 2 3 4 5\n3",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "7\n7 14 21 28 35 42 49\n42",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "4\n100 200 300 400\n500",
+        "expected_output": "-1",
+        "is_visible": true
+      },
+      {
+        "input": "8\n5 10 15 20 25 30 35 40\n25",
+        "expected_output": "4",
+        "is_visible": false
+      },
+      {
+        "input": "6\n2 4 6 8 10 12\n7",
+        "expected_output": "-1",
+        "is_visible": false
+      },
+      {
+        "input": "9\n11 22 33 44 55 66 77 88 99\n88",
+        "expected_output": "7",
+        "is_visible": false
+      },
+      {
+        "input": "12\n1 3 5 7 9 11 13 15 17 19 21 23\n19",
+        "expected_output": "9",
+        "is_visible": false
+      },
+      {
+        "input": "15\n10 20 30 40 50 60 70 80 90 100 110 120 130 140 150\n145",
+        "expected_output": "-1",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "2.2 Binary Search",
+    "description": "Binary Search is defined as a searching algorithm used in a sorted array by repeatedly dividing the search interval in half. The idea of binary search is to use the information that the array is sorted and reduce the time complexity to O(log N). Conditions for Binary Search algorithm: 1. The data structure must be sorted. 2. Access to any element of the data structure takes constant time. Binary Search Procedure: 1. Divide the search space into two halves by finding the middle index \"mid\". 2. Compare the middle element of the search space with the key. 3. If the key is found at middle element, the process is terminated. 4. If the key is not found at middle element, choose which half will be used as the next search space. a. If the key is smaller than the middle element, then the left side is used for next search. b. If the key is larger than the middle element, then the right side is used for next search. 5. This process is continued until the key is found or the total search space is exhausted. Input: arr = [2, 5, 8, 12, 16, 23, 38, 56, 72, 91] Output: target = 23 Element 23 is present at index 5",
+    "starter_code": "public class RecursiveBinarySearch\n{\n    public static int recursiveBinarySearch(int[] arr, int key, int left, int right)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "10\n2 5 8 12 16 23 38 56 72 91\n23",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "5\n1 3 5 7 9\n5",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "8\n10 20 30 40 50 60 70 80\n35",
+        "expected_output": "-1",
+        "is_visible": true
+      },
+      {
+        "input": "7\n2 4 6 8 10 12 14\n8",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "6\n1 2 3 4 5 6\n1",
+        "expected_output": "0",
+        "is_visible": true
+      },
+      {
+        "input": "12\n5 10 15 20 25 30 35 40 45 50 55 60\n45",
+        "expected_output": "8",
+        "is_visible": false
+      },
+      {
+        "input": "15\n100 200 300 400 500 600 700 800 900 1000 1100 1200 1300 1400 1500\n1250",
+        "expected_output": "-1",
+        "is_visible": false
+      },
+      {
+        "input": "20\n2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40\n28",
+        "expected_output": "13",
+        "is_visible": false
+      },
+      {
+        "input": "25\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n25",
+        "expected_output": "24",
+        "is_visible": false
+      },
+      {
+        "input": "30\n10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250 260 270 280 290 300\n155",
+        "expected_output": "-1",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "2.3 Uniform Binary Search",
+    "description": "Uniform Binary Search is an optimization of Binary Search algorithm when many searches are made on same array or many arrays of same size. In normal binary search, we do arithmetic operations to find the mid points. Here we precompute mid points and fills them in lookup table. The array look-up generally works faster than arithmetic done (addition and shift) to find the mid-point. Input: array = {1, 3, 5, 6, 7, 8, 9}, v=3 Output: Position of 3 in array = 2 Input: array = {1, 3, 5, 6, 7, 8, 9}, v=7 Output: Position of 7 in array = 5 The algorithm is very similar to Binary Search algorithm, the only difference is a lookup table is created for an array and the lookup table is used to modify the index of the pointer in the array which makes the search faster. Instead of maintaining lower and upper bound the algorithm maintains an index and the index is modified using the lookup table.",
+    "starter_code": "public class RecursiveUniformBinarySearch\n{\n    public static int recursiveUniformBinarySearch(int[] arr, int key, int[] lookupTable, int left, int right)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "7\n1 3 5 6 7 8 9\n3",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "7\n1 3 5 6 7 8 9\n7",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "5\n10 20 30 40 50\n40",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "8\n2 4 6 8 10 12 14 16\n2",
+        "expected_output": "0",
+        "is_visible": true
+      },
+      {
+        "input": "6\n5 10 15 20 25 30\n25",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "12\n1 2 3 4 5 6 7 8 9 10 11 12\n9",
+        "expected_output": "8",
+        "is_visible": false
+      },
+      {
+        "input": "15\n100 150 200 250 300 350 400 450 500 550 600 650 700 750 800\n550",
+        "expected_output": "9",
+        "is_visible": false
+      },
+      {
+        "input": "20\n5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100\n85",
+        "expected_output": "16",
+        "is_visible": false
+      },
+      {
+        "input": "25\n2 4 6 8 10 12 14 16 18 20 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50\n32",
+        "expected_output": "15",
+        "is_visible": false
+      },
+      {
+        "input": "30\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n29",
+        "expected_output": "28",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "2.4 Interpolation Search",
+    "description": "Interpolation search works better than Binary Search for a Sorted and Uniformly Distributed array. Binary search goes to the middle element to check irrespective of search-key. On the other hand, Interpolation search may go to different locations according to search-key. If the value of the search-key is close to the last element, Interpolation Search is likely to start search toward the end side. Interpolation search is more efficient than binary search when the elements in the list are uniformly distributed, while binary search is more efficient when the elements in the list are not uniformly distributed. Interpolation search can take longer to implement than binary search, as it requires the use of additional calculations to estimate the position of the target element. Input: arr = [1, 2, 3, 4, 5, 6, 7, 8, 9] Output: target = 5",
+    "starter_code": "public class InterpolationSearch\n{\n    public static int interpolationSearch(int[] arr, int key)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "9\n1 2 3 4 5 6 7 8 9\n5",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "5\n10 20 30 40 50\n30",
+        "expected_output": "2",
+        "is_visible": true
+      },
+      {
+        "input": "7\n100 200 300 400 500 600 700\n400",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "8\n5 10 15 20 25 30 35 40\n25",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "6\n2 4 6 8 10 12\n12",
+        "expected_output": "5",
+        "is_visible": true
+      },
+      {
+        "input": "12\n1 2 3 4 5 6 7 8 9 10 11 12\n9",
+        "expected_output": "8",
+        "is_visible": false
+      },
+      {
+        "input": "15\n100 150 200 250 300 350 400 450 500 550 600 650 700 750 800\n550",
+        "expected_output": "9",
+        "is_visible": false
+      },
+      {
+        "input": "20\n10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200\n180",
+        "expected_output": "17",
+        "is_visible": false
+      },
+      {
+        "input": "25\n5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100 105 110 115 120 125\n100",
+        "expected_output": "19",
+        "is_visible": false
+      },
+      {
+        "input": "30\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n22",
+        "expected_output": "21",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "2.5 Fibonacci Search",
+    "description": "Given a sorted array arr[] of size n and an element x to be searched in it. Return index of x if it is present in array else return -1. Input: arr[] = {2, 3, 4, 10, 40}, x = 10 Output: 3 Element x is present at index 3. Input: arr[] = {2, 3, 4, 10, 40}, x = 11 Output: -1 Element x is not present. Fibonacci Search is a comparison-based technique that uses Fibonacci numbers to search an element in a sorted array. Fibonacci Numbers are recursively defined as F(n) = F(n-1) + F(n-2), F(0) = 0, F(1) = 1. First few Fibonacci Numbers are 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ... Fibonacci Search Procedure: Let the searched element be x. The idea is to first find the smallest Fibonacci number that is greater than or equal to the length of the given array. Let the found Fibonacci number be fib (m'th Fibonacci number). We use (m-2)'th Fibonacci number as the index (if it is a valid index). Let (m-2)'th Fibonacci Number be i, we compare arr[i] with x, if x is same, we return i. Else if x is greater, we recur for subarray after i, else we recur for subarray before i. Let arr[0..n-1] be the input array and the element to be searched be x. 1. Find the smallest Fibonacci number greater than or equal to n. Let this number be fibM [m'th Fibonacci number]. Let the two Fibonacci numbers preceding it be fibMm1 [(m-1)'th Fibonacci Number] and fibMm2 [(m-2)'th Fibonacci Number]. 2. While the array has elements to be inspected: i. Compare x with the last element of the range covered by fibMm2 ii. If x matches, return index iii. Else If x is less than the element, move the three Fibonacci variables two Fibonacci down, indicating elimination of approximately rear two-third of the remaining array. iv. Else x is greater than the element, move the three Fibonacci variables one Fibonacci down. Reset offset to index. Together these indicate the elimination of approximately front one-third of the remaining array. 3. Since there might be a single element remaining for comparison, check if fibMm1 is 1. If Yes, compare x with that remaining element. If match, return index.",
+    "starter_code": "public class FibonacciSearch\n{\n    public static int fibonacciSearch(int[] arr, int key)\n    {\n    # write code here\n    }\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n2 3 4 10 40\n10",
+        "expected_output": "3",
+        "is_visible": true
+      },
+      {
+        "input": "5\n2 3 4 10 40\n11",
+        "expected_output": "-1",
+        "is_visible": true
+      },
+      {
+        "input": "7\n1 2 3 5 8 13 21\n8",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "10\n10 20 30 40 50 60 70 80 90 100\n70",
+        "expected_output": "6",
+        "is_visible": true
+      },
+      {
+        "input": "6\n5 15 25 35 45 55\n45",
+        "expected_output": "4",
+        "is_visible": true
+      },
+      {
+        "input": "12\n1 3 5 7 9 11 13 15 17 19 21 23\n15",
+        "expected_output": "7",
+        "is_visible": false
+      },
+      {
+        "input": "15\n2 4 6 8 10 12 14 16 18 20 22 24 26 28 30\n24",
+        "expected_output": "11",
+        "is_visible": false
+      },
+      {
+        "input": "20\n5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95 100\n85",
+        "expected_output": "16",
+        "is_visible": false
+      },
+      {
+        "input": "25\n10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250\n200",
+        "expected_output": "19",
+        "is_visible": false
+      },
+      {
+        "input": "30\n1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30\n27",
+        "expected_output": "26",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "3.1 Bubble Sort",
+    "description": "Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements if they are in the wrong order. This algorithm is not suitable for large data sets as its average and worst-case time complexity is quite high. Bubble Sort Procedure: 1. Traverse from left and compare adjacent elements and the higher one is placed at right side. 2. In this way, the largest element is moved to the rightmost end at first. 3. This process is then continued to find the second largest and place it and so on until the data is sorted. Input: arr = [6, 3, 0, 5] Output: First Pass: Second Pass: Third Pass:",
+    "starter_code": "import java.util.Scanner;\n\nclass BubbleSortExample\n{\n public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static void bubbleSort(int[] arr)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "4\n6 3 0 5",
+        "expected_output": "0 3 5 6",
+        "is_visible": true
+      },
+      {
+        "input": "5\n5 4 3 2 1",
+        "expected_output": "1 2 3 4 5",
+        "is_visible": true
+      },
+      {
+        "input": "3\n10 5 8",
+        "expected_output": "5 8 10",
+        "is_visible": true
+      },
+      {
+        "input": "6\n1 2 3 4 5 6",
+        "expected_output": "1 2 3 4 5 6",
+        "is_visible": true
+      },
+      {
+        "input": "5\n100 50 75 25 0",
+        "expected_output": "0 25 50 75 100",
+        "is_visible": true
+      },
+      {
+        "input": "8\n64 34 25 12 22 11 90 88",
+        "expected_output": "11 12 22 25 34 64 88 90",
+        "is_visible": false
+      },
+      {
+        "input": "7\n3 1 4 1 5 9 2",
+        "expected_output": "1 1 2 3 4 5 9",
+        "is_visible": false
+      },
+      {
+        "input": "10\n10 9 8 7 6 5 4 3 2 1",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10",
+        "is_visible": false
+      },
+      {
+        "input": "12\n45 23 78 12 56 89 34 67 90 11 99 22",
+        "expected_output": "11 12 22 23 34 45 56 67 78 89 90 99",
+        "is_visible": false
+      },
+      {
+        "input": "15\n5 2 8 1 9 3 7 4 6 10 15 12 13 11 14",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "3.2 Selection Sort",
+    "description": "Selection sort is a simple and efficient sorting algorithm that works by repeatedly selecting the smallest (or largest) element from the unsorted portion of the list and moving it to the sorted portion of the list. The algorithm repeatedly selects the smallest (or largest) element from the unsorted portion of the list and swaps it with the first element of the unsorted part. This process is repeated for the remaining unsorted portion until the entire list is sorted. Input: arr = [64, 25, 12, 22, 11] Output: arr = [11, 12, 22, 25, 64]",
+    "starter_code": "import java.util.Scanner;\n\nclass SelectionSortExample\n{\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static void selectionSort(int[] arr)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "5\n64 25 12 22 11",
+        "expected_output": "11 12 22 25 64",
+        "is_visible": true
+      },
+      {
+        "input": "6\n34 7 23 32 5 62",
+        "expected_output": "5 7 23 32 34 62",
+        "is_visible": true
+      },
+      {
+        "input": "4\n10 30 20 40",
+        "expected_output": "10 20 30 40",
+        "is_visible": true
+      },
+      {
+        "input": "7\n100 200 150 50 75 25 300",
+        "expected_output": "25 50 75 100 150 200 300",
+        "is_visible": true
+      },
+      {
+        "input": "5\n5 1 4 2 3",
+        "expected_output": "1 2 3 4 5",
+        "is_visible": true
+      },
+      {
+        "input": "8\n90 80 70 60 50 40 30 20",
+        "expected_output": "20 30 40 50 60 70 80 90",
+        "is_visible": false
+      },
+      {
+        "input": "9\n45 12 89 34 67 23 78 56 90",
+        "expected_output": "12 23 34 45 56 67 78 89 90",
+        "is_visible": false
+      },
+      {
+        "input": "10\n3 7 1 9 4 6 8 2 5 10",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10",
+        "is_visible": false
+      },
+      {
+        "input": "12\n55 33 77 11 99 22 88 44 66 0 110 121",
+        "expected_output": "0 11 22 33 44 55 66 77 88 99 110 121",
+        "is_visible": false
+      },
+      {
+        "input": "15\n14 13 12 11 10 9 8 7 6 5 4 3 2 1 0",
+        "expected_output": "0 1 2 3 4 5 6 7 8 9 10 11 12 13 14",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "3.3 Insertion Sort",
+    "description": "Insertion sort is a simple sorting algorithm that works similar to the way you sort playing cards in your hands. The array is virtually split into a sorted and an unsorted part. Values from the unsorted part are picked and placed at the correct position in the sorted part. Insertion Sort Procedure: 1. To sort an array of size N in ascending order iterate over the array and compare the current element (key) to its predecessor, if the key element is smaller than its predecessor, compare it to the elements before. 2. Move the greater elements one position up to make space for the swapped element. Input: arr = [4, 3, 2, 10, 12, 1, 5, 6] Output: arr = [1, 2, 3, 4, 5, 6, 10, 12]",
+    "starter_code": "import java.util.Scanner;\n\nclass InsertionSortExample\n{\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static void insertionSort(int[] arr)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "8\n4 3 2 10 12 1 5 6",
+        "expected_output": "1 2 3 4 5 6 10 12",
+        "is_visible": true
+      },
+      {
+        "input": "5\n12 11 13 5 6",
+        "expected_output": "5 6 11 12 13",
+        "is_visible": true
+      },
+      {
+        "input": "6\n3 7 4 9 2 6",
+        "expected_output": "2 3 4 6 7 9",
+        "is_visible": true
+      },
+      {
+        "input": "7\n100 50 25 75 125 150 100",
+        "expected_output": "25 50 75 100 100 125 150",
+        "is_visible": true
+      },
+      {
+        "input": "4\n9 8 7 6",
+        "expected_output": "6 7 8 9",
+        "is_visible": true
+      },
+      {
+        "input": "10\n10 20 15 25 5 30 35 40 45 50",
+        "expected_output": "5 10 15 20 25 30 35 40 45 50",
+        "is_visible": false
+      },
+      {
+        "input": "9\n99 55 77 33 88 22 66 44 11",
+        "expected_output": "11 22 33 44 55 66 77 88 99",
+        "is_visible": false
+      },
+      {
+        "input": "12\n5 1 9 2 8 3 7 4 6 10 12 11",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12",
+        "is_visible": false
+      },
+      {
+        "input": "15\n45 23 67 12 89 34 78 56 90 11 99 22 33 44 55",
+        "expected_output": "11 12 22 23 33 34 44 45 55 56 67 78 89 90 99",
+        "is_visible": false
+      },
+      {
+        "input": "20\n10 9 8 7 6 5 4 3 2 1 20 19 18 17 16 15 14 13 12 11",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "4.1 Quick Sort",
+    "description": "QuickSort is a sorting algorithm based on the Divide and Conquer algorithm that picks an element as a pivot and partitions the given array around the picked pivot by placing the pivot in its correct position in the sorted array. The key process in quickSort is a partition(). The target of partitions is to place the pivot (any element can be chosen to be a pivot) at its correct position in the sorted array and put all smaller elements to the left of the pivot, and all greater elements to the right of the pivot. Partition is done recursively on each side of the pivot after the pivot is placed in its correct position and this finally sorts the array. The quick sort method can be summarized in three steps: 1. Pick: Select a pivot element. 2. Divide: Split the problem set, move smaller parts to the left of the pivot and larger items to the right. 3. Repeat and combine: Repeat the steps and combine the arrays that have previously been sorted. Algorithm for Quick Sort Function: //start --> Starting index, end --> Ending index Quicksort(array, start, end) { if (start < end) { pIndex = Partition(A, start, end) Quicksort(A,start,pIndex-1) Quicksort(A,pIndex+1, end) } } Algorithm for Partition Function: partition (array, start, end) { // Setting rightmost Index as pivot pivot = arr[end]; i = (start - 1) // Index of smaller element and indicates the // right position of pivot found so far for (j = start; j <= end- 1; j++) { // If current element is smaller than the pivot if (arr[j] < pivot) { i++; // increment index of smaller element swap arr[i] and arr[j] } } swap arr[i + 1] and arr[end]) return (i + 1) } Input: arr = [10, 80, 30, 90, 40, 50, 70] Output: arr = [10, 30, 40, 50, 70, 80, 90]",
+    "starter_code": "import java.util.Scanner;\n\nclass QuickSortExample\n{\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static void quickSort(int[] arr, int low, int high)\n    {\n    # write code here\n    }\n    public static int partition(int[] arr, int low, int high)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "7\n10 80 30 90 40 50 70",
+        "expected_output": "10 30 40 50 70 80 90",
+        "is_visible": true
+      },
+      {
+        "input": "6\n38 27 43 3 9 82",
+        "expected_output": "3 9 27 38 43 82",
+        "is_visible": true
+      },
+      {
+        "input": "8\n5 2 9 1 7 6 3 4",
+        "expected_output": "1 2 3 4 5 6 7 9",
+        "is_visible": true
+      },
+      {
+        "input": "5\n100 50 150 75 125",
+        "expected_output": "50 75 100 125 150",
+        "is_visible": true
+      },
+      {
+        "input": "9\n12 7 18 3 25 10 22 15 30",
+        "expected_output": "3 7 10 12 15 18 22 25 30",
+        "is_visible": true
+      },
+      {
+        "input": "10\n45 23 67 12 89 34 78 56 90 11",
+        "expected_output": "11 12 23 34 45 56 67 78 89 90",
+        "is_visible": false
+      },
+      {
+        "input": "12\n33 11 55 22 77 44 99 66 88 110 121 132",
+        "expected_output": "11 22 33 44 55 66 77 88 99 110 121 132",
+        "is_visible": false
+      },
+      {
+        "input": "15\n5 1 9 2 8 3 7 4 6 10 15 12 13 11 14",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15",
+        "is_visible": false
+      },
+      {
+        "input": "20\n10 9 8 7 6 5 4 3 2 1 20 19 18 17 16 15 14 13 12 11",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20",
+        "is_visible": false
+      },
+      {
+        "input": "25\n100 90 80 70 60 50 40 30 20 10 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250",
+        "expected_output": "10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250",
+        "is_visible": false
+      }
+    ]
+  },
+  {
+    "title": "4.2 Merge Sort",
+    "description": "Merge sort is defined as a sorting algorithm that works by dividing an array into smaller subarrays, sorting each subarray, and then merging the sorted subarrays back together to form the final sorted array. In simple terms, we can say that the process of merge sort is to divide the array into two halves, sort each half, and then merge the sorted halves back together. This process is repeated until the entire array is sorted. Input: arr = [12, 11, 13, 5, 6, 7] Output: arr = [5, 6, 7, 11, 12, 13]",
+    "starter_code": "import java.util.Scanner;\n\nclass MergeSortExample\n{\n    public static void main(String[] args)\n    {\n    # write code here\n    }\n    public static void mergeSort(int[] arr, int low, int high)\n    {\n    # write code here\n    }\n    public static void merge(int[] arr, int low, int mid, int high)\n    {\n    # write code here\n    }\n}",
+    "testcases": [
+      {
+        "input": "6\n12 11 13 5 6 7",
+        "expected_output": "5 6 7 11 12 13",
+        "is_visible": true
+      },
+      {
+        "input": "8\n38 27 43 3 9 82 10 15",
+        "expected_output": "3 9 10 15 27 38 43 82",
+        "is_visible": true
+      },
+      {
+        "input": "5\n50 30 40 20 10",
+        "expected_output": "10 20 30 40 50",
+        "is_visible": true
+      },
+      {
+        "input": "7\n100 200 150 50 75 25 300",
+        "expected_output": "25 50 75 100 150 200 300",
+        "is_visible": true
+      },
+      {
+        "input": "9\n9 8 7 6 5 4 3 2 1",
+        "expected_output": "1 2 3 4 5 6 7 8 9",
+        "is_visible": true
+      },
+      {
+        "input": "10\n45 23 67 12 89 34 78 56 90 11",
+        "expected_output": "11 12 23 34 45 56 67 78 89 90",
+        "is_visible": false
+      },
+      {
+        "input": "12\n33 11 55 22 77 44 99 66 88 110 121 132",
+        "expected_output": "11 22 33 44 55 66 77 88 99 110 121 132",
+        "is_visible": false
+      },
+      {
+        "input": "15\n5 1 9 2 8 3 7 4 6 10 15 12 13 11 14",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15",
+        "is_visible": false
+      },
+      {
+        "input": "20\n10 9 8 7 6 5 4 3 2 1 20 19 18 17 16 15 14 13 12 11",
+        "expected_output": "1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20",
+        "is_visible": false
+      },
+      {
+        "input": "25\n100 90 80 70 60 50 40 30 20 10 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250",
+        "expected_output": "10 20 30 40 50 60 70 80 90 100 110 120 130 140 150 160 170 180 190 200 210 220 230 240 250",
+        "is_visible": false
+      }
+    ]
+  }
+]
