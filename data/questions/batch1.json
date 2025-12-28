@@ -1,0 +1,107 @@
+[
+  {
+    "title": "Two Sum",
+    "difficulty": "easy",
+    "problemStatement": "# Two Sum\n\nGiven an array of integers `nums` and an integer `target`, return _indices of the two numbers such that they add up to `target`_.\n\nYou may assume that each input would have **exactly one solution**, and you may not use the *same* element twice.\n\nYou can return the answer in any order.",
+    "constraints": "2 <= nums.length <= 10^4\n-10^9 <= nums[i] <= 10^9\n-10^9 <= target <= 10^9\nOnly one valid answer exists.",
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String[] parts = sc.nextLine().split(\",\");\n            int[] nums = new int[parts.length];\n            for (int i = 0; i < parts.length; i++) {\n                nums[i] = Integer.parseInt(parts[i].trim());\n            }\n            if (sc.hasNextInt()) {\n                int target = sc.nextInt();\n                int[] result = twoSum(nums, target);\n                System.out.println(Arrays.toString(result).replace(\" \", \"\"));\n            }\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] twoSum(int[] nums, int target) {\n        // Write your code here...\n        return new int[]{};\n    }\n// region boilerplate\n}\n// endregion"
+    },
+    "testCases": [
+      { "input": "2,7,11,15\n9", "expectedOutput": "[0,1]", "isHidden": false },
+      { "input": "3,2,4\n6", "expectedOutput": "[1,2]", "isHidden": false },
+      { "input": "3,3\n6", "expectedOutput": "[0,1]", "isHidden": false },
+      { "input": "1,2,3,4,5\n9", "expectedOutput": "[3,4]", "isHidden": true },
+      { "input": "0,4,3,0\n0", "expectedOutput": "[0,3]", "isHidden": true },
+      { "input": "-1,-2,-3,-4,-5\n-8", "expectedOutput": "[2,4]", "isHidden": true },
+      { "input": "10,20,30,40\n50", "expectedOutput": "[1,2]", "isHidden": true },
+      { "input": "5,7,9,11\n20", "expectedOutput": "[2,3]", "isHidden": true },
+      { "input": "1,5,9\n10", "expectedOutput": "[0,2]", "isHidden": true },
+      { "input": "100,200,300\n500", "expectedOutput": "[1,2]", "isHidden": true }
+    ]
+  },
+  {
+    "title": "Palindrome Number",
+    "difficulty": "easy",
+    "problemStatement": "# Palindrome Number\n\nGiven an integer `x`, return `true` _if_ `x` _is a_ _**palindrome**_, _and_ `false` _otherwise_.",
+    "constraints": "-2^31 <= x <= 2^31 - 1",
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextInt()) {\n            int x = sc.nextInt();\n            System.out.println(isPalindrome(x));\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isPalindrome(int x) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion"
+    },
+    "testCases": [
+      { "input": "121", "expectedOutput": "true", "isHidden": false },
+      { "input": "-121", "expectedOutput": "false", "isHidden": false },
+      { "input": "10", "expectedOutput": "false", "isHidden": false },
+      { "input": "0", "expectedOutput": "true", "isHidden": true },
+      { "input": "1221", "expectedOutput": "true", "isHidden": true },
+      { "input": "12321", "expectedOutput": "true", "isHidden": true },
+      { "input": "123456", "expectedOutput": "false", "isHidden": true },
+      { "input": "-101", "expectedOutput": "false", "isHidden": true },
+      { "input": "11", "expectedOutput": "true", "isHidden": true },
+      { "input": "2147447412", "expectedOutput": "true", "isHidden": true }
+    ]
+  },
+  {
+    "title": "Roman to Integer",
+    "difficulty": "easy",
+    "problemStatement": "# Roman to Integer\n\nRoman numerals are represented by seven different symbols: `I`, `V`, `X`, `L`, `C`, `D` and `M`.\n\nGiven a roman numeral, convert it to an integer.",
+    "constraints": "1 <= s.length <= 15",
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String s = sc.next();\n            System.out.println(romanToInt(s));\n        }\n        sc.close();\n    }\n// endregion\n    public static int romanToInt(String s) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion"
+    },
+    "testCases": [
+      { "input": "III", "expectedOutput": "3", "isHidden": false },
+      { "input": "LVIII", "expectedOutput": "58", "isHidden": false },
+      { "input": "MCMXCIV", "expectedOutput": "1994", "isHidden": false },
+      { "input": "IV", "expectedOutput": "4", "isHidden": true },
+      { "input": "IX", "expectedOutput": "9", "isHidden": true },
+      { "input": "XL", "expectedOutput": "40", "isHidden": true },
+      { "input": "XC", "expectedOutput": "90", "isHidden": true },
+      { "input": "CD", "expectedOutput": "400", "isHidden": true },
+      { "input": "CM", "expectedOutput": "900", "isHidden": true },
+      { "input": "MMMCMXCIX", "expectedOutput": "3999", "isHidden": true }
+    ]
+  },
+  {
+    "title": "Longest Common Prefix",
+    "difficulty": "easy",
+    "problemStatement": "# Longest Common Prefix\n\nWrite a function to find the longest common prefix string amongst an array of strings.\n\nIf there is no common prefix, return an empty string `\"\"`.",
+    "constraints": "1 <= strs.length <= 200",
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            String[] strs = line.split(\",\");\n            for(int i=0; i<strs.length; i++) strs[i] = strs[i].trim();\n            System.out.println(\"\\\"\" + longestCommonPrefix(strs) + \"\\\"\");\n        }\n        sc.close();\n    }\n// endregion\n    public static String longestCommonPrefix(String[] strs) {\n        // Write your code here...\n        return \"\";\n    }\n// region boilerplate\n}\n// endregion"
+    },
+    "testCases": [
+      { "input": "flower,flow,flight", "expectedOutput": "\"fl\"", "isHidden": false },
+      { "input": "dog,racecar,car", "expectedOutput": "\"\"", "isHidden": false },
+      { "input": "a", "expectedOutput": "\"a\"", "isHidden": false },
+      { "input": "a,b", "expectedOutput": "\"\"", "isHidden": true },
+      { "input": "ab,a", "expectedOutput": "\"a\"", "isHidden": true },
+      { "input": "abc,abc,abc", "expectedOutput": "\"abc\"", "isHidden": true },
+      { "input": "flower,flower,flower,flower", "expectedOutput": "\"flower\"", "isHidden": true },
+      { "input": "cir,car", "expectedOutput": "\"c\"", "isHidden": true },
+      { "input": "reflower,flow,flight", "expectedOutput": "\"\"", "isHidden": true },
+      { "input": "acc,aaa,aab", "expectedOutput": "\"a\"", "isHidden": true }
+    ]
+  },
+  {
+    "title": "Valid Parentheses",
+    "difficulty": "easy",
+    "problemStatement": "# Valid Parentheses\n\nGiven a string `s`, determine if the input string is valid.",
+    "constraints": "1 <= s.length <= 10^4",
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String s = sc.next();\n            System.out.println(isValid(s));\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isValid(String s) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion"
+    },
+    "testCases": [
+      { "input": "()", "expectedOutput": "true", "isHidden": false },
+      { "input": "()[]{}", "expectedOutput": "true", "isHidden": false },
+      { "input": "(]", "expectedOutput": "false", "isHidden": false },
+      { "input": "([)]", "expectedOutput": "false", "isHidden": true },
+      { "input": "{[]}", "expectedOutput": "true", "isHidden": true },
+      { "input": "", "expectedOutput": "true", "isHidden": true },
+      { "input": "(", "expectedOutput": "false", "isHidden": true },
+      { "input": ")", "expectedOutput": "false", "isHidden": true },
+      { "input": "(((", "expectedOutput": "false", "isHidden": true },
+      { "input": "(())", "expectedOutput": "true", "isHidden": true }
+    ]
+  }
+]
