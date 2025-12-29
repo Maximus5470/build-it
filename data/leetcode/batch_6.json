@@ -1,0 +1,368 @@
+[
+  {
+    "title": "Koko Eating Bananas",
+    "description": "# Koko Eating Bananas\n\nKoko loves to eat bananas. There are `n` piles of bananas, the `ith` pile has `piles[i]` bananas. The guards have gone and will come back in `h` hours.\n\nKoko can decide her bananas-per-hour eating speed of `k`. Each hour, she chooses some pile of bananas and eats `k` bananas from that pile. If the pile has less than `k` bananas, she eats all of them instead and will not eat any more bananas during this hour.\n\nKoko likes to eat slowly but still wants to finish eating all the bananas before the guards return.\n\nReturn *the minimum integer* `k` *such that she can eat all the bananas within* `h` *hours*.\n\n## Example 1:\n\n```\nInput: piles = [3,6,7,11], h = 8\nOutput: 4\n```\n\n## Example 2:\n\n```\nInput: piles = [30,11,23,4,20], h = 5\nOutput: 30\n```\n\n## Example 3:\n\n```\nInput: piles = [30,11,23,4,20], h = 6\nOutput: 23\n```\n\n## Constraints:\n\n- `1 <= piles.length <= 10^4`\n- `piles.length <= h <= 10^9`\n- `1 <= piles[i] <= 10^9`\n",
+    "testCases": [
+      {
+        "input": "3,6,7,11\n8",
+        "expectedOutput": "4",
+        "isHidden": false
+      },
+      {
+        "input": "30,11,23,4,20\n5",
+        "expectedOutput": "30",
+        "isHidden": false
+      },
+      {
+        "input": "30,11,23,4,20\n6",
+        "expectedOutput": "23",
+        "isHidden": false
+      },
+      {
+        "input": "312884470\n312884469",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "312884470\n968709470",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "1,1,1,999999999\n10",
+        "expectedOutput": "142857143",
+        "isHidden": true
+      },
+      {
+        "input": "805306368,805306368,805306368\n1000000000",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "1000000000\n2",
+        "expectedOutput": "500000000",
+        "isHidden": true
+      },
+      {
+        "input": "1\n1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "2,2\n2",
+        "expectedOutput": "2",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] piles = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int h = Integer.parseInt(sc.nextLine());\n            System.out.println(minEatingSpeed(piles, h));\n        }\n        sc.close();\n    }\n// endregion\n    public static int minEatingSpeed(int[] piles, int h) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    piles = list(map(int, input[0].split(',')))\n    h = int(input[1])\n    print(minEatingSpeed(piles, h))\n# endregion\n\ndef minEatingSpeed(piles, h):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Find Minimum in Rotated Sorted Array",
+    "description": "# Find Minimum in Rotated Sorted Array\n\nSuppose an array of length `n` sorted in ascending order is rotated between `1` and `n` times. For example, the array `nums = [0,1,2,4,5,6,7]` might become:\n\n- `[4,5,6,7,0,1,2]` if it was rotated `4` times.\n- `[0,1,2,4,5,6,7]` if it was rotated `7` times.\n\nNotice that rotating an array `[a[0], a[1], a[2], ..., a[n-1]]` 1 time results in the array `[a[n-1], a[0], a[1], ..., a[n-2]]`.\n\nGiven the sorted rotated array `nums` of **unique** elements, return *the minimum element of this array*.\n\nYou must write an algorithm that runs in `O(log n)` time.\n\n## Example 1:\n\n```\nInput: nums = [3,4,5,1,2]\nOutput: 1\nExplanation: The original array was [1,2,3,4,5] rotated 3 times.\n```\n\n## Example 2:\n\n```\nInput: nums = [4,5,6,7,0,1,2]\nOutput: 0\nExplanation: The original array was [0,1,2,4,5,6,7] and it was rotated 4 times.\n```\n\n## Example 3:\n\n```\nInput: nums = [11,13,15,17]\nOutput: 11\nExplanation: The original array was [11,13,15,17] and it was rotated 4 times.\n```\n\n## Constraints:\n\n- `n == nums.length`\n- `1 <= n <= 5000`\n- `-5000 <= nums[i] <= 5000`\n- All the integers of `nums` are **unique**.\n- `nums` is sorted and rotated between `1` and `n` times.\n",
+    "testCases": [
+      {
+        "input": "3,4,5,1,2",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "4,5,6,7,0,1,2",
+        "expectedOutput": "0",
+        "isHidden": false
+      },
+      {
+        "input": "11,13,15,17",
+        "expectedOutput": "11",
+        "isHidden": false
+      },
+      {
+        "input": "2,1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "3,1,2",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "4,5,1,2,3",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "2,3,4,5,1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "100",
+        "expectedOutput": "100",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(findMin(nums));\n        }\n        sc.close();\n    }\n// endregion\n    public static int findMin(int[] nums) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    print(findMin(nums))\n# endregion\n\ndef findMin(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Remove Nth Node From End of List",
+    "description": "# Remove Nth Node From End of List\n\nGiven the `head` of a linked list, remove the `nth` node from the end of the list and return its head.\n\n## Example 1:\n\n```\nInput: head = [1,2,3,4,5], n = 2\nOutput: [1,2,3,5]\n```\n\n## Example 2:\n\n```\nInput: head = [1], n = 1\nOutput: []\n```\n\n## Example 3:\n\n```\nInput: head = [1,2], n = 1\nOutput: [1]\n```\n\n## Constraints:\n\n- The number of nodes in the list is `sz`.\n- `1 <= sz <= 30`\n- `0 <= Node.val <= 100`\n- `1 <= n <= sz`\n",
+    "testCases": [
+      {
+        "input": "1,2,3,4,5\n2",
+        "expectedOutput": "1,2,3,5",
+        "isHidden": false
+      },
+      {
+        "input": "1\n1",
+        "expectedOutput": "",
+        "isHidden": false
+      },
+      {
+        "input": "1,2\n1",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "1,2\n2",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3\n1",
+        "expectedOutput": "1,2",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3\n2",
+        "expectedOutput": "1,3",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3\n3",
+        "expectedOutput": "2,3",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7,8,9,10\n7",
+        "expectedOutput": "1,2,3,5,6,7,8,9,10",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7,8,9,10\n10",
+        "expectedOutput": "2,3,4,5,6,7,8,9,10",
+        "isHidden": true
+      },
+      {
+        "input": "100\n1",
+        "expectedOutput": "",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode() {}\n    ListNode(int val) { this.val = val; }\n    ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            ListNode head = parseList(line);\n            int n = Integer.parseInt(sc.nextLine());\n            ListNode result = removeNthFromEnd(head, n);\n            printList(result);\n        }\n        sc.close();\n    }\n\n    private static ListNode parseList(String line) {\n        if (line == null || line.isEmpty()) return null;\n        String[] parts = line.split(\",\");\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (String s : parts) {\n            curr.next = new ListNode(Integer.parseInt(s.trim()));\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n\n    private static void printList(ListNode head) {\n        List<String> parts = new ArrayList<>();\n        while (head != null) {\n            parts.add(String.valueOf(head.val));\n            head = head.next;\n        }\n        System.out.println(String.join(\",\", parts));\n    }\n// endregion\n    public static ListNode removeNthFromEnd(ListNode head, int n) {\n        // Write your code here...\n        return null;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef parse_list(line):\n    if not line:\n        return None\n    parts = line.split(',')\n    dummy = ListNode(0)\n    curr = dummy\n    for p in parts:\n        curr.next = ListNode(int(p))\n        curr = curr.next\n    return dummy.next\n\ndef print_list(head):\n    parts = []\n    while head:\n        parts.append(str(head.val))\n        head = head.next\n    print(','.join(parts))\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    line = input[0] if input else \"\"\n    n = int(input[1])\n    head = parse_list(line)\n    result = removeNthFromEnd(head, n)\n    print_list(result)\n# endregion\n\ndef removeNthFromEnd(head, n):\n    # Write your code here...\n    return None\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Reorder List",
+    "description": "# Reorder List\n\nYou are given the head of a singly linked-list. The list can be represented as:\n\n`L0 → L1 → … → Ln - 1 → Ln`\n\nReorder the list to be on the following form:\n\n`L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …`\n\nYou may not modify the values in the list's nodes. Only nodes themselves may be changed.\n\n## Example 1:\n\n```\nInput: head = [1,2,3,4]\nOutput: [1,4,2,3]\n```\n\n## Example 2:\n\n```\nInput: head = [1,2,3,4,5]\nOutput: [1,5,2,4,3]\n```\n\n## Constraints:\n\n- The number of nodes in the list is in the range `[1, 5 * 10^4]`.\n- `1 <= Node.val <= 1000`\n",
+    "testCases": [
+      {
+        "input": "1,2,3,4",
+        "expectedOutput": "1,4,2,3",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,3,4,5",
+        "expectedOutput": "1,5,2,4,3",
+        "isHidden": false
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "1,2",
+        "expectedOutput": "1,2",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3",
+        "expectedOutput": "1,3,2",
+        "isHidden": true
+      },
+      {
+        "input": "10,20,30,40,50,60",
+        "expectedOutput": "10,60,20,50,30,40",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7",
+        "expectedOutput": "1,7,2,6,3,5,4",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7,8",
+        "expectedOutput": "1,8,2,7,3,6,4,5",
+        "isHidden": true
+      },
+      {
+        "input": "100,200",
+        "expectedOutput": "100,200",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7,8,9",
+        "expectedOutput": "1,9,2,8,3,7,4,6,5",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode() {}\n    ListNode(int val) { this.val = val; }\n    ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            ListNode head = parseList(line);\n            reorderList(head);\n            printList(head);\n        }\n        sc.close();\n    }\n\n    private static ListNode parseList(String line) {\n        if (line == null || line.isEmpty()) return null;\n        String[] parts = line.split(\",\");\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (String s : parts) {\n            curr.next = new ListNode(Integer.parseInt(s.trim()));\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n\n    private static void printList(ListNode head) {\n        List<String> parts = new ArrayList<>();\n        while (head != null) {\n            parts.add(String.valueOf(head.val));\n            head = head.next;\n        }\n        System.out.println(String.join(\",\", parts));\n    }\n// endregion\n    public static void reorderList(ListNode head) {\n        // Write your code here...\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef parse_list(line):\n    if not line:\n        return None\n    parts = line.split(',')\n    dummy = ListNode(0)\n    curr = dummy\n    for p in parts:\n        curr.next = ListNode(int(p))\n        curr = curr.next\n    return dummy.next\n\ndef print_list(head):\n    parts = []\n    while head:\n        parts.append(str(head.val))\n        head = head.next\n    print(','.join(parts))\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    line = input[0] if input else \"\"\n    head = parse_list(line)\n    reorderList(head)\n    print_list(head)\n# endregion\n\ndef reorderList(head):\n    # Write your code here...\n    pass\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Add Two Numbers",
+    "description": "# Add Two Numbers\n\nYou are given two **non-empty** linked lists representing two non-negative integers. The digits are stored in **reverse order**, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\n\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.\n\n## Example 1:\n\n```\nInput: l1 = [2,4,3], l2 = [5,6,4]\nOutput: [7,0,8]\nExplanation: 342 + 465 = 807.\n```\n\n## Example 2:\n\n```\nInput: l1 = [0], l2 = [0]\nOutput: [0]\n```\n\n## Example 3:\n\n```\nInput: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\nOutput: [8,9,9,9,0,0,0,1]\n```\n\n## Constraints:\n\n- The number of nodes in each linked list is in the range `[1, 100]`.\n- `0 <= Node.val <= 9`\n- It is guaranteed that the list represents a number that does not have leading zeros.\n",
+    "testCases": [
+      {
+        "input": "2,4,3\n5,6,4",
+        "expectedOutput": "7,0,8",
+        "isHidden": false
+      },
+      {
+        "input": "0\n0",
+        "expectedOutput": "0",
+        "isHidden": false
+      },
+      {
+        "input": "9,9,9,9,9,9,9\n9,9,9,9",
+        "expectedOutput": "8,9,9,9,0,0,0,1",
+        "isHidden": false
+      },
+      {
+        "input": "9\n1,9,9,9,9,9,9,9,9,9",
+        "expectedOutput": "0,0,0,0,0,0,0,0,0,0,1",
+        "isHidden": true
+      },
+      {
+        "input": "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1\n5,6,4",
+        "expectedOutput": "6,6,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1",
+        "isHidden": true
+      },
+      {
+        "input": "5\n5",
+        "expectedOutput": "0,1",
+        "isHidden": true
+      },
+      {
+        "input": "9,9\n1",
+        "expectedOutput": "0,0,1",
+        "isHidden": true
+      },
+      {
+        "input": "1\n9,9",
+        "expectedOutput": "0,0,1",
+        "isHidden": true
+      },
+      {
+        "input": "2,4,9\n5,6,4,9",
+        "expectedOutput": "7,0,4,0,1",
+        "isHidden": true
+      },
+      {
+        "input": "1,8\n0",
+        "expectedOutput": "1,8",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode() {}\n    ListNode(int val) { this.val = val; }\n    ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode l1 = null, l2 = null;\n        if (sc.hasNextLine()) l1 = parseList(sc.nextLine());\n        if (sc.hasNextLine()) l2 = parseList(sc.nextLine());\n        \n        ListNode result = addTwoNumbers(l1, l2);\n        printList(result);\n        sc.close();\n    }\n\n    private static ListNode parseList(String line) {\n        if (line == null || line.isEmpty()) return null;\n        String[] parts = line.split(\",\");\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (String s : parts) {\n            curr.next = new ListNode(Integer.parseInt(s.trim()));\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n\n    private static void printList(ListNode head) {\n        List<String> parts = new ArrayList<>();\n        while (head != null) {\n            parts.add(String.valueOf(head.val));\n            head = head.next;\n        }\n        System.out.println(String.join(\",\", parts));\n    }\n// endregion\n    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {\n        // Write your code here...\n        return null;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef parse_list(line):\n    if not line:\n        return None\n    parts = line.split(',')\n    dummy = ListNode(0)\n    curr = dummy\n    for p in parts:\n        curr.next = ListNode(int(p))\n        curr = curr.next\n    return dummy.next\n\ndef print_list(head):\n    parts = []\n    while head:\n        parts.append(str(head.val))\n        head = head.next\n    print(','.join(parts))\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    l1_line = input[0] if len(input) > 0 else \"\"\n    l2_line = input[1] if len(input) > 1 else \"\"\n    \n    l1 = parse_list(l1_line)\n    l2 = parse_list(l2_line)\n    result = addTwoNumbers(l1, l2)\n    print_list(result)\n# endregion\n\ndef addTwoNumbers(l1, l2):\n    # Write your code here...\n    return None\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Daily Temperatures",
+    "description": "# Daily Temperatures\n\nGiven an array of integers `temperatures` represents the daily temperatures, return *an array* `answer` *such that* `answer[i]` *is the number of days you have to wait after the* `ith` *day to get a warmer temperature*. If there is no future day for which this is possible, keep `answer[i] == 0`.\n\n## Example 1:\n\n```\nInput: temperatures = [73,74,75,71,69,72,76,73]\nOutput: [1,1,4,2,1,1,0,0]\n```\n\n## Example 2:\n\n```\nInput: temperatures = [30,40,50,60]\nOutput: [1,1,1,0]\n```\n\n## Example 3:\n\n```\nInput: temperatures = [30,60,90]\nOutput: [1,1,0]\n```\n\n## Constraints:\n\n- `1 <= temperatures.length <= 10^5`\n- `30 <= temperatures[i] <= 100`\n",
+    "testCases": [
+      {
+        "input": "73,74,75,71,69,72,76,73",
+        "expectedOutput": "[1,1,4,2,1,1,0,0]",
+        "isHidden": false
+      },
+      {
+        "input": "30,40,50,60",
+        "expectedOutput": "[1,1,1,0]",
+        "isHidden": false
+      },
+      {
+        "input": "30,60,90",
+        "expectedOutput": "[1,1,0]",
+        "isHidden": false
+      },
+      {
+        "input": "89,62,70,58,47,47,46,76,100,70",
+        "expectedOutput": "[8,1,5,4,3,2,1,1,0,0]",
+        "isHidden": true
+      },
+      {
+        "input": "30,30,30,30",
+        "expectedOutput": "[0,0,0,0]",
+        "isHidden": true
+      },
+      {
+        "input": "100,99,98,97",
+        "expectedOutput": "[0,0,0,0]",
+        "isHidden": true
+      },
+      {
+        "input": "55,54,53,60",
+        "expectedOutput": "[3,2,1,0]",
+        "isHidden": true
+      },
+      {
+        "input": "34,80,80,34,34,80,80,80,80,34",
+        "expectedOutput": "[1,0,0,2,1,0,0,0,0,0]",
+        "isHidden": true
+      },
+      {
+        "input": "70",
+        "expectedOutput": "[0]",
+        "isHidden": true
+      },
+      {
+        "input": "99,100",
+        "expectedOutput": "[1,0]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] temperatures = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int[] result = dailyTemperatures(temperatures);\n            System.out.println(Arrays.toString(result).replaceAll(\" \", \"\"));\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] dailyTemperatures(int[] temperatures) {\n        // Write your code here...\n        return new int[0];\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    temperatures = list(map(int, input[0].split(',')))\n    result = dailyTemperatures(temperatures)\n    print(f\"[{','.join(map(str, result))}]\")\n# endregion\n\ndef dailyTemperatures(temperatures):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  }
+]

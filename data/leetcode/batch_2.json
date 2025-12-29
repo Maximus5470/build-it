@@ -1,0 +1,612 @@
+[
+  {
+    "title": "Merge Two Sorted Lists",
+    "description": "#  Merge Two Sorted Lists\n\nYou are given the heads of two sorted linked lists `list1` and `list2`.\n\nMerge the two lists in a one **sorted** list. The list should be made by splicing together the nodes of the first two lists.\n\nReturn *the head of the merged linked list*.\n\n## Example 1:\n\n```\nInput: list1 = [1,2,4], list2 = [1,3,4]\nOutput: [1,1,2,3,4,4]\n```\n\n## Example 2:\n\n```\nInput: list1 = [], list2 = []\nOutput: []\n```\n\n## Example 3:\n\n```\nInput: list1 = [], list2 = [0]\nOutput: [0]\n```\n\n## Constraints:\n\n- The number of nodes in both lists is in the range `[0, 50]`.\n- `-100 <= Node.val <= 100`\n- Both `list1` and `list2` are sorted in **non-decreasing** order.\n",
+    "testCases": [
+      {
+        "input": "1,2,4\n1,3,4",
+        "expectedOutput": "1,1,2,3,4,4",
+        "isHidden": false
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "",
+        "isHidden": false
+      },
+      {
+        "input": "\n0",
+        "expectedOutput": "0",
+        "isHidden": false
+      },
+      {
+        "input": "2\n1",
+        "expectedOutput": "1,2",
+        "isHidden": true
+      },
+      {
+        "input": "5,10,15\n2,3,20",
+        "expectedOutput": "2,3,5,10,15,20",
+        "isHidden": true
+      },
+      {
+        "input": "-9,3\n5,7",
+        "expectedOutput": "-9,3,5,7",
+        "isHidden": true
+      },
+      {
+        "input": "1,1,1\n1,1,1",
+        "expectedOutput": "1,1,1,1,1,1",
+        "isHidden": true
+      },
+      {
+        "input": "-10,-5,0,5,10\n-8,-6,0,6,8",
+        "expectedOutput": "-10,-8,-6,-5,0,0,5,6,8,10",
+        "isHidden": true
+      },
+      {
+        "input": "100\n",
+        "expectedOutput": "100",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3\n4,5,6",
+        "expectedOutput": "1,2,3,4,5,6",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode() {}\n    ListNode(int val) { this.val = val; }\n    ListNode(int val, ListNode next) { this.val = val; this.next = next; }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        ListNode list1 = null, list2 = null;\n        if (sc.hasNextLine()) list1 = parseList(sc.nextLine());\n        if (sc.hasNextLine()) list2 = parseList(sc.nextLine());\n        \n        ListNode result = mergeTwoLists(list1, list2);\n        printList(result);\n        sc.close();\n    }\n\n    private static ListNode parseList(String line) {\n        if (line.isEmpty()) return null;\n        String[] parts = line.split(\",\");\n        ListNode dummy = new ListNode(0);\n        ListNode curr = dummy;\n        for (String s : parts) {\n            curr.next = new ListNode(Integer.parseInt(s.trim()));\n            curr = curr.next;\n        }\n        return dummy.next;\n    }\n\n    private static void printList(ListNode head) {\n        List<String> parts = new ArrayList<>();\n        while (head != null) {\n            parts.add(String.valueOf(head.val));\n            head = head.next;\n        }\n        System.out.println(String.join(\",\", parts));\n    }\n// endregion\n    public static ListNode mergeTwoLists(ListNode list1, ListNode list2) {\n        // Write your code here...\n        return null;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\nclass ListNode:\n    def __init__(self, val=0, next=None):\n        self.val = val\n        self.next = next\n\ndef parse_list(line):\n    if not line:\n        return None\n    parts = line.split(',')\n    dummy = ListNode(0)\n    curr = dummy\n    for p in parts:\n        curr.next = ListNode(int(p))\n        curr = curr.next\n    return dummy.next\n\ndef print_list(head):\n    parts = []\n    while head:\n        parts.append(str(head.val))\n        head = head.next\n    print(','.join(parts))\n\ndef main():\n    input_data = sys.stdin.read().splitlines()\n    # Handle potentially fewer lines\n    line1 = input_data[0] if len(input_data) > 0 else \"\"\n    line2 = input_data[1] if len(input_data) > 1 else \"\"\n    \n    list1 = parse_list(line1)\n    list2 = parse_list(line2)\n    \n    result = mergeTwoLists(list1, list2)\n    print_list(result)\n# endregion\n\ndef mergeTwoLists(list1, list2):\n    # Write your code here...\n    return None\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Valid Palindrome",
+    "description": "# Valid Palindrome\n\nA phrase is a **palindrome** if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.\n\nGiven a string `s`, return `true` *if it is a palindrome, or* `false` *otherwise*.\n\n## Example 1:\n\n```\nInput: s = \"A man, a plan, a canal: Panama\"\nOutput: true\nExplanation: \"amanaplanacanalpanama\" is a palindrome.\n```\n\n## Example 2:\n\n```\nInput: s = \"race a car\"\nOutput: false\nExplanation: \"raceacar\" is not a palindrome.\n```\n\n## Example 3:\n\n```\nInput: s = \" \"\nOutput: true\nExplanation: s is an empty string \"\" after removing non-alphanumeric characters.\nSince an empty string reads the same forward and backward, it is a palindrome.\n```\n\n## Constraints:\n\n- `1 <= s.length <= 2 * 10^5`\n- `s` consists only of printable ASCII characters.\n",
+    "testCases": [
+      {
+        "input": "A man, a plan, a canal: Panama",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "race a car",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": " ",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "ab_a",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "0P",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "a.",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": ".,",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "a b c d e d c b a",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "Madam, I'm Adam",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "Not a palindrome",
+        "expectedOutput": "false",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s = sc.nextLine();\n            System.out.println(isPalindrome(s));\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isPalindrome(String s) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    # Handle empty input case which might read as empty list\n    s = input[0] if input else \"\"\n    print(\"true\" if isPalindrome(s) else \"false\")\n# endregion\n\ndef isPalindrome(s):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Invert Binary Tree",
+    "description": "# Invert Binary Tree\n\nGiven the `root` of a binary tree, invert the tree, and return *its root*.\n\n## Example 1:\n\n```\nInput: root = [4,2,7,1,3,6,9]\nOutput: [4,7,2,9,6,3,1]\n```\n\n## Example 2:\n\n```\nInput: root = [2,1,3]\nOutput: [2,3,1]\n```\n\n## Example 3:\n\n```\nInput: root = []\nOutput: []\n```\n\n## Constraints:\n\n- The number of nodes in the tree is in the range `[0, 100]`.\n- `-100 <= Node.val <= 100`\n",
+    "testCases": [
+      {
+        "input": "4,2,7,1,3,6,9",
+        "expectedOutput": "4,7,2,9,6,3,1",
+        "isHidden": false
+      },
+      {
+        "input": "2,1,3",
+        "expectedOutput": "2,3,1",
+        "isHidden": false
+      },
+      {
+        "input": "",
+        "expectedOutput": "",
+        "isHidden": false
+      },
+      {
+        "input": "1,2",
+        "expectedOutput": "1,null,2",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5",
+        "expectedOutput": "1,3,2,null,null,5,4",
+        "isHidden": true
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7,8,9",
+        "expectedOutput": "1,3,2,7,6,5,4,null,null,null,null,null,null,9,8",
+        "isHidden": true
+      },
+      {
+        "input": "5,1,10,null,2",
+        "expectedOutput": "5,10,1,null,null,2",
+        "isHidden": true
+      },
+      {
+        "input": "3,1,null,null,2",
+        "expectedOutput": "3,null,1,2",
+        "isHidden": true
+      },
+      {
+        "input": "100,-100",
+        "expectedOutput": "100,null,-100",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode() {}\n    TreeNode(int val) { this.val = val; }\n    TreeNode(int val, TreeNode left, TreeNode right) {\n        this.val = val;\n        this.left = left;\n        this.right = right;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextAndNotEmpty(sc)) {\n            TreeNode root = parseTree(sc.nextLine());\n            TreeNode result = invertTree(root);\n            printTree(result);\n        } else {\n             printTree(null);\n        }\n        sc.close();\n    }\n    \n    // Helper for Java Scanner to check for empty line immediately\n    private static boolean hasNextAndNotEmpty(Scanner sc) {\n         if (!sc.hasNextLine()) return false;\n         // We need to peek or read, but for simple stdin we can just read first line\n         // This logic might need adjustment if logic was stricter, \n         // but for boilerplate we assume \"if input is empty string, parseTree handles it\"\n         return true;\n    }\n\n    private static TreeNode parseTree(String line) {\n        if (line == null || line.isEmpty() || line.equals(\"null\")) return null;\n        String[] parts = line.split(\",\");\n        if (parts.length == 0) return null;\n        \n        TreeNode root = new TreeNode(Integer.parseInt(parts[0]));\n        Queue<TreeNode> q = new LinkedList<>();\n        q.offer(root);\n        int i = 1;\n        while (i < parts.length) {\n            TreeNode curr = q.poll();\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.left = new TreeNode(Integer.parseInt(parts[i]));\n                q.offer(curr.left);\n            }\n            i++;\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.right = new TreeNode(Integer.parseInt(parts[i]));\n                q.offer(curr.right);\n            }\n            i++;\n        }\n        return root;\n    }\n\n    private static void printTree(TreeNode root) {\n        if (root == null) {\n            System.out.println(\"\");\n            return;\n        }\n        List<String> output = new ArrayList<>();\n        Queue<TreeNode> q = new LinkedList<>();\n        q.offer(root);\n        output.add(String.valueOf(root.val));\n        while (!q.isEmpty()) {\n            TreeNode curr = q.poll();\n            if (curr.left != null) {\n                q.offer(curr.left);\n                output.add(String.valueOf(curr.left.val));\n            } else {\n                // Just for simple representation, strict LeetCode format trims trailing nulls\n                // For simplicity in this driver, we might just print what we traverse or implement strict logic\n                output.add(\"null\");\n            }\n             if (curr.right != null) {\n                q.offer(curr.right);\n                output.add(String.valueOf(curr.right.val));\n            } else {\n                output.add(\"null\");\n            }\n        }\n        // Trim trailing nulls\n        int i = output.size() - 1;\n        while (i >= 0 && output.get(i).equals(\"null\")) {\n            output.remove(i);\n            i--;\n        }\n        System.out.println(String.join(\",\", output));\n    }\n// endregion\n    public static TreeNode invertTree(TreeNode root) {\n        // Write your code here...\n        return null;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport collections\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef parse_tree(line):\n    if not line or line == \"null\": return None\n    parts = line.split(',')\n    if not parts: return None\n    root = TreeNode(int(parts[0]))\n    q = collections.deque([root])\n    i = 1\n    while i < len(parts):\n        curr = q.popleft()\n        if i < len(parts) and parts[i] != \"null\":\n            curr.left = TreeNode(int(parts[i]))\n            q.append(curr.left)\n        i += 1\n        if i < len(parts) and parts[i] != \"null\":\n            curr.right = TreeNode(int(parts[i]))\n            q.append(curr.right)\n        i += 1\n    return root\n\ndef print_tree(root):\n    if not root: \n        print(\"\")\n        return\n    output = []\n    q = collections.deque([root])\n    while q:\n        curr = q.popleft()\n        if curr:\n            output.append(str(curr.val))\n            q.append(curr.left)\n            q.append(curr.right)\n        else:\n            output.append(\"null\")\n    \n    while output and output[-1] == \"null\":\n        output.pop()\n    print(','.join(output))\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    # Handle case with no input or just newline\n    line = input[0] if input else \"\"\n    root = parse_tree(line)\n    result = invertTree(root)\n    print_tree(result)\n# endregion\n\ndef invertTree(root):\n    # Write your code here...\n    return None\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Valid Anagram",
+    "description": "# Valid Anagram\n\nGiven two strings `s` and `t`, return `true` *if* `t` *is an anagram of* `s`*, and* `false` *otherwise*.\n\nAn **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.\n\n## Example 1:\n\n```\nInput: s = \"anagram\", t = \"nagaram\"\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: s = \"rat\", t = \"car\"\nOutput: false\n```\n\n## Constraints:\n\n- `1 <= s.length, t.length <= 5 * 10^4`\n- `s` and `t` consist of lowercase English letters.\n",
+    "testCases": [
+      {
+        "input": "anagram\nnagaram",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "rat\ncar",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "ab\na",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "a\nab",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "listen\nsilent",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "hello\nworld",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "aabbcc\nabcabc",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "ooo\nooooo",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "restful\nfluster",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "cheater\nteacher",
+        "expectedOutput": "true",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String s = sc.next();\n            String t = sc.hasNext() ? sc.next() : \"\";\n            System.out.println(isAnagram(s, t));\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isAnagram(String s, String t) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    s = input[0]\n    t = input[1] if len(input) > 1 else \"\"\n    print(\"true\" if isAnagram(s, t) else \"false\")\n# endregion\n\ndef isAnagram(s, t):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Binary Search",
+    "description": "# Binary Search\n\nGiven an array of integers `nums` which is sorted in ascending order, and an integer `target`, write a function to search `target` in `nums`. If `target` exists, then return its index. Otherwise, return `-1`.\n\nYou must write an algorithm with `O(log n)` runtime complexity.\n\n## Example 1:\n\n```\nInput: nums = [-1,0,3,5,9,12], target = 9\nOutput: 4\nExplanation: 9 exists in nums and its index is 4\n```\n\n## Example 2:\n\n```\nInput: nums = [-1,0,3,5,9,12], target = 2\nOutput: -1\nExplanation: 2 does not exist in nums so return -1\n```\n\n## Constraints:\n\n- `1 <= nums.length <= 10^4`\n- `-10^4 < nums[i], target < 10^4`\n- All the integers in `nums` are **unique**.\n- `nums` is sorted in ascending order.\n",
+    "testCases": [
+      {
+        "input": "-1,0,3,5,9,12\n9",
+        "expectedOutput": "4",
+        "isHidden": false
+      },
+      {
+        "input": "-1,0,3,5,9,12\n2",
+        "expectedOutput": "-1",
+        "isHidden": false
+      },
+      {
+        "input": "5\n5",
+        "expectedOutput": "0",
+        "isHidden": false
+      },
+      {
+        "input": "2,5\n5",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "2,5\n2",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "-10,-5,0,3,7\n0",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "-10,-5,0,3,7\n-10",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "-10,-5,0,3,7\n7",
+        "expectedOutput": "4",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5,6,7,8,9,10\n11",
+        "expectedOutput": "-1",
+        "isHidden": true
+      },
+      {
+        "input": "0,10,20,30,40\n30",
+        "expectedOutput": "3",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            System.out.println(search(nums, target));\n        }\n        sc.close();\n    }\n// endregion\n    public static int search(int[] nums, int target) {\n        // Write your code here...\n        return -1;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    print(search(nums, target))\n# endregion\n\ndef search(nums, target):\n    # Write your code here...\n    return -1\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Flood Fill",
+    "description": "# Flood Fill\n\nAn image is represented by an `m x n` integer grid `image` where `image[i][j]` represents the pixel value of the image.\n\nYou are also given three integers `sr`, `sc`, and `color`.\n\nYou should perform a **flood fill** on the image starting from the pixel `image[sr][sc]`.\n\nTo perform a **flood fill**, consider the starting pixel, plus any pixels connected 4-directionally to the starting pixel of the same color as the starting pixel, plus any pixels connected 4-directionally to those pixels (also with the same color), and so on. Replace the color of all of the aforementioned pixels with `color`.\n\nReturn *the modified image after performing the flood fill*.\n\n## Example 1:\n\n```\nInput: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2\nOutput: [[2,2,2],[2,2,0],[2,0,1]]\n```\n\n## Example 2:\n\n```\nInput: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0\nOutput: [[0,0,0],[0,0,0]]\n```\n\n## Constraints:\n\n- `m == image.length`\n- `n == image[i].length`\n- `1 <= m, n <= 50`\n- `0 <= image[i][j], color < 2^16`\n- `0 <= sr < m`\n- `0 <= sc < n`\n",
+    "testCases": [
+      {
+        "input": "[[1,1,1],[1,1,0],[1,0,1]]\n1\n1\n2",
+        "expectedOutput": "[[2,2,2],[2,2,0],[2,0,1]]",
+        "isHidden": false
+      },
+      {
+        "input": "[[0,0,0],[0,0,0]]\n0\n0\n0",
+        "expectedOutput": "[[0,0,0],[0,0,0]]",
+        "isHidden": false
+      },
+      {
+        "input": "[[0,0,0],[0,1,1]]\n1\n1\n1",
+        "expectedOutput": "[[0,0,0],[0,1,1]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[1]]\n0\n0\n2",
+        "expectedOutput": "[[2]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,1],[1,1]]\n0\n0\n2",
+        "expectedOutput": "[[2,2],[2,2]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[0,1],[1,0]]\n0\n0\n2",
+        "expectedOutput": "[[2,1],[1,0]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,1,1,1],[1,0,0,1],[1,0,1,1]]\n1\n1\n3",
+        "expectedOutput": "[[1,1,1,1],[1,3,3,1],[1,3,1,1]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[0,0,0],[0,0,1],[0,0,0]]\n1\n1\n2",
+        "expectedOutput": "[[0,0,0],[0,0,1],[0,0,0]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[2,2,2],[2,2,2]]\n0\n0\n3",
+        "expectedOutput": "[[3,3,3],[3,3,3]]",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,0],[0,1]]\n1\n1\n5",
+        "expectedOutput": "[[1,0],[0,5]]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.Collectors;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String imgStr = sc.nextLine();\n            int[][] image = parseMatrix(imgStr);\n            int sr = Integer.parseInt(sc.nextLine());\n            int scCol = Integer.parseInt(sc.nextLine());\n            int newColor = Integer.parseInt(sc.nextLine());\n            \n            int[][] result = floodFill(image, sr, scCol, newColor);\n            printMatrix(result);\n        }\n        sc.close();\n    }\n    \n    private static int[][] parseMatrix(String s) {\n        // Expected input: [[1,1,1],[1,1,0]]\n        s = s.substring(2, s.length() - 2);\n        String[] rows = s.split(\"\\\\],\\\\[\");\n        int[][] matrix = new int[rows.length][];\n        for (int i = 0; i < rows.length; i++) {\n            String[] cols = rows[i].split(\",\");\n            matrix[i] = new int[cols.length];\n            for (int j = 0; j < cols.length; j++) {\n                matrix[i][j] = Integer.parseInt(cols[j]);\n            }\n        }\n        return matrix;\n    }\n\n    private static void printMatrix(int[][] matrix) {\n        StringBuilder sb = new StringBuilder(\"[\");\n        for (int i = 0; i < matrix.length; i++) {\n            sb.append(\"[\");\n            for (int j = 0; j < matrix[i].length; j++) {\n                sb.append(matrix[i][j]);\n                if (j < matrix[i].length - 1) sb.append(\",\");\n            }\n            sb.append(\"]\");\n            if (i < matrix.length - 1) sb.append(\",\");\n        }\n        sb.append(\"]\");\n        System.out.println(sb.toString());\n    }\n// endregion\n    public static int[][] floodFill(int[][] image, int sr, int sc, int color) {\n        // Write your code here...\n        return image;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport json\n\ndef main():\n    input_data = sys.stdin.read().splitlines()\n    if not input_data: return\n    image = json.loads(input_data[0])\n    sr = int(input_data[1])\n    sc = int(input_data[2])\n    color = int(input_data[3])\n    res = floodFill(image, sr, sc, color)\n    # JSON dump has spaces by default, leetcode format usually compact\n    print(json.dumps(res, separators=(',', ':')))\n# endregion\n\ndef floodFill(image, sr, sc, color):\n    # Write your code here...\n    return image\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Lowest Common Ancestor of a BST",
+    "description": "# Lowest Common Ancestor of a BST\n\nGiven a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.\n\nAccording to the [definition of LCA on Wikipedia](https://en.wikipedia.org/wiki/Lowest_common_ancestor): “The lowest common ancestor is defined between two nodes `p` and `q` as the lowest node in `T` that has both `p` and `q` as descendants (where we allow **a node to be a descendant of itself**).”\n\n## Example 1:\n\n```\nInput: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8\nOutput: 6\nExplanation: The LCA of nodes 2 and 8 is 6.\n```\n\n## Example 2:\n\n```\nInput: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4\nOutput: 2\nExplanation: The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself.\n```\n\n## Constraints:\n\n- The number of nodes in the tree is in the range `[2, 10^5]`.\n- `-10^9 <= Node.val <= 10^9`\n- All `Node.val` are **unique**.\n- `p != q`\n- `p` and `q` will exist in the BST.\n",
+    "testCases": [
+      {
+        "input": "6,2,8,0,4,7,9,null,null,3,5\n2\n8",
+        "expectedOutput": "6",
+        "isHidden": false
+      },
+      {
+        "input": "6,2,8,0,4,7,9,null,null,3,5\n2\n4",
+        "expectedOutput": "2",
+        "isHidden": false
+      },
+      {
+        "input": "2,1\n2\n1",
+        "expectedOutput": "2",
+        "isHidden": false
+      },
+      {
+        "input": "5,3,6,2,4,null,null,1\n1\n4",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "20,10,30\n10\n30",
+        "expectedOutput": "20",
+        "isHidden": true
+      },
+      {
+        "input": "20,10,30\n10\n20",
+        "expectedOutput": "20",
+        "isHidden": true
+      },
+      {
+        "input": "100,50,150,20,80\n20\n80",
+        "expectedOutput": "50",
+        "isHidden": true
+      },
+      {
+        "input": "100,50,150,20,80\n20\n150",
+        "expectedOutput": "100",
+        "isHidden": true
+      },
+      {
+        "input": "2,null,3\n2\n3",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "5,1,8,null,null,6,9\n6\n9",
+        "expectedOutput": "8",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode(int x) { val = x; }\n}\n\npublic class Main {\n    private static Map<Integer, TreeNode> nodeMap = new HashMap<>();\n\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            TreeNode root = parseTree(sc.nextLine());\n            int pVal = Integer.parseInt(sc.nextLine());\n            int qVal = Integer.parseInt(sc.nextLine());\n            \n            // We need to pass the actual nodes p and q from the tree, not just values\n            // Since we stored them in nodeMap during parsing, we can retrieve them.\n            // Note: In real LeetCode, p and q are TreeNode references within root.\n            TreeNode result = lowestCommonAncestor(root, nodeMap.get(pVal), nodeMap.get(qVal));\n            System.out.println(result != null ? result.val : \"null\");\n        }\n        sc.close();\n    }\n\n    private static TreeNode parseTree(String line) {\n        nodeMap.clear();\n        if (line == null || line.isEmpty() || line.equals(\"null\")) return null;\n        String[] parts = line.split(\",\");\n        if (parts.length == 0) return null;\n        \n        TreeNode root = new TreeNode(Integer.parseInt(parts[0]));\n        nodeMap.put(root.val, root);\n        \n        Queue<TreeNode> q = new LinkedList<>();\n        q.offer(root);\n        int i = 1;\n        while (i < parts.length) {\n            TreeNode curr = q.poll();\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.left = new TreeNode(Integer.parseInt(parts[i]));\n                nodeMap.put(curr.left.val, curr.left);\n                q.offer(curr.left);\n            }\n            i++;\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.right = new TreeNode(Integer.parseInt(parts[i]));\n                nodeMap.put(curr.right.val, curr.right);\n                q.offer(curr.right);\n            }\n            i++;\n        }\n        return root;\n    }\n// endregion\n    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {\n        // Write your code here...\n        return null;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport collections\n\nclass TreeNode:\n    def __init__(self, x):\n        self.val = x\n        self.left = None\n        self.right = None\n\nnode_map = {}\n\ndef parse_tree(line):\n    node_map.clear()\n    if not line or line == \"null\": return None\n    parts = line.split(',')\n    if not parts: return None\n    \n    root = TreeNode(int(parts[0]))\n    node_map[root.val] = root\n    q = collections.deque([root])\n    i = 1\n    while i < len(parts):\n        curr = q.popleft()\n        if i < len(parts) and parts[i] != \"null\":\n            curr.left = TreeNode(int(parts[i]))\n            node_map[curr.left.val] = curr.left\n            q.append(curr.left)\n        i += 1\n        if i < len(parts) and parts[i] != \"null\":\n            curr.right = TreeNode(int(parts[i]))\n            node_map[curr.right.val] = curr.right\n            q.append(curr.right)\n        i += 1\n    return root\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    root = parse_tree(input[0])\n    p_val = int(input[1])\n    q_val = int(input[2])\n    \n    res = lowestCommonAncestor(root, node_map[p_val], node_map[q_val])\n    print(res.val if res else \"null\")\n# endregion\n\ndef lowestCommonAncestor(root, 'p', 'q'):\n    # Write your code here...\n    return None\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Balanced Binary Tree",
+    "description": "# Balanced Binary Tree\n\nGiven a binary tree, determine if it is height-balanced.\n\nFor this problem, a height-balanced binary tree is defined as:\n> a binary tree in which the left and right subtrees of every node differ in height by no more than 1.\n\n## Example 1:\n\n```\nInput: root = [3,9,20,null,null,15,7]\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: root = [1,2,2,3,3,null,null,4,4]\nOutput: false\n```\n\n## Example 3:\n\n```\nInput: root = []\nOutput: true\n```\n\n## Constraints:\n\n- The number of nodes in the tree is in the range `[0, 5000]`.\n- `-10^4 <= Node.val <= 10^4`\n",
+    "testCases": [
+      {
+        "input": "3,9,20,null,null,15,7",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,2,3,3,null,null,4,4",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,3,4,5,6,null,8",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,null,3",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,null,2,null,3",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,null,null,5",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,2,3,null,null,3,4,null,null,4",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "100",
+        "expectedOutput": "true",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode() {}\n    TreeNode(int val) { this.val = val; }\n    TreeNode(int val, TreeNode left, TreeNode right) {\n        this.val = val;\n        this.left = left;\n        this.right = right;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine() || sc.hasNext()) { // Flexible check\n             String line = sc.hasNextLine() ? sc.nextLine() : \"\";\n             TreeNode root = parseTree(line);\n             System.out.println(isBalanced(root));\n        } else {\n             // Empty input usually means empty tree\n             System.out.println(isBalanced(null));\n        }\n        sc.close();\n    }\n\n    private static TreeNode parseTree(String line) {\n        if (line == null || line.trim().isEmpty() || line.equals(\"null\")) return null;\n        String[] parts = line.split(\",\");\n        if (parts.length == 0) return null;\n        \n        TreeNode root = new TreeNode(Integer.parseInt(parts[0]));\n        Queue<TreeNode> q = new LinkedList<>();\n        q.offer(root);\n        int i = 1;\n        while (i < parts.length) {\n            TreeNode curr = q.poll();\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.left = new TreeNode(Integer.parseInt(parts[i]));\n                q.offer(curr.left);\n            }\n            i++;\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.right = new TreeNode(Integer.parseInt(parts[i]));\n                q.offer(curr.right);\n            }\n            i++;\n        }\n        return root;\n    }\n// endregion\n    public static boolean isBalanced(TreeNode root) {\n        // Write your code here...\n        return true;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport collections\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef parse_tree(line):\n    if not line or line == \"null\": return None\n    parts = line.split(',')\n    if not parts: return None\n    \n    root = TreeNode(int(parts[0]))\n    q = collections.deque([root])\n    i = 1\n    while i < len(parts):\n        curr = q.popleft()\n        if i < len(parts) and parts[i] != \"null\":\n            curr.left = TreeNode(int(parts[i]))\n            q.append(curr.left)\n        i += 1\n        if i < len(parts) and parts[i] != \"null\":\n            curr.right = TreeNode(int(parts[i]))\n            q.append(curr.right)\n        i += 1\n    return root\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    line = input[0] if input else \"\"\n    root = parse_tree(line)\n    print(\"true\" if isBalanced(root) else \"false\")\n# endregion\n\ndef isBalanced(root):\n    # Write your code here...\n    return True\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Linked List Cycle",
+    "description": "# Linked List Cycle\n\nGiven `head`, the head of a linked list, determine if the linked list has a cycle in it.\n\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the `next` pointer. Internally, `pos` is used to denote the index of the node that tail's `next` pointer is connected to. **Note that `pos` is not passed as a parameter**.\n\nReturn `true` *if there is a cycle in the linked list*. Otherwise, return `false`.\n\n## Example 1:\n\n```\nInput: head = [3,2,0,-4], pos = 1\nOutput: true\nExplanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).\n```\n\n## Example 2:\n\n```\nInput: head = [1,2], pos = 0\nOutput: true\nExplanation: There is a cycle in the linked list, where the tail connects to the 0th node.\n```\n\n## Example 3:\n\n```\nInput: head = [1], pos = -1\nOutput: false\nExplanation: There is no cycle in the linked list.\n```\n\n## Constraints:\n\n- The number of the nodes in the list is in the range `[0, 10^4]`.\n- `-10^5 <= Node.val <= 10^5`\n- `pos` is `-1` or a valid index in the linked-list.\n",
+    "testCases": [
+      {
+        "input": "3,2,0,-4\n1",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "1,2\n0",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "1\n-1",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "\n-1",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5\n-1",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5\n4",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "10\n0",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "-1,-7,7,-4,19,6,-9,-5,-2,-5\n6",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "1,2\n-1",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "3,2,0,-4\n3",
+        "expectedOutput": "true",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass ListNode {\n    int val;\n    ListNode next;\n    ListNode(int x) {\n        val = x;\n        next = null;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int pos = -1;\n            if (sc.hasNextLine()) {\n                String posLine = sc.nextLine();\n                if (!posLine.isEmpty()) {\n                    pos = Integer.parseInt(posLine);\n                }\n            }\n            \n            ListNode head = parseListWithCycle(line, pos);\n            System.out.println(hasCycle(head));\n        }\n        sc.close();\n    }\n\n    private static ListNode parseListWithCycle(String line, int pos) {\n        if (line.isEmpty()) return null;\n        String[] parts = line.split(\",\");\n        if (parts.length == 0) return null;\n        \n        ListNode[] nodes = new ListNode[parts.length];\n        for (int i = 0; i < parts.length; i++) {\n            nodes[i] = new ListNode(Integer.parseInt(parts[i]));\n        }\n        for (int i = 0; i < parts.length - 1; i++) {\n            nodes[i].next = nodes[i+1];\n        }\n        if (pos >= 0 && pos < parts.length) {\n            nodes[parts.length - 1].next = nodes[pos];\n        }\n        return nodes[0];\n    }\n// endregion\n    public static boolean hasCycle(ListNode head) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\nclass ListNode:\n    def __init__(self, x):\n        self.val = x\n        self.next = None\n\ndef parse_list_with_cycle(line, pos):\n    if not line: return None\n    parts = line.split(',')\n    nodes = [ListNode(int(x)) for x in parts]\n    for i in range(len(nodes) - 1):\n        nodes[i].next = nodes[i+1]\n    if 0 <= pos < len(nodes):\n        nodes[-1].next = nodes[pos]\n    return nodes[0]\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    # Handle potentially missing lines\n    if not input: return\n    line = input[0]\n    pos = int(input[1]) if len(input) > 1 and input[1] else -1\n    \n    head = parse_list_with_cycle(line, pos)\n    print(\"true\" if hasCycle(head) else \"false\")\n# endregion\n\ndef hasCycle(head):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Implement Queue using Stacks",
+    "description": "# Implement Queue using Stacks\n\nImplement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (`push`, `peek`, `pop`, and `empty`).\n\nImplement the `MyQueue` class:\n\n- `void push(int x)` Pushes element x to the back of the queue.\n- `int pop()` Removes the element from the front of the queue and returns it.\n- `int peek()` Returns the element at the front of the queue.\n- `boolean empty()` Returns `true` if the queue is empty, `false` otherwise.\n\n**Notes:**\n\n- You must use **only** standard operations of a stack, which means only `push to top`, `peek/pop from top`, `size`, and `is empty` operations are valid.\n- Depending on your language, the stack may not be supported natively. You may simulate a stack using a list or deque (double-ended queue) as long as you use only a stack's standard operations.\n\n## Example 1:\n\n```\nInput\n[\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"]\n[[], [1], [2], [], [], []]\nOutput\n[null, null, null, 1, 1, false]\n\nExplanation\nMyQueue myQueue = new MyQueue();\nmyQueue.push(1); // queue is: [1]\nmyQueue.push(2); // queue is: [1, 2] (leftmost is front of the queue)\nmyQueue.peek(); // return 1\nmyQueue.pop(); // return 1, queue is [2]\nmyQueue.empty(); // return false\n```\n\n## Constraints:\n\n- `1 <= x <= 9`\n- At most `100` calls will be made to `push`, `pop`, `peek`, and `empty`.\n- All the calls to `pop` and `peek` are valid.\n",
+    "testCases": [
+      {
+        "input": "[\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"]\n[[], [1], [2], [], [], []]",
+        "expectedOutput": "[null,null,null,1,1,false]",
+        "isHidden": false
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"empty\"]\n[[], [1], []]",
+        "expectedOutput": "[null,null,false]",
+        "isHidden": false
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"pop\", \"empty\"]\n[[], [1], [], []]",
+        "expectedOutput": "[null,null,1,true]",
+        "isHidden": false
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"peek\", \"push\", \"peek\"]\n[[], [10], [], [20], []]",
+        "expectedOutput": "[null,null,10,null,10]",
+        "isHidden": true
+      },
+      {
+        "input": "[\"MyQueue\", \"empty\"]\n[[], []]",
+        "expectedOutput": "[null,true]",
+        "isHidden": true
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"pop\"]\n[[], [5], []]",
+        "expectedOutput": "[null,null,5]",
+        "isHidden": true
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"push\", \"push\", \"pop\", \"pop\"]\n[[], [1], [2], [3], [], []]",
+        "expectedOutput": "[null,null,null,null,1,2]",
+        "isHidden": true
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"pop\", \"push\", \"pop\"]\n[[], [1], [], [2], []]",
+        "expectedOutput": "[null,null,1,null,2]",
+        "isHidden": true
+      },
+      {
+        "input": "[\"MyQueue\"]\n[[]]",
+        "expectedOutput": "[null]",
+        "isHidden": true
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"push\", \"empty\", \"pop\", \"empty\"]\n[[], [1], [2], [], [], []]",
+        "expectedOutput": "[null,null,null,false,1,false]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String opsLine = sc.nextLine();\n            String argsLine = sc.nextLine();\n            \n            String[] ops = parseStringArray(opsLine);\n            String[] argsArr = parseArrayString(argsLine);\n\n            MyQueue obj = null;\n            List<String> output = new ArrayList<>();\n            \n            for (int i = 0; i < ops.length; i++) {\n                if (ops[i].equals(\"MyQueue\")) {\n                    obj = new MyQueue();\n                    output.add(\"null\");\n                } else if (ops[i].equals(\"push\")) {\n                    int val = Integer.parseInt(argsArr[i].replaceAll(\"[\\\\[\\\\]]\", \"\"));\n                    obj.push(val);\n                    output.add(\"null\");\n                } else if (ops[i].equals(\"pop\")) {\n                    output.add(String.valueOf(obj.pop()));\n                } else if (ops[i].equals(\"peek\")) {\n                    output.add(String.valueOf(obj.peek()));\n                } else if (ops[i].equals(\"empty\")) {\n                    output.add(String.valueOf(obj.empty()));\n                }\n            }\n            System.out.println(\"[\" + String.join(\",\", output) + \"]\");\n        }\n        sc.close();\n    }\n\n    private static String[] parseStringArray(String s) {\n        // s = [\"MyQueue\", \"push\", ...] -> remove brackets and quotes\n        s = s.substring(1, s.length() - 1);\n        return Arrays.stream(s.split(\",\"))\n                     .map(str -> str.trim().replaceAll(\"\\\"\", \"\"))\n                     .toArray(String[]::new);\n    }\n\n    private static String[] parseArrayString(String s) {\n        // s = [[], [1], [2]] -> complex parsing. \n        // For simplicity assume simple structure or regex split\n        // This is a naive split for the specific format\n        List<String> list = new ArrayList<>();\n        int depth = 0;\n        StringBuilder sb = new StringBuilder();\n        for (char c : s.toCharArray()) {\n            if (c == '[') depth++;\n            if (c == ']') depth--;\n            if (c == ',' && depth == 1) {\n                 list.add(sb.toString().trim());\n                 sb = new StringBuilder();\n            } else {\n                sb.append(c);\n            }\n        }\n        list.add(sb.toString().trim());\n        // Remove outer brackets from first and last if needed, but split logic above keeps inside of outer brackets roughly\n        // Actually, let's just do a simpler manual parse since input is guaranteed\n        String content = s.substring(1, s.length() - 1);\n        String[] parts = content.split(\"(?<=]),\\\\s*(?=\\\\[)\"); // Split by comma between ] and [\n        return parts;\n    }\n// endregion\n}\n\nclass MyQueue {\n\n    public MyQueue() {\n        \n    }\n    \n    public void push(int x) {\n        \n    }\n    \n    public int pop() {\n        return 0;\n    }\n    \n    public int peek() {\n        return 0;\n    }\n    \n    public boolean empty() {\n        return false;\n    }\n}\n// region boilerplate",
+      "python": "# region boilerplate\nimport sys\nimport json\n\nclass MyQueue:\n    def __init__(self):\n        pass\n\n    def push(self, x: int) -> None:\n        pass\n\n    def pop(self) -> int:\n        return 0\n\n    def peek(self) -> int:\n        return 0\n\n    def empty(self) -> bool:\n        return False\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    ops = json.loads(input[0])\n    args = json.loads(input[1])\n    \n    obj = None\n    output = []\n    \n    for i, op in enumerate(ops):\n        if op == \"MyQueue\":\n            obj = MyQueue()\n            output.append(None)\n        elif op == \"push\":\n            obj.push(args[i][0])\n            output.append(None)\n        elif op == \"pop\":\n            output.append(obj.pop())\n        elif op == \"peek\":\n            output.append(obj.peek())\n        elif op == \"empty\":\n            output.append(obj.empty())\n            \n    # Format output to match Java's standard simple boolean/null printing if needed, or just json dump\n    # JSON dump converts None to null, True to true which matches requirement\n    print(json.dumps(output, separators=(',', ':')))\n\n# endregion\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  }
+]

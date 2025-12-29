@@ -1,0 +1,612 @@
+[
+  {
+    "title": "Two Sum",
+    "description": "# Two Sum\n\nGiven an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.\n\nYou may assume that each input would have **exactly one solution**, and you may not use the same element twice.\n\nYou can return the answer in any order.\n\n## Example 1:\n\n```\nInput: n = 4, nums = [2,7,11,15], target = 9\nOutput: 0 1\nExplanation: Because nums[0] + nums[1] == 9, we return 0 1.\n```\n\n## Example 2:\n\n```\nInput: n = 3, nums = [3,2,4], target = 6\nOutput: 1 2\n```\n\n## Constraints:\n\n- `2 <= nums.length <= 10^4`\n- `-10^9 <= nums[i] <= 10^9`\n- `-10^9 <= target <= 10^9`\n- Only one valid answer exists.\n",
+    "testCases": [
+      {
+        "input": "2,7,11,15\n9",
+        "expectedOutput": "[0,1]",
+        "isHidden": false
+      },
+      {
+        "input": "3,2,4\n6",
+        "expectedOutput": "[1,2]",
+        "isHidden": false
+      },
+      {
+        "input": "3,3\n6",
+        "expectedOutput": "[0,1]",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,3,4,5\n9",
+        "expectedOutput": "[3,4]",
+        "isHidden": true
+      },
+      {
+        "input": "-1,-2,-3\n-5",
+        "expectedOutput": "[1,2]",
+        "isHidden": true
+      },
+      {
+        "input": "9,7,-4,-3,2,-4,8,8,-9,8,1\n-1",
+        "expectedOutput": "[3,4]",
+        "isHidden": true
+      },
+      {
+        "input": "-2,7,4,-10,2,1,-8\n3",
+        "expectedOutput": "[4,5]",
+        "isHidden": true
+      },
+      {
+        "input": "8,4,9,-7,-9\n-5",
+        "expectedOutput": "[1,4]",
+        "isHidden": true
+      },
+      {
+        "input": "0,0,-7,-2,-3,7,-7,5,7,5,8\n5",
+        "expectedOutput": "[3,5]",
+        "isHidden": true
+      },
+      {
+        "input": "2,2,9,-7,4,0\n6",
+        "expectedOutput": "[1,4]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            int[] result = twoSum(nums, target);\n            Arrays.sort(result);\n            System.out.println(\"[\" + result[0] + \",\" + result[1] + \"]\");\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] twoSum(int[] nums, int target) {\n        // Write your code here...\n        return new int[]{};\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    result = twoSum(nums, target)\n    result.sort()\n    print(f\"[{result[0]},{result[1]}]\")\n# endregion\n\ndef twoSum(nums, target):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Palindrome Number",
+    "description": "# Palindrome Number\n\nGiven an integer `x`, return `true` if `x` is a palindrome integer.\n\nAn integer is a palindrome when it reads the same backward as forward.\n- For example, `121` is a palindrome while `123` is not.\n\n## Example 1:\n\n```\nInput: x = 121\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: x = -121\nOutput: false\nExplanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.\n```\n\n## Constraints:\n\n- `-2^31 <= x <= 2^31 - 1`\n",
+    "testCases": [
+      {
+        "input": "121",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "-121",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "10",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "12321",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "66332",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "379831",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "630899",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "206602",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "147741",
+        "expectedOutput": "true",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int x = sc.nextInt();\n            boolean result = isPalindrome(x);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isPalindrome(int x) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    x = int(input[0])\n    result = isPalindrome(x)\n    print(\"true\" if result else \"false\")\n# endregion\n\ndef isPalindrome(x):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Valid Parentheses",
+    "description": "# Valid Parentheses\n\nGiven a string `s` containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.\n\nAn input string is valid if:\n1. Open brackets must be closed by the same type of brackets.\n2. Open brackets must be closed in the correct order.\n\n## Example 1:\n\n```\nInput: s = \"()\"\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: s = \"()[]{}\"\nOutput: true\n```\n\n## Example 3:\n\n```\nInput: s = \"(]\"\nOutput: false\n```\n\n## Constraints:\n\n- `1 <= s.length <= 10^4`\n- `s` consists of parentheses only.\n",
+    "testCases": [
+      {
+        "input": "()",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "()[]{}",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "(]",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "([)]",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "{[]}",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "{}()[[",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "{}{{}{}}[(",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "{}()[[]][(",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "()()",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "[]{()}{}{}",
+        "expectedOutput": "true",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String s = sc.next();\n            boolean result = isValid(s);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isValid(String s) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    s = input[0]\n    result = isValid(s)\n    print(\"true\" if result else \"false\")\n# endregion\n\ndef isValid(s):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Best Time to Buy and Sell Stock",
+    "description": "# Best Time to Buy and Sell Stock\n\nYou are given an array `prices` where `prices[i]` is the price of a given stock on the `ith` day.\n\nYou want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.\n\nReturn the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.\n\n## Example 1:\n\n```\nInput: n = 6, prices = [7,1,5,3,6,4]\nOutput: 5\nExplanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.\n```\n\n## Example 2:\n\n```\nInput: n = 5, prices = [7,6,4,3,1]\nOutput: 0\nExplanation: In this case, no transactions are done and the max profit = 0.\n```\n\n## Constraints:\n\n- `1 <= prices.length <= 10^5`\n- `0 <= prices[i] <= 10^4`\n",
+    "testCases": [
+      {
+        "input": "7,1,5,3,6,4",
+        "expectedOutput": "5",
+        "isHidden": false
+      },
+      {
+        "input": "7,6,4,3,1",
+        "expectedOutput": "0",
+        "isHidden": false
+      },
+      {
+        "input": "2,4",
+        "expectedOutput": "2",
+        "isHidden": false
+      },
+      {
+        "input": "2,1,2",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "3,2,6,5,0",
+        "expectedOutput": "4",
+        "isHidden": true
+      },
+      {
+        "input": "9,5,10,1,9,5,14,3,13,12",
+        "expectedOutput": "13",
+        "isHidden": true
+      },
+      {
+        "input": "2,9,18,14,7,12,1,8",
+        "expectedOutput": "16",
+        "isHidden": true
+      },
+      {
+        "input": "0,19,2,11,0,0,17,17",
+        "expectedOutput": "19",
+        "isHidden": true
+      },
+      {
+        "input": "2,10,7,18,9",
+        "expectedOutput": "16",
+        "isHidden": true
+      },
+      {
+        "input": "6",
+        "expectedOutput": "0",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] prices = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(maxProfit(prices));\n        }\n        sc.close();\n    }\n// endregion\n    public static int maxProfit(int[] prices) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    prices = list(map(int, input[0].split(',')))\n    print(maxProfit(prices))\n# endregion\n\ndef maxProfit(prices):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Maximum Subarray",
+    "description": "# Maximum Subarray\n\nGiven an integer array `nums`, find the contiguous subarray (containing at least one number) which has the largest sum and return *its sum*.\n\n## Example 1:\n\n```\nInput: n = 9, nums = [-2,1,-3,4,-1,2,1,-5,4]\nOutput: 6\nExplanation: [4,-1,2,1] has the largest sum = 6.\n```\n\n## Example 2:\n\n```\nInput: n = 1, nums = [1]\nOutput: 1\n```\n\n## Constraints:\n\n- `1 <= nums.length <= 10^5`\n- `-10^4 <= nums[i] <= 10^4`\n",
+    "testCases": [
+      {
+        "input": "-2,1,-3,4,-1,2,1,-5,4",
+        "expectedOutput": "6",
+        "isHidden": false
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "5,4,-1,7,8",
+        "expectedOutput": "23",
+        "isHidden": false
+      },
+      {
+        "input": "-1,-2,-3,-4",
+        "expectedOutput": "-1",
+        "isHidden": true
+      },
+      {
+        "input": "-2,3,-2",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "0",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "-3",
+        "expectedOutput": "-3",
+        "isHidden": true
+      },
+      {
+        "input": "1,7,-7,8,-9,-7,-9",
+        "expectedOutput": "9",
+        "isHidden": true
+      },
+      {
+        "input": "-9,-3,2,-7,-6,-4",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "-6,8,9,-9,-1,9,8,2",
+        "expectedOutput": "26",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(maxSubArray(nums));\n        }\n        sc.close();\n    }\n// endregion\n    public static int maxSubArray(int[] nums) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    print(maxSubArray(nums))\n# endregion\n\ndef maxSubArray(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Climbing Stairs",
+    "description": "# Climbing Stairs\n\nYou are climbing a staircase. It takes `n` steps to reach the top.\n\nEach time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?\n\n## Example 1:\n\n```\nInput: n = 2\nOutput: 2\nExplanation: 1. 1 step + 1 step; 2. 2 steps\n```\n\n## Example 2:\n\n```\nInput: n = 3\nOutput: 3\nExplanation: 1. 1+1+1; 2. 1+2; 3. 2+1\n```\n\n## Constraints:\n\n- `1 <= n <= 45`\n",
+    "testCases": [
+      {
+        "input": "2",
+        "expectedOutput": "2",
+        "isHidden": false
+      },
+      {
+        "input": "3",
+        "expectedOutput": "3",
+        "isHidden": false
+      },
+      {
+        "input": "4",
+        "expectedOutput": "5",
+        "isHidden": false
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "10",
+        "expectedOutput": "89",
+        "isHidden": true
+      },
+      {
+        "input": "29",
+        "expectedOutput": "832040",
+        "isHidden": true
+      },
+      {
+        "input": "2",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "23",
+        "expectedOutput": "46368",
+        "isHidden": true
+      },
+      {
+        "input": "13",
+        "expectedOutput": "377",
+        "isHidden": true
+      },
+      {
+        "input": "26",
+        "expectedOutput": "196418",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            System.out.println(climbStairs(n));\n        }\n        sc.close();\n    }\n// endregion\n    public static int climbStairs(int n) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    n = int(input[0])\n    print(climbStairs(n))\n# endregion\n\ndef climbStairs(n):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Longest Substring Without Repeating Characters",
+    "description": "# Longest Substring Without Repeating Characters\n\nGiven a string `s`, find the length of the longest substring without repeating characters.\n\n## Example 1:\n\n```\nInput: s = \"abcabcbb\"\nOutput: 3\nExplanation: The answer is \"abc\", with the length of 3.\n```\n\n## Example 2:\n\n```\nInput: s = \"bbbbb\"\nOutput: 1\nExplanation: The answer is \"b\", with the length of 1.\n```\n\n## Constraints:\n\n- `0 <= s.length <= 5 * 10^4`\n- `s` consists of English letters, digits, symbols and spaces.\n",
+    "testCases": [
+      {
+        "input": "abcabcbb",
+        "expectedOutput": "3",
+        "isHidden": false
+      },
+      {
+        "input": "bbbbb",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "pwwkew",
+        "expectedOutput": "3",
+        "isHidden": false
+      },
+      {
+        "input": " ",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "au",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "cbababacab",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "acabbba",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "a",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "accbb",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "bbbccbb",
+        "expectedOutput": "2",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s = sc.nextLine();\n            System.out.println(lengthOfLongestSubstring(s));\n        }\n        sc.close();\n    }\n// endregion\n    public static int lengthOfLongestSubstring(String s) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read()\n    if not input: return\n    s = input.strip(\"\\n\")\n    print(lengthOfLongestSubstring(s))\n# endregion\n\ndef lengthOfLongestSubstring(s):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Container With Most Water",
+    "description": "# Container With Most Water\n\nYou are given an integer array `height` of length `n`. There are `n` vertical lines drawn such that the two endpoints of the `ith` line are `(i, 0)` and `(i, height[i])`.\n\nFind two lines that together with the x-axis form a container, such that the container contains the most water.\n\nReturn the maximum amount of water a container can store.\n\n## Example 1:\n\n```\nInput: n = 9, height = [1,8,6,2,5,4,8,3,7]\nOutput: 49\nExplanation: The max area is between index 1 and 8 (values 8 and 7).\n```\n\n## Constraints:\n\n- `n == height.length`\n- `2 <= n <= 10^5`\n- `0 <= height[i] <= 10^4`\n",
+    "testCases": [
+      {
+        "input": "1,8,6,2,5,4,8,3,7",
+        "expectedOutput": "49",
+        "isHidden": false
+      },
+      {
+        "input": "1,1",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "4,3,2,1,4",
+        "expectedOutput": "16",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,1",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,4,3",
+        "expectedOutput": "4",
+        "isHidden": true
+      },
+      {
+        "input": "5,10,19,16",
+        "expectedOutput": "20",
+        "isHidden": true
+      },
+      {
+        "input": "10,6,18,18,12,2,7,12,9,14,9",
+        "expectedOutput": "98",
+        "isHidden": true
+      },
+      {
+        "input": "3,3,6,2,1",
+        "expectedOutput": "6",
+        "isHidden": true
+      },
+      {
+        "input": "4,7,2,13,1,13,1,12,4",
+        "expectedOutput": "48",
+        "isHidden": true
+      },
+      {
+        "input": "17,0",
+        "expectedOutput": "0",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] height = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(maxArea(height));\n        }\n        sc.close();\n    }\n// endregion\n    public static int maxArea(int[] height) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    height = list(map(int, input[0].split(',')))\n    print(maxArea(height))\n# endregion\n\ndef maxArea(height):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Search in Rotated Sorted Array",
+    "description": "# Search in Rotated Sorted Array\n\nThere is an integer array `nums` sorted in ascending order (with distinct values).\n\nPrior to being passed to your function, `nums` is possibly rotated at an unknown pivot index. Given the array `nums` after the possible rotation and an integer `target`, return the index of `target` if it is in `nums`, or `-1` if it is not in `nums`.\n\nYou must write an algorithm with `O(log n)` runtime complexity.\n\n## Example 1:\n\n```\nInput: n = 7, nums = [4,5,6,7,0,1,2], target = 0\nOutput: 4\n```\n\n## Example 2:\n\n```\nInput: n = 7, nums = [4,5,6,7,0,1,2], target = 3\nOutput: -1\n```\n\n## Constraints:\n\n- `1 <= nums.length <= 5000`\n- `nums` is guaranteed to be rotated at some pivot.\n",
+    "testCases": [
+      {
+        "input": "4,5,6,7,0,1,2\n0",
+        "expectedOutput": "4",
+        "isHidden": false
+      },
+      {
+        "input": "4,5,6,7,0,1,2\n3",
+        "expectedOutput": "-1",
+        "isHidden": false
+      },
+      {
+        "input": "1\n0",
+        "expectedOutput": "-1",
+        "isHidden": false
+      },
+      {
+        "input": "5,1,3\n5",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "5,1,3\n3",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "2,4,7,9,11,13,15,16,19,1\n19",
+        "expectedOutput": "8",
+        "isHidden": true
+      },
+      {
+        "input": "6,8,1,2,4\n8",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "0\n0",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "3,4,7,9,1\n9",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "8,1,3,5,7\n7",
+        "expectedOutput": "4",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line1 = sc.nextLine();\n            int[] nums = Arrays.stream(line1.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            System.out.println(search(nums, target));\n        }\n        sc.close();\n    }\n// endregion\n    public static int search(int[] nums, int target) {\n        // Write your code here...\n        return -1;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    print(search(nums, target))\n# endregion\n\ndef search(nums, target):\n    # Write your code here...\n    return -1\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Find First and Last Position of Element",
+    "description": "# Find First and Last Position\n\nGiven an array of integers `nums` sorted in non-decreasing order, find the starting and ending position of a given `target` value.\n\nIf `target` is not found in the array, return `[-1, -1]`.\n\nYou must write an algorithm with `O(log n)` runtime complexity.\n\n## Example 1:\n\n```\nInput: n = 6, nums = [5,7,7,8,8,10], target = 8\nOutput: 3 4\n```\n\n## Example 2:\n\n```\nInput: n = 6, nums = [5,7,7,8,8,10], target = 6\nOutput: -1 -1\n```\n\n## Constraints:\n\n- `0 <= nums.length <= 10^5`\n- `nums` is sorted in non-decreasing order.\n",
+    "testCases": [
+      {
+        "input": "5,7,7,8,8,10\n8",
+        "expectedOutput": "[3,4]",
+        "isHidden": false
+      },
+      {
+        "input": "5,7,7,8,8,10\n6",
+        "expectedOutput": "[-1,-1]",
+        "isHidden": false
+      },
+      {
+        "input": "\n0",
+        "expectedOutput": "[-1,-1]",
+        "isHidden": false
+      },
+      {
+        "input": "1\n1",
+        "expectedOutput": "[0,0]",
+        "isHidden": true
+      },
+      {
+        "input": "2,2,2,2,2\n2",
+        "expectedOutput": "[0,4]",
+        "isHidden": true
+      },
+      {
+        "input": "0,0,1,1,2,2,3,4\n2",
+        "expectedOutput": "[4,5]",
+        "isHidden": true
+      },
+      {
+        "input": "0,0,1,2,2\n2",
+        "expectedOutput": "[3,4]",
+        "isHidden": true
+      },
+      {
+        "input": "0,0,1,2,3,4\n0",
+        "expectedOutput": "[0,1]",
+        "isHidden": true
+      },
+      {
+        "input": "0,1,1,3,3,3,4\n2",
+        "expectedOutput": "[-1,-1]",
+        "isHidden": true
+      },
+      {
+        "input": "0\n1",
+        "expectedOutput": "[-1,-1]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line1 = sc.nextLine();\n            int[] nums = Arrays.stream(line1.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            int[] result = searchRange(nums, target);\n            System.out.println(\"[\" + result[0] + \",\" + result[1] + \"]\");\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] searchRange(int[] nums, int target) {\n        // Write your code here...\n        return new int[]{-1, -1};\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    result = searchRange(nums, target)\n    print(f\"[{result[0]},{result[1]}]\")\n# endregion\n\ndef searchRange(nums, target):\n    # Write your code here...\n    return [-1, -1]\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  }
+]

@@ -1,0 +1,612 @@
+[
+  {
+    "title": "Missing Number",
+    "description": "# Missing Number\n\nGiven an array `nums` containing `n` distinct numbers in the range `[0, n]`, return *the only number in the range that is missing from the array*.\n\n## Example 1:\n\n```\nInput: nums = [3,0,1]\nOutput: 2\nExplanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.\n```\n\n## Example 2:\n\n```\nInput: nums = [0,1]\nOutput: 2\nExplanation: n = 2 since there are 2 numbers, so all numbers are in the range [0,2]. 2 is the missing number in the range since it does not appear in nums.\n```\n\n## Example 3:\n\n```\nInput: nums = [9,6,4,2,3,5,7,0,1]\nOutput: 8\nExplanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.\n```\n\n## Constraints:\n\n- `n == nums.length`\n- `1 <= n <= 10^4`\n- `0 <= nums[i] <= n`\n- All the numbers of `nums` are **unique**.\n",
+    "testCases": [
+      {
+        "input": "3,0,1",
+        "expectedOutput": "2",
+        "isHidden": false
+      },
+      {
+        "input": "0,1",
+        "expectedOutput": "2",
+        "isHidden": false
+      },
+      {
+        "input": "9,6,4,2,3,5,7,0,1",
+        "expectedOutput": "8",
+        "isHidden": false
+      },
+      {
+        "input": "0",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "1",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "1,2",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "0,2",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "1,0,3",
+        "expectedOutput": "2",
+        "isHidden": true
+      },
+      {
+        "input": "0,1,2,3,4,6",
+        "expectedOutput": "5",
+        "isHidden": true
+      },
+      {
+        "input": "10,9,8,7,6,5,4,3,2,1",
+        "expectedOutput": "0",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(missingNumber(nums));\n        }\n        sc.close();\n    }\n// endregion\n    public static int missingNumber(int[] nums) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    print(missingNumber(nums))\n# endregion\n\ndef missingNumber(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Same Tree",
+    "description": "# Same Tree\n\nGiven the roots of two binary trees `p` and `q`, write a function to check if they are the same or not.\n\nTwo binary trees are considered the same if they are structurally identical, and the nodes have the same value.\n\n## Example 1:\n\n```\nInput: p = [1,2,3], q = [1,2,3]\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: p = [1,2], q = [1,null,2]\nOutput: false\n```\n\n## Example 3:\n\n```\nInput: p = [1,2,1], q = [1,1,2]\nOutput: false\n```\n\n## Constraints:\n\n- The number of nodes in both trees is in the range `[0, 100]`.\n- `-10^4 <= Node.val <= 10^4`\n",
+    "testCases": [
+      {
+        "input": "1,2,3\n1,2,3",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "1,2\n1,null,2",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,1\n1,1,2",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "10\n10",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "\n",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "1\n",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5\n1,2,3,4,5",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3\n1,2,4",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,null,2\n1,2",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,null,3\n1,2,null,3",
+        "expectedOutput": "true",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\nclass TreeNode {\n    int val;\n    TreeNode left;\n    TreeNode right;\n    TreeNode() {}\n    TreeNode(int val) { this.val = val; }\n    TreeNode(int val, TreeNode left, TreeNode right) {\n        this.val = val;\n        this.left = left;\n        this.right = right;\n    }\n}\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        TreeNode p = null, q = null;\n        if (sc.hasNextLine()) p = parseTree(sc.nextLine());\n        if (sc.hasNextLine()) q = parseTree(sc.nextLine());\n        \n        System.out.println(isSameTree(p, q));\n        sc.close();\n    }\n\n    private static TreeNode parseTree(String line) {\n        if (line == null || line.trim().isEmpty() || line.equals(\"null\")) return null;\n        String[] parts = line.split(\",\");\n        if (parts.length == 0) return null;\n        \n        TreeNode root = new TreeNode(Integer.parseInt(parts[0]));\n        Queue<TreeNode> q = new LinkedList<>();\n        q.offer(root);\n        int i = 1;\n        while (i < parts.length) {\n            TreeNode curr = q.poll();\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.left = new TreeNode(Integer.parseInt(parts[i]));\n                q.offer(curr.left);\n            }\n            i++;\n            if (i < parts.length && !parts[i].equals(\"null\")) {\n                curr.right = new TreeNode(Integer.parseInt(parts[i]));\n                q.offer(curr.right);\n            }\n            i++;\n        }\n        return root;\n    }\n// endregion\n    public static boolean isSameTree(TreeNode p, TreeNode q) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport collections\n\nclass TreeNode:\n    def __init__(self, val=0, left=None, right=None):\n        self.val = val\n        self.left = left\n        self.right = right\n\ndef parse_tree(line):\n    if not line or line == \"null\": return None\n    parts = line.split(',')\n    if not parts: return None\n    root = TreeNode(int(parts[0]))\n    q = collections.deque([root])\n    i = 1\n    while i < len(parts):\n        curr = q.popleft()\n        if i < len(parts) and parts[i] != \"null\":\n            curr.left = TreeNode(int(parts[i]))\n            q.append(curr.left)\n        i += 1\n        if i < len(parts) and parts[i] != \"null\":\n            curr.right = TreeNode(int(parts[i]))\n            q.append(curr.right)\n        i += 1\n    return root\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    # Handle fewer inputs\n    p_line = input[0] if len(input) > 0 else \"\"\n    q_line = input[1] if len(input) > 1 else \"\"\n    \n    p = parse_tree(p_line)\n    q = parse_tree(q_line)\n    print(\"true\" if isSameTree(p, q) else \"false\")\n# endregion\n\ndef isSameTree(p, q):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Number of 1 Bits",
+    "description": "# Number of 1 Bits\n\nWrite a function that takes an unsigned integer and returns the number of '1' bits it has (also known as the [Hamming weight](https://en.wikipedia.org/wiki/Hamming_weight)).\n\n## Example 1:\n\n```\nInput: n = 00000000000000000000000000001011\nOutput: 3\nExplanation: The input binary string 00000000000000000000000000001011 has a total of three '1' bits.\n```\n\n## Example 2:\n\n```\nInput: n = 00000000000000000000000010000000\nOutput: 1\nExplanation: The input binary string 00000000000000000000000010000000 has a total of one '1' bit.\n```\n\n## Example 3:\n\n```\nInput: n = 11111111111111111111111111111101\nOutput: 31\nExplanation: The input binary string 11111111111111111111111111111101 has a total of thirty one '1' bits.\n```\n\n## Constraints:\n\n- The input must be a **binary string** of length 32.\n",
+    "testCases": [
+      {
+        "input": "00000000000000000000000000001011",
+        "expectedOutput": "3",
+        "isHidden": false
+      },
+      {
+        "input": "00000000000000000000000010000000",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "11111111111111111111111111111101",
+        "expectedOutput": "31",
+        "isHidden": false
+      },
+      {
+        "input": "00000000000000000000000000000000",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "11111111111111111111111111111111",
+        "expectedOutput": "32",
+        "isHidden": true
+      },
+      {
+        "input": "00000000000000000000000000011100",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "10101010101010101010101010101010",
+        "expectedOutput": "16",
+        "isHidden": true
+      },
+      {
+        "input": "01010101010101010101010101010101",
+        "expectedOutput": "16",
+        "isHidden": true
+      },
+      {
+        "input": "11100000000000000000000000000000",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "00000000000000000000000000000001",
+        "expectedOutput": "1",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s = sc.nextLine();\n            int n = Integer.parseUnsignedInt(s, 2);\n            System.out.println(hammingWeight(n));\n        }\n        sc.close();\n    }\n// endregion\n    // you need to treat n as an unsigned value\n    public static int hammingWeight(int n) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    n = int(input[0], 2)\n    print(hammingWeight(n))\n# endregion\n\ndef hammingWeight(n):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Longest Common Prefix",
+    "description": "# Longest Common Prefix\n\nWrite a function to find the longest common prefix string amongst an array of strings.\n\nIf there is no common prefix, return an empty string `\"\"`.\n\n## Example 1:\n\n```\nInput: strs = [\"flower\",\"flow\",\"flight\"]\nOutput: \"fl\"\n```\n\n## Example 2:\n\n```\nInput: strs = [\"dog\",\"racecar\",\"car\"]\nOutput: \"\"\nExplanation: There is no common prefix among the input strings.\n```\n\n## Constraints:\n\n- `1 <= strs.length <= 200`\n- `0 <= strs[i].length <= 200`\n- `strs[i]` consists of only lower-case English letters.\n",
+    "testCases": [
+      {
+        "input": "flower,flow,flight",
+        "expectedOutput": "fl",
+        "isHidden": false
+      },
+      {
+        "input": "dog,racecar,car",
+        "expectedOutput": "",
+        "isHidden": false
+      },
+      {
+        "input": "ab,a",
+        "expectedOutput": "a",
+        "isHidden": false
+      },
+      {
+        "input": "abc,abc,abc",
+        "expectedOutput": "abc",
+        "isHidden": true
+      },
+      {
+        "input": "a,b,c",
+        "expectedOutput": "",
+        "isHidden": true
+      },
+      {
+        "input": "ab,ac",
+        "expectedOutput": "a",
+        "isHidden": true
+      },
+      {
+        "input": "flower,flower,flower,flower",
+        "expectedOutput": "flower",
+        "isHidden": true
+      },
+      {
+        "input": "a",
+        "expectedOutput": "a",
+        "isHidden": true
+      },
+      {
+        "input": "cir,car",
+        "expectedOutput": "c",
+        "isHidden": true
+      },
+      {
+        "input": "interspecies,interstellar,interstate",
+        "expectedOutput": "inter",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            String[] strs = line.split(\",\");\n            System.out.println(longestCommonPrefix(strs));\n        }\n        sc.close();\n    }\n// endregion\n    public static String longestCommonPrefix(String[] strs) {\n        // Write your code here...\n        return \"\";\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    strs = input[0].split(',')\n    print(longestCommonPrefix(strs))\n# endregion\n\ndef longestCommonPrefix(strs):\n    # Write your code here...\n    return \"\"\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Single Number",
+    "description": "# Single Number\n\nGiven a **non-empty** array of integers `nums`, every element appears *twice* except for one. Find that single one.\n\nYou must implement a solution with a linear runtime complexity and use only constant extra space.\n\n## Example 1:\n\n```\nInput: nums = [2,2,1]\nOutput: 1\n```\n\n## Example 2:\n\n```\nInput: nums = [4,1,2,1,2]\nOutput: 4\n```\n\n## Example 3:\n\n```\nInput: nums = [1]\nOutput: 1\n```\n\n## Constraints:\n\n- `1 <= nums.length <= 3 * 10^4`\n- `-3 * 10^4 <= nums[i] <= 3 * 10^4`\n- Each element in the array appears twice except for one element which appears only once.\n",
+    "testCases": [
+      {
+        "input": "2,2,1",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "4,1,2,1,2",
+        "expectedOutput": "4",
+        "isHidden": false
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "0,0,5",
+        "expectedOutput": "5",
+        "isHidden": true
+      },
+      {
+        "input": "5,5,1,2,1,2,4",
+        "expectedOutput": "4",
+        "isHidden": true
+      },
+      {
+        "input": "1,1,2,2,3",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "-1,-1,-2",
+        "expectedOutput": "-2",
+        "isHidden": true
+      },
+      {
+        "input": "10,2,2,10,3",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "7,3,5,5,3,1,1",
+        "expectedOutput": "7",
+        "isHidden": true
+      },
+      {
+        "input": "6,6,1,1,9",
+        "expectedOutput": "9",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(singleNumber(nums));\n        }\n        sc.close();\n    }\n// endregion\n    public static int singleNumber(int[] nums) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    print(singleNumber(nums))\n# endregion\n\ndef singleNumber(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "easy"
+  },
+  {
+    "title": "Group Anagrams",
+    "description": "# Group Anagrams\n\nGiven an array of strings `strs`, group **the anagrams** together. You can return the answer in **any order**.\n\nAn **Anagram** is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.\n\n## Example 1:\n\n```\nInput: strs = [\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]\nOutput: [[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]\n```\n\n## Example 2:\n\n```\nInput: strs = [\"\"]\nOutput: [[\"\"]]\n```\n\n## Example 3:\n\n```\nInput: strs = [\"a\"]\nOutput: [[\"a\"]]\n```\n\n## Constraints:\n\n- `1 <= strs.length <= 10^4`\n- `0 <= strs[i].length <= 100`\n- `strs[i]` consists of lowercase English letters.\n",
+    "testCases": [
+      {
+        "input": "eat,tea,tan,ate,nat,bat",
+        "expectedOutput": "[[\"bat\"],[\"nat\",\"tan\"],[\"ate\",\"eat\",\"tea\"]]",
+        "isHidden": false
+      },
+      {
+        "input": "",
+        "expectedOutput": "[[\"\"]]",
+        "isHidden": false
+      },
+      {
+        "input": "a",
+        "expectedOutput": "[[\"a\"]]",
+        "isHidden": false
+      },
+      {
+        "input": "abc,bca,cba",
+        "expectedOutput": "[[\"abc\",\"bca\",\"cba\"]]",
+        "isHidden": true
+      },
+      {
+        "input": "no,on,one,neo",
+        "expectedOutput": "[[\"neo\",\"one\"],[\"no\",\"on\"]]",
+        "isHidden": true
+      },
+      {
+        "input": "a,b,c,d,e",
+        "expectedOutput": "[[\"a\"],[\"b\"],[\"c\"],[\"d\"],[\"e\"]]",
+        "isHidden": true
+      },
+      {
+        "input": "ddddddddddg,dgggggggggg",
+        "expectedOutput": "[[\"ddddddddddg\"],[\"dgggggggggg\"]]",
+        "isHidden": true
+      },
+      {
+        "input": "cab,tin,pew,duh,may,ill,buy,bar,max,doc",
+        "expectedOutput": "[[\"bar\"],[\"buy\"],[\"cab\"],[\"doc\"],[\"duh\"],[\"ill\"],[\"max\"],[\"may\"],[\"pew\"],[\"tin\"]]",
+        "isHidden": true
+      },
+      {
+        "input": "eat,tea,eat",
+        "expectedOutput": "[[\"eat\",\"eat\",\"tea\"]]",
+        "isHidden": true
+      },
+      {
+        "input": "l,l,l",
+        "expectedOutput": "[[\"l\",\"l\",\"l\"]]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            String[] strs = line.isEmpty() ? new String[]{\"\"} : line.split(\",\");\n            List<List<String>> result = groupAnagrams(strs);\n            // Sort inner lists and outer list for consistent output checking\n            List<List<String>> sortedResult = new ArrayList<>();\n            for (List<String> list : result) {\n                Collections.sort(list);\n                sortedResult.add(list);\n            }\n            sortedResult.sort((l1, l2) -> l1.get(0).compareTo(l2.get(0)));\n            \n            System.out.print(\"[\");\n            for (int i = 0; i < sortedResult.size(); i++) {\n                System.out.print(\"[\" + String.join(\",\", sortedResult.get(i).stream().map(s -> \"\\\"\" + s + \"\\\"\").collect(Collectors.toList())) + \"]\");\n                if (i < sortedResult.size() - 1) System.out.print(\",\");\n            }\n            System.out.println(\"]\");\n        }\n        sc.close();\n    }\n// endregion\n    public static List<List<String>> groupAnagrams(String[] strs) {\n        // Write your code here...\n        return new ArrayList<>();\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport json\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    strs = input[0].split(',')\n    result = groupAnagrams(strs)\n    # Sort for consistent output\n    for grp in result:\n        grp.sort()\n    result.sort(key=lambda x: x[0] if x else \"\")\n    print(json.dumps(result, separators=(',', ':')))\n# endregion\n\ndef groupAnagrams(strs):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Top K Frequent Elements",
+    "description": "# Top K Frequent Elements\n\nGiven an integer array `nums` and an integer `k`, return *the* `k` *most frequent elements*. You may return the answer in **any order**.\n\n## Example 1:\n\n```\nInput: nums = [1,1,1,2,2,3], k = 2\nOutput: [1,2]\n```\n\n## Example 2:\n\n```\nInput: nums = [1], k = 1\nOutput: [1]\n```\n\n## Constraints:\n\n- `1 <= nums.length <= 10^5`\n- `-10^4 <= nums[i] <= 10^4`\n- `k` is in the range `[1, the number of unique elements in the array]`.\n- It is **guaranteed** that the answer is **unique**.\n",
+    "testCases": [
+      {
+        "input": "1,1,1,2,2,3\n2",
+        "expectedOutput": "[1,2]",
+        "isHidden": false
+      },
+      {
+        "input": "1\n1",
+        "expectedOutput": "[1]",
+        "isHidden": false
+      },
+      {
+        "input": "1,2\n2",
+        "expectedOutput": "[1,2]",
+        "isHidden": false
+      },
+      {
+        "input": "4,1,-1,2,-1,2,3\n2",
+        "expectedOutput": "[-1,2]",
+        "isHidden": true
+      },
+      {
+        "input": "1,1,1,2,2,33,33,33,33,33\n1",
+        "expectedOutput": "[33]",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3,4,5\n5",
+        "expectedOutput": "[1,2,3,4,5]",
+        "isHidden": true
+      },
+      {
+        "input": "10,10,10,20,20,30\n2",
+        "expectedOutput": "[10,20]",
+        "isHidden": true
+      },
+      {
+        "input": "3,0,1,0\n1",
+        "expectedOutput": "[0]",
+        "isHidden": true
+      },
+      {
+        "input": "5,5,5,5,5\n1",
+        "expectedOutput": "[5]",
+        "isHidden": true
+      },
+      {
+        "input": "-1,-1\n1",
+        "expectedOutput": "[-1]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int k = Integer.parseInt(sc.nextLine());\n            int[] result = topKFrequent(nums, k);\n            Arrays.sort(result);\n            System.out.println(Arrays.toString(result).replaceAll(\" \", \"\"));\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] topKFrequent(int[] nums, int k) {\n        // Write your code here...\n        return new int[0];\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    k = int(input[1])\n    result = topKFrequent(nums, k)\n    result.sort()\n    print(f\"[{','.join(map(str, result))}]\")\n# endregion\n\ndef topKFrequent(nums, k):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Product of Array Except Self",
+    "description": "# Product of Array Except Self\n\nGiven an integer array `nums`, return *an array* `answer` *such that* `answer[i]` *is equal to the product of all the elements of* `nums` *except* `nums[i]`.\n\nThe product of any prefix or suffix of `nums` is **guaranteed** to fit in a **32-bit** integer.\n\nYou must write an algorithm that runs in `O(n)` time and without using the division operation.\n\n## Example 1:\n\n```\nInput: nums = [1,2,3,4]\nOutput: [24,12,8,6]\n```\n\n## Example 2:\n\n```\nInput: nums = [-1,1,0,-3,3]\nOutput: [0,0,9,0,0]\n```\n\n## Constraints:\n\n- `2 <= nums.length <= 10^5`\n- `-30 <= nums[i] <= 30`\n- The product of any prefix or suffix of `nums` is **guaranteed** to fit in a **32-bit** integer.\n",
+    "testCases": [
+      {
+        "input": "1,2,3,4",
+        "expectedOutput": "[24,12,8,6]",
+        "isHidden": false
+      },
+      {
+        "input": "-1,1,0,-3,3",
+        "expectedOutput": "[0,0,9,0,0]",
+        "isHidden": false
+      },
+      {
+        "input": "0,0",
+        "expectedOutput": "[0,0]",
+        "isHidden": false
+      },
+      {
+        "input": "1,0",
+        "expectedOutput": "[0,1]",
+        "isHidden": true
+      },
+      {
+        "input": "1,2,3",
+        "expectedOutput": "[6,3,2]",
+        "isHidden": true
+      },
+      {
+        "input": "2,3,5,0",
+        "expectedOutput": "[0,0,0,30]",
+        "isHidden": true
+      },
+      {
+        "input": "1,1,1,1",
+        "expectedOutput": "[1,1,1,1]",
+        "isHidden": true
+      },
+      {
+        "input": "4,5,1,8,2",
+        "expectedOutput": "[80,64,320,40,160]",
+        "isHidden": true
+      },
+      {
+        "input": "-1,-1,-1",
+        "expectedOutput": "[1,1,1]",
+        "isHidden": true
+      },
+      {
+        "input": "9,0,-2",
+        "expectedOutput": "[0,-18,0]",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int[] result = productExceptSelf(nums);\n            System.out.println(Arrays.toString(result).replaceAll(\" \", \"\"));\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] productExceptSelf(int[] nums) {\n        // Write your code here...\n        return new int[0];\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    result = productExceptSelf(nums)\n    print(f\"[{','.join(map(str, result))}]\")\n# endregion\n\ndef productExceptSelf(nums):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Valid Sudoku",
+    "description": "# Valid Sudoku\n\nDetermine if a `9 x 9` Sudoku board is valid. Only the filled cells need to be validated **according to the following rules**:\n\n1. Each row must contain the digits `1-9` without repetition.\n2. Each column must contain the digits `1-9` without repetition.\n3. Each of the nine `3 x 3` sub-boxes of the grid must contain the digits `1-9` without repetition.\n\n**Note:**\n\n- A Sudoku board (partially filled) could be valid but is not necessarily solvable.\n- Only the filled cells need to be validated according to the mentioned rules.\n\n## Example 1:\n\n```\nInput: board = \n[[\"5\",\"3\",\".\",\".\",\"7\",\".\",\".\",\".\",\".\"]\n,[\"6\",\".\",\".\",\"1\",\"9\",\"5\",\".\",\".\",\".\"]\n,[\".\",\"9\",\"8\",\".\",\".\",\".\",\".\",\"6\",\".\"]\n,[\"8\",\".\",\".\",\".\",\"6\",\".\",\".\",\".\",\"3\"]\n,[\"4\",\".\",\".\",\"8\",\".\",\"3\",\".\",\".\",\"1\"]\n,[\"7\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\",\"6\"]\n,[\".\",\"6\",\".\",\".\",\".\",\".\",\"2\",\"8\",\".\"]\n,[\".\",\".\",\".\",\"4\",\"1\",\"9\",\".\",\".\",\"5\"]\n,[\".\",\".\",\".\",\".\",\"8\",\".\",\".\",\"7\",\"9\"]]\nOutput: true\n```\n\n## Example 2:\n\n```\nInput: board = \n[[\"8\",\"3\",\".\",\".\",\"7\",\".\",\".\",\".\",\".\"]\n,[\"6\",\".\",\".\",\"1\",\"9\",\"5\",\".\",\".\",\".\"]\n,[\".\",\"9\",\"8\",\".\",\".\",\".\",\".\",\"6\",\".\"]\n,[\"8\",\".\",\".\",\".\",\"6\",\".\",\".\",\".\",\"3\"]\n,[\"4\",\".\",\".\",\"8\",\".\",\"3\",\".\",\".\",\"1\"]\n,[\"7\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\",\"6\"]\n,[\".\",\"6\",\".\",\".\",\".\",\".\",\"2\",\"8\",\".\"]\n,[\".\",\".\",\".\",\"4\",\"1\",\"9\",\".\",\".\",\"5\"]\n,[\".\",\".\",\".\",\".\",\"8\",\".\",\".\",\"7\",\"9\"]]\nOutput: false\nExplanation: Same as Example 1, except with the 5 in the top left corner being modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.\n```\n\n## Constraints:\n\n- `board.length == 9`\n- `board[i].length == 9`\n- `board[i][j]` is a digit `1-9` or `'.'`.\n",
+    "testCases": [
+      {
+        "input": "[[5,3,.,.,7,.,.,.,.],[6,.,.,1,9,5,.,.,.],[.,9,8,.,.,.,.,6,.],[8,.,.,.,6,.,.,.,3],[4,.,.,8,.,3,.,.,1],[7,.,.,.,2,.,.,.,6],[.,6,.,.,.,.,2,8,.],[.,.,.,4,1,9,.,.,5],[.,.,.,.,8,.,.,7,9]]",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "[[8,3,.,.,7,.,.,.,.],[6,.,.,1,9,5,.,.,.],[.,9,8,.,.,.,.,6,.],[8,.,.,.,6,.,.,.,3],[4,.,.,8,.,3,.,.,1],[7,.,.,.,2,.,.,.,6],[.,6,.,.,.,.,2,8,.],[.,.,.,4,1,9,.,.,5],[.,.,.,.,8,.,.,7,9]]",
+        "expectedOutput": "false",
+        "isHidden": false
+      },
+      {
+        "input": "[[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.]]",
+        "expectedOutput": "true",
+        "isHidden": false
+      },
+      {
+        "input": "[[1,1,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.]]",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,.,.,.,.,.,.,.,.],[1,.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.]]",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,.,.,.,.,.,.,.,.],[.,1,.,.,.,.,.,.,.],[.,.,1,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.]]",
+        "expectedOutput": "false",
+        "isHidden": true
+      },
+      {
+        "input": "[[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,2]]",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,2,3,4,5,6,7,8,9],[4,5,6,7,8,9,1,2,3],[7,8,9,1,2,3,4,5,6],[2,3,4,5,6,7,8,9,1],[5,6,7,8,9,1,2,3,4],[8,9,1,2,3,4,5,6,7],[3,4,5,6,7,8,9,1,2],[6,7,8,9,1,2,3,4,5],[9,1,2,3,4,5,6,7,8]]",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,2,3,4,5,6,7,8,9],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.]]",
+        "expectedOutput": "true",
+        "isHidden": true
+      },
+      {
+        "input": "[[1,2,3,4,5,6,7,8,9],[1,2,3,4,5,6,7,8,9],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.],[.,.,.,.,.,.,.,.,.]]",
+        "expectedOutput": "false",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            char[][] board = parseBoard(line);\n            System.out.println(isValidSudoku(board));\n        }\n        sc.close();\n    }\n\n    private static char[][] parseBoard(String line) {\n         // Input: [[5,3,.,.,...],...]\n         line = line.substring(2, line.length() - 2);\n         String[] rows = line.split(\"\\\\],\\\\[\");\n         char[][] board = new char[9][9];\n         for (int i = 0; i < 9; i++) {\n             String[] cols = rows[i].split(\",\");\n             for (int j = 0; j < 9; j++) {\n                 String val = cols[j].trim();\n                 if (val.length() > 0) {\n                     if (val.equals(\".\")) board[i][j] = '.';\n                     else if (val.charAt(0) >= '0' && val.charAt(0) <= '9') board[i][j] = val.charAt(0);\n                     else board[i][j] = '.'; // fallback\n                 }\n             }\n         }\n         return board;\n    }\n// endregion\n    public static boolean isValidSudoku(char[][] board) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\nimport json\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    # Need custom parser or careful json load because . is string\n    # Assuming input format is pseudo-json like [[5,3,.,...]] where . is valid in json string or unquoted?\n    # The example inputs provided in prompt seem to have . unquoted which is invalid JSON.\n    # Let's fix input string to be valid json for list of lists of strings or mixed types\n    # or manually parse.\n    # Given test cases: [[5,3,.,.,...]] - looks like raw content. Let's assume input is a string that we can replace . with \".\" or similar\n    # BETTER: Assume standard LeetCode input format which is [[\"5\",\"3\",\".\",...]]\n    # Adjusting test cases to correct quoted strings would be ideal, but if raw input is given as seen in Description,\n    # we will treat it as a string to parse manually.\n    \n    # Simple manual parse for [[5,3,.,...]] style\n    raw = input[0].replace(\"[[\", \"\").replace(\"]]\", \"\").split(\"],[\")\n    board = []\n    for r in raw:\n        row = []\n        for c in r.split(\",\"):\n             c = c.strip()\n             if c == \".\": row.append(\".\")\n             else: row.append(str(c))\n        board.append(row)\n        \n    print(\"true\" if isValidSudoku(board) else \"false\")\n# endregion\n\ndef isValidSudoku(board):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  },
+  {
+    "title": "Longest Consecutive Sequence",
+    "description": "# Longest Consecutive Sequence\n\nGiven an unsorted array of integers `nums`, return *the length of the longest consecutive elements sequence*.\n\nYou must write an algorithm that runs in `O(n)` time.\n\n## Example 1:\n\n```\nInput: nums = [100,4,200,1,3,2]\nOutput: 4\nExplanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.\n```\n\n## Example 2:\n\n```\nInput: nums = [0,3,7,2,5,8,4,6,0,1]\nOutput: 9\n```\n\n## Constraints:\n\n- `0 <= nums.length <= 10^5`\n- `-10^9 <= nums[i] <= 10^9`\n",
+    "testCases": [
+      {
+        "input": "100,4,200,1,3,2",
+        "expectedOutput": "4",
+        "isHidden": false
+      },
+      {
+        "input": "0,3,7,2,5,8,4,6,0,1",
+        "expectedOutput": "9",
+        "isHidden": false
+      },
+      {
+        "input": "0,0",
+        "expectedOutput": "1",
+        "isHidden": false
+      },
+      {
+        "input": "1,2,0,1",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "5,4,3,2,1",
+        "expectedOutput": "5",
+        "isHidden": true
+      },
+      {
+        "input": "10,1,11,2,12,3",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "9,1,4,7,3,2,6,5,8,0",
+        "expectedOutput": "10",
+        "isHidden": true
+      },
+      {
+        "input": "",
+        "expectedOutput": "0",
+        "isHidden": true
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": true
+      },
+      {
+        "input": "-1,-2,-3",
+        "expectedOutput": "3",
+        "isHidden": true
+      }
+    ],
+    "driverCode": {
+      "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            if (line.isEmpty()) {\n                System.out.println(0);\n                return;\n            }\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(longestConsecutive(nums));\n        }\n        sc.close();\n    }\n// endregion\n    public static int longestConsecutive(int[] nums) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    if not input[0]:\n        print(0)\n        return\n    nums = list(map(int, input[0].split(',')))\n    print(longestConsecutive(nums))\n# endregion\n\ndef longestConsecutive(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+    },
+    "difficulty": "medium"
+  }
+]
