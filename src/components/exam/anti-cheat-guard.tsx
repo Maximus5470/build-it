@@ -99,6 +99,11 @@ export function AntiCheatGuard({ assignmentId }: AntiCheatGuardProps) {
       }
     };
 
+    // 6. Window Blur (Focus Loss)
+    const handleBlur = () => {
+      handleViolation("window_blur", "User lost focus on the exam window");
+    };
+
     // Attach Listeners
     document.addEventListener("contextmenu", handleContextMenu, true);
     document.addEventListener("copy", handleCopyCut, true);
@@ -106,6 +111,7 @@ export function AntiCheatGuard({ assignmentId }: AntiCheatGuardProps) {
     document.addEventListener("paste", handlePaste, true);
     document.addEventListener("visibilitychange", handleVisibilityChange, true);
     document.addEventListener("fullscreenchange", handleFullscreenChange, true);
+    window.addEventListener("blur", handleBlur, true);
 
     return () => {
       document.removeEventListener("contextmenu", handleContextMenu, true);
@@ -122,6 +128,7 @@ export function AntiCheatGuard({ assignmentId }: AntiCheatGuardProps) {
         handleFullscreenChange,
         true,
       );
+      window.removeEventListener("blur", handleBlur, true);
     };
   }, [assignmentId, router]);
 

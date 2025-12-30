@@ -51,14 +51,21 @@ export function MalpracticeMonitor({
       }
     };
 
+    const handleBlur = () => {
+      showWarning("You lost focus on the exam window.");
+    };
+
     // Fullscreen enforcement
     document.addEventListener("fullscreenchange", handleFullscreenChange);
     // Tab switching detection
     document.addEventListener("visibilitychange", handleVisibilityChange);
+    // Window focus detection
+    window.addEventListener("blur", handleBlur);
 
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
       document.removeEventListener("visibilitychange", handleVisibilityChange);
+      window.removeEventListener("blur", handleBlur);
     };
   }, []);
 
