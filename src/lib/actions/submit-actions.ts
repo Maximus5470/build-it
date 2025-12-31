@@ -9,12 +9,10 @@ import { questions, testCases } from "@/db/schema/questions";
 import { auth } from "@/lib/auth";
 import { calculateGradingScore } from "@/lib/grading";
 import {
-  executeCode,
-  type JobResult,
-  mapTestCases,
-  TurboError,
-  type TurboTestCase,
-} from "@/lib/turbo";
+  executeAndWait,
+  OptimusError,
+} from "@/lib/optimus-client";
+import type { Language, TestCase } from "@/types/optimus";
 
 // ============================================
 // Types
@@ -25,7 +23,6 @@ export interface SubmitQuestionInput {
   questionId: string;
   code: string;
   language: string;
-  version?: string;
 }
 
 export interface SubmitResult {
@@ -94,22 +91,30 @@ export async function submitQuestion(
       return { success: false, error: "No test cases found for grading" };
     }
 
-    // 4. Turbo Execution (Hidden)
-    const turboTestCases: TurboTestCase[] = mapTestCases(
-      gradingTestCases.map((tc) => ({
-        id: tc.id,
-        input: tc.input,
-        expectedOutput: tc.expectedOutput,
-      })),
-    );
+    // 4. Execute with Optimus
+    const optimusTestCases: TestCase[] = gradingTestCases.map((tc) => ({
+      input: tc.input,
+      expected_output: tc.expectedOutput,
+    }));
 
-    const executionResult: JobResult = await executeCode(
-      input.code,
-      input.language,
-      turboTestCases,
-      undefined,
-      input.version,
-    );
+    console.log('[SubmitQuestion] Language:', input.language);
+    console.log('[SubmitQuestion] Test cases count:', optimusTestCases.length);
+
+    const execStart = Date.now();
+    const executionResult = await executeAndWait({
+      language: input.language.toLowerCase() as Language,
+      source_code: input.code,
+      test_cases: optimusTestCases,
+      timeout_ms: 5000,
+    });
+
+    console.log('[SubmitQuestion] executeAndWait elapsed:', Date.now() - execStart, 'ms');
+    console.log('[SubmitQuestion] Execution result:', {
+      overall_status: executionResult.overall_status,
+      score: executionResult.score,
+      max_score: executionResult.max_score,
+      results_count: executionResult.results.length,
+    });
 
     // 5. Determine Verdict
     let verdict: "passed" | "failed" | "compile_error" | "runtime_error" =
@@ -117,30 +122,56 @@ export async function submitQuestion(
     let passedCount = 0;
     let details = "";
 
-    if (
-      executionResult.compile &&
-      executionResult.compile.status === "COMPILATION_ERROR"
-    ) {
-      verdict = "compile_error";
-      details = executionResult.compile.stderr || "Compilation failed";
-    } else if (
-      executionResult.run &&
-      executionResult.run.status !== "SUCCESS"
-    ) {
+    if (executionResult.overall_status === 'failed') {
+      // overall_status 'failed' means some tests failed, not necessarily runtime error
+      // Check if it's a compilation error by looking at stderr in first test
+      const firstResult = executionResult.results[0];
+      console.log('[SubmitQuestion] First test result:', {
+        status: firstResult?.status,
+        stdout: firstResult?.stdout,
+        stderr: firstResult?.stderr,
+      });
+      
+      // Only treat as compile_error if there's stderr and status is runtimeerror
+      if (firstResult?.stderr && firstResult.status === 'runtimeerror') {
+        verdict = "compile_error";
+        details = firstResult.stderr;
+      } else {
+        // Count how many actually passed
+        passedCount = executionResult.results.filter((r) => r.status === 'passed').length;
+        
+        // If all failed with runtime errors, it's a runtime error
+        const allRuntimeErrors = executionResult.results.every(
+          (r) => r.status === 'runtimeerror' || r.status === 'timelimitexceeded'
+        );
+        
+        if (allRuntimeErrors) {
+          verdict = "runtime_error";
+          details = firstResult?.stderr || "Runtime error occurred";
+        } else {
+          // Some passed, some failed - just a failed submission
+          verdict = "failed";
+          if (passedCount === executionResult.results.length) {
+            verdict = "passed";
+          }
+        }
+      }
+    } else if (executionResult.overall_status === 'timedout') {
       verdict = "runtime_error";
-      details =
-        executionResult.run.stderr ||
-        `Runtime Error: ${executionResult.run.status}`;
-    } else {
+      details = "Time limit exceeded";
+    } else if (executionResult.overall_status === 'completed') {
       // Check test cases
-      const parsedResults = executionResult.testcases;
-      passedCount = parsedResults.filter((tc) => tc.passed).length;
+      passedCount = executionResult.results.filter((r) => r.status === 'passed').length;
 
       if (passedCount === gradingTestCases.length) {
         verdict = "passed";
       } else {
         verdict = "failed";
       }
+    } else {
+      // Handle other statuses like 'cancelled'
+      verdict = "runtime_error";
+      details = `Unexpected status: ${executionResult.overall_status}`;
     }
 
     // 6. Insert Submission
@@ -241,7 +272,7 @@ export async function submitQuestion(
     };
   } catch (error) {
     console.error("Submission error:", error);
-    if (error instanceof TurboError) {
+    if (error instanceof OptimusError) {
       return {
         success: false,
         error: `Execution Engine Error: ${error.message}`,

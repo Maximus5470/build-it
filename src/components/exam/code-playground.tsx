@@ -207,15 +207,12 @@ export function CodePlayground({
       : defaultCode;
 
   const handleRun = async () => {
-    if (!selectedVersion) {
-      toast.error(`No ${selectedLanguage} runtime available.`);
-      return;
-    }
-
     if (cooldown > 0) return;
 
-    // Start cooldown
-    setCooldown(5);
+    // Start cooldown (reduced to 2 seconds for better UX)
+    setCooldown(2);
+
+    const clientStart = Date.now();
 
     setIsRunning(true);
     setResults([]); // Clear previous results
@@ -227,7 +224,6 @@ export function CodePlayground({
       const result = await runWithCustomInput({
         code: currentCode,
         language: selectedLanguage,
-        version: selectedVersion,
         stdin: customInput,
       });
 
@@ -263,6 +259,8 @@ export function CodePlayground({
       } else {
         toast.success(`Executed in ${result.executionTime}ms`);
       }
+
+      console.log('[CodePlayground] client run elapsed:', Date.now() - clientStart, 'ms');
     } else {
       // Run against test cases
       setActiveTab("results");
@@ -270,7 +268,6 @@ export function CodePlayground({
       const result = await runCode({
         code: currentCode,
         language: selectedLanguage,
-        version: selectedVersion,
         testCases: question.testCases,
       });
 
@@ -298,8 +295,12 @@ export function CodePlayground({
         return;
       }
 
+      console.log('[CodePlayground] Received result:', result);
+      console.log('[CodePlayground] Results array:', result.results);
+
       if (result.results) {
         setResults(result.results);
+        console.log('[CodePlayground] Set results state:', result.results);
         const passed = result.results.filter((r) => r.passed).length;
         const total = result.results.length;
 
@@ -313,12 +314,9 @@ export function CodePlayground({
   };
 
   const handleSubmit = async () => {
-    if (!selectedVersion) {
-      toast.error(`No ${selectedLanguage} runtime available.`);
-      return;
-    }
-
     setIsSubmitting(true);
+
+    const clientSubmitStart = Date.now();
 
     try {
       // Dynamically import to avoid circular dependency issues if any
@@ -329,8 +327,9 @@ export function CodePlayground({
         questionId: question.id,
         code: currentCode,
         language: selectedLanguage,
-        version: selectedVersion,
       });
+
+      console.log('[CodePlayground] client submit elapsed:', Date.now() - clientSubmitStart, 'ms');
 
       // ... (rest of handleSubmit logic)
 
@@ -452,7 +451,7 @@ export function CodePlayground({
                   variant="outline"
                   size="sm"
                   onClick={handleRun}
-                  disabled={isRunning || !selectedVersion || cooldown > 0}
+                  disabled={isRunning || cooldown > 0}
                   className="gap-1.5"
                 >
                   {isRunning ? (
@@ -469,7 +468,7 @@ export function CodePlayground({
                 <Button
                   size="sm"
                   onClick={handleSubmit}
-                  disabled={isSubmitting || !selectedVersion || isRunning}
+                  disabled={isSubmitting || isRunning}
                   className="gap-1.5 bg-green-600 hover:bg-green-700 text-foreground"
                 >
                   {isSubmitting ? (

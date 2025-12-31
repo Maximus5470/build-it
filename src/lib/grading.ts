@@ -1,4 +1,4 @@
-export type GradingStrategy = "linear" | "difficulty_based" | "count_based";
+export type GradingStrategy = "linear" | "difficulty_based" | "count_based" | "standard_20_40_50";
 export type Difficulty = "easy" | "medium" | "hard";
 
 export interface GradingInput {
@@ -64,11 +64,8 @@ export function calculateGradingScore(input: GradingInput): number {
         }
       }
     }
-  } else if (strategy === "count_based") {
-    // Count Based: Threshold system
-    // This strategy intrinsically depends on "Count of Completed Questions".
-    // Partial points don't map well to "Count".
-    // We will stick to the binary definition of "Passed" for the count.
+  } else if (strategy === "count_based" || strategy === "standard_20_40_50") {
+    // Count Based / Standard: Threshold system
     const rules = (config?.rules || []) as {
       count: number;
       marks: number;
