@@ -56,7 +56,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            int[] result = twoSum(nums, target);\n            Arrays.sort(result);\n            System.out.println(\"[\" + result[0] + \",\" + result[1] + \"]\");\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] twoSum(int[] nums, int target) {\n        // Write your code here...\n        return new int[]{};\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    result = twoSum(nums, target)\n    result.sort()\n    print(f\"[{result[0]},{result[1]}]\")\n# endregion\n\ndef twoSum(nums, target):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    result = twoSum(nums, target)\n    result.sort()\n    print(f\"[{result[0]},{result[1]}]\", flush=True)\n# endregion\n\ndef twoSum(nums, target):\n    # Write your code here...\n    return []\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "easy"
   },
@@ -117,7 +117,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int x = sc.nextInt();\n            boolean result = isPalindrome(x);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isPalindrome(int x) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    x = int(input[0])\n    result = isPalindrome(x)\n    print(\"true\" if result else \"false\")\n# endregion\n\ndef isPalindrome(x):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    x = int(input[0])\n    result = isPalindrome(x)\n    print(\"true\" if result else \"false\", flush=True)\n# endregion\n\ndef isPalindrome(x):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "easy"
   },
@@ -178,7 +178,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            String s = sc.next();\n            boolean result = isValid(s);\n            System.out.println(result);\n        }\n        sc.close();\n    }\n// endregion\n    public static boolean isValid(String s) {\n        // Write your code here...\n        return false;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    s = input[0]\n    result = isValid(s)\n    print(\"true\" if result else \"false\")\n# endregion\n\ndef isValid(s):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    s = input[0]\n    result = isValid(s)\n    print(\"true\" if result else \"false\", flush=True)\n# endregion\n\ndef isValid(s):\n    # Write your code here...\n    return False\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "easy"
   },
@@ -239,7 +239,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] prices = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(maxProfit(prices));\n        }\n        sc.close();\n    }\n// endregion\n    public static int maxProfit(int[] prices) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    prices = list(map(int, input[0].split(',')))\n    print(maxProfit(prices))\n# endregion\n\ndef maxProfit(prices):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    prices = list(map(int, input[0].split(',')))\n    print(maxProfit(prices), flush=True)\n# endregion\n\ndef maxProfit(prices):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "easy"
   },
@@ -300,7 +300,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] nums = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(maxSubArray(nums));\n        }\n        sc.close();\n    }\n// endregion\n    public static int maxSubArray(int[] nums) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    print(maxSubArray(nums))\n# endregion\n\ndef maxSubArray(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    print(maxSubArray(nums), flush=True)\n# endregion\n\ndef maxSubArray(nums):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "medium"
   },
@@ -361,7 +361,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNext()) {\n            int n = sc.nextInt();\n            System.out.println(climbStairs(n));\n        }\n        sc.close();\n    }\n// endregion\n    public static int climbStairs(int n) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    n = int(input[0])\n    print(climbStairs(n))\n# endregion\n\ndef climbStairs(n):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().split()\n    if not input: return\n    n = int(input[0])\n    print(climbStairs(n), flush=True)\n# endregion\n\ndef climbStairs(n):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "easy"
   },
@@ -422,7 +422,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String s = sc.nextLine();\n            System.out.println(lengthOfLongestSubstring(s));\n        }\n        sc.close();\n    }\n// endregion\n    public static int lengthOfLongestSubstring(String s) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read()\n    if not input: return\n    s = input.strip(\"\\n\")\n    print(lengthOfLongestSubstring(s))\n# endregion\n\ndef lengthOfLongestSubstring(s):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read()\n    if not input: return\n    s = input.strip(\"\\n\")\n    print(lengthOfLongestSubstring(s), flush=True)\n# endregion\n\ndef lengthOfLongestSubstring(s):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "medium"
   },
@@ -483,7 +483,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line = sc.nextLine();\n            int[] height = Arrays.stream(line.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            System.out.println(maxArea(height));\n        }\n        sc.close();\n    }\n// endregion\n    public static int maxArea(int[] height) {\n        // Write your code here...\n        return 0;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    height = list(map(int, input[0].split(',')))\n    print(maxArea(height))\n# endregion\n\ndef maxArea(height):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    height = list(map(int, input[0].split(',')))\n    print(maxArea(height), flush=True)\n# endregion\n\ndef maxArea(height):\n    # Write your code here...\n    return 0\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "medium"
   },
@@ -544,7 +544,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line1 = sc.nextLine();\n            int[] nums = Arrays.stream(line1.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            System.out.println(search(nums, target));\n        }\n        sc.close();\n    }\n// endregion\n    public static int search(int[] nums, int target) {\n        // Write your code here...\n        return -1;\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    print(search(nums, target))\n# endregion\n\ndef search(nums, target):\n    # Write your code here...\n    return -1\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    print(search(nums, target), flush=True)\n# endregion\n\ndef search(nums, target):\n    # Write your code here...\n    return -1\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "medium"
   },
@@ -605,7 +605,7 @@
     ],
     "driverCode": {
       "java": "// region boilerplate\nimport java.util.*;\nimport java.util.stream.*;\n\npublic class Main {\n    public static void main(String[] args) {\n        Scanner sc = new Scanner(System.in);\n        if (sc.hasNextLine()) {\n            String line1 = sc.nextLine();\n            int[] nums = Arrays.stream(line1.split(\",\")).mapToInt(Integer::parseInt).toArray();\n            int target = Integer.parseInt(sc.nextLine());\n            int[] result = searchRange(nums, target);\n            System.out.println(\"[\" + result[0] + \",\" + result[1] + \"]\");\n        }\n        sc.close();\n    }\n// endregion\n    public static int[] searchRange(int[] nums, int target) {\n        // Write your code here...\n        return new int[]{-1, -1};\n    }\n// region boilerplate\n}\n// endregion",
-      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    result = searchRange(nums, target)\n    print(f\"[{result[0]},{result[1]}]\")\n# endregion\n\ndef searchRange(nums, target):\n    # Write your code here...\n    return [-1, -1]\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
+      "python": "# region boilerplate\nimport sys\n\ndef main():\n    input = sys.stdin.read().splitlines()\n    if not input: return\n    nums = list(map(int, input[0].split(',')))\n    target = int(input[1])\n    result = searchRange(nums, target)\n    print(f\"[{result[0]},{result[1]}]\", flush=True)\n# endregion\n\ndef searchRange(nums, target):\n    # Write your code here...\n    return [-1, -1]\n\n# region boilerplate\nif __name__ == \"__main__\":\n    main()\n# endregion"
     },
     "difficulty": "medium"
   }
